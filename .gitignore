@@ -127,3 +127,5 @@
 /node_modules/shelljs/src/which.js
 /node_modules/.bin/window-size
 /node_modules/yargs/locales/zh.json
+/src/nopCommerce/*
+/obj/

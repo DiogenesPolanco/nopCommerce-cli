@@ -1,0 +1,14 @@
+{
+    "Group": "Widgets Methods",
+    "FriendlyName": "Widgets Generic",
+    "SystemName": "Widgets.Generic",
+    "Version": "1.00",
+    "SupportedVersions": [ "4.30" ],
+    "Author": "Widgets team",
+    "DisplayOrder": 1,
+    "FileName": "Nop.Plugin.Widgets.Generic.dll",
+    "Description": "The plugin Widgets Generic Description",
+    "LimitedToStores": [],
+    "LimitedToCustomerRoles": [],
+    "DependsOnSystemNames": []
+}
