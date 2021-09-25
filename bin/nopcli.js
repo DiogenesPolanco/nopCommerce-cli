@@ -6,16 +6,17 @@ var fs = require('fs');
 
 var argv = yargs.usage("$0 command")
     .command("new", "create plugin --[group] --[plugin] --[version]", function (yargs) {
-        let slPath = `nopCommerce`;
+
+        let slPath = `src`;
         let srcPluginName = `Nop.Plugin.${yargs.argv.group}.Generic`;
         let pluginName = `Nop.Plugin.${yargs.argv.group}.${yargs.argv.plugin}`;
-
         let pluginsPath = `${slPath}/Plugins/${pluginName}`;
+
         if (fs.existsSync(`${pluginsPath}`)) {
             shell.echo(`this plugin ${pluginName} exists!`);
         } else {
             shell.mkdir('-p', `${pluginsPath}`);
-            shell.cp('-R', `src/nopCommerce-${yargs.argv.version}/${srcPluginName}/`, pluginsPath);
+            shell.cp('-R', `${process.mainModule.paths[2]}/nopcli/src/nopCommerce-${yargs.argv.version}/${srcPluginName}/`, pluginsPath);
             shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
 
             shell.find(`${pluginsPath}`)

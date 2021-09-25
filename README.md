@@ -1,14 +1,14 @@
 <h1 align="center">nopCommerce CLI - The modern web developer's tool.</h1>
 
 <p align="center">
-  <img src="src/assets/images/logos/nopcli.png" alt="nopCommerce CLI-logo" width="120px" height="120px"/>
+  <img src="https://raw.githubusercontent.com/DiogenesPolanco/nopCommerce-cli/development/src/assets/images/logos/nopcli.png" alt="nopCommerce CLI-logo" width="120px" height="120px"/>
   <br>
   <i>nopCommerce CLI is a development tool for buildinopcli plugins for nopCommerce Solutions.</i>
   <br>
 </p>
 
 <p align="center">
-  <a href="https://www.nopcli.io"><strong>www.nopcli.io</strong></a>
+  <a href="#"><strong>www.nopcli.io</strong></a>
   <br>
 </p>
 
@@ -35,7 +35,7 @@
 Install the nopCommerce CLI globally:
 
 ```
-npm install -g @nopcli
+npm install -g nopcli
 ```
 
 Create workspace:

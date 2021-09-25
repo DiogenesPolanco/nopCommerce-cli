@@ -1,6 +1,6 @@
 {
-  "name": "@diogenespolanco/nopcli",
-  "version": "2.0.0",
+  "name": "nopcli",
+  "version": "2.0.2",
   "dependencies": {
     "shelljs": "^0.4.0",
     "yargs": "^3.9.0"
