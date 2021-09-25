@@ -41,7 +41,7 @@ npm install -g nopcli
 Create workspace:
 
 ```
-nopcli --new=[PLUGIN NAME] --group=[GROUP NAME] --version[VERSION OF NOPCOMMERCE]
+nopcli --new=[PLUGIN NAME] --group=[GROUP NAME] --version=[VERSION OF NOPCOMMERCE]
 ```
 
 Run the application:
