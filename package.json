@@ -7,5 +7,7 @@
   },
   "bin": {
     "nopcli": "bin/nopcli.js"
-  }
+  },
+
+   "license": "MIT",
 }
