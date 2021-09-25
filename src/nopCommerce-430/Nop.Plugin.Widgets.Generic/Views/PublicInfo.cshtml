@@ -2,13 +2,13 @@
 @{
     Layout = "";
 }
-<div class="generic-wrapper theme-custom">
-    <div id="generic" class="generic">
+<div class="Generic-wrapper theme-custom">
+    <div id="Generic" class="Generic">
         @Model.Property
     </div>
 </div>
 <script asp-location="Footer">
     $(window).on('load', function () {
-        $('#generic').css({"background-color": "blue", "font-size": "200%"});
+        $('#Generic').css({"background-color": "blue", "font-size": "200%"});
     });
 </script>

@@ -128,4 +128,5 @@
 /node_modules/.bin/window-size
 /node_modules/yargs/locales/zh.json
 /src/nopCommerce/*
+/nopCommerce/*
 /obj/
