@@ -3,7 +3,7 @@
 let shell = require("shelljs");
 let yargs = require("yargs");
 let fs = require('fs');
-let root_path = process.env.NODE_ENV === 'Development' ? "./" : "node_modules/nopcli";
+let root_path = process.env.NODE_ENV === 'Development' ? "./" : `${process.mainModule.paths[2]}/nopcli`;
 
 var argv = yargs.usage("$0 command")
     .option('g', {
