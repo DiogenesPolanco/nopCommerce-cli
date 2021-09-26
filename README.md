@@ -35,17 +35,16 @@ Install the nopCommerce CLI globally:
 $ npm install -g nopcli
 ```
 
-Create workspace:
+Create plugin:
 
 ```
-$ nopcli --new=[PLUGIN NAME] --group=[GROUP NAME] --version=[VERSION OF NOPCOMMERCE]
+$ nopcli new --group=[GROUP NAME] --plugin=[PLUGIN NAME] --version=[VERSION OF NOPCOMMERCE]
 ```
 
-Run the application:
+Build the plugin:
 
 ```
-$ cd [PLUGIN NAME]
-$ nopcli build
+$ nopcli build --group=[GROUP NAME] --plugin=[PLUGIN NAME] 
 ```
 
 nopCommerce CLI is cross-platform, fast, scalable, has incredible tooling, and is loved by millions.
