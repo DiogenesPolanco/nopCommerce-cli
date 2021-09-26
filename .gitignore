@@ -138,4 +138,6 @@
 /src/LICENSE.md
 /src/NopCommerce.sln
 /nopCommerce/*
+/node_modules/*
 /obj/
+/.idea/jsLibraryMappings.xml

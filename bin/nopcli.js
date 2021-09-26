@@ -1,54 +1,52 @@
 #! /usr/bin/env node
 
-var shell = require("shelljs");
-var yargs = require("yargs");
-var fs = require('fs');
+let shell = require("shelljs");
+let yargs = require("yargs");
+let fs = require('fs');
+let root_path = process.env.NODE_ENV === 'Development' ? "./" : "node_modules/nopcli";
 
-var argv = yargs.usage("$0 command")   
+var argv = yargs.usage("$0 command")
     .option('g', {
         alias: 'group',
-        type: 'string', 
+        type: 'string',
         default: 'Widgets',
         describe: 'Only support Widgets'
-      })
-      .option('p', {
+    })
+    .option('p', {
         alias: 'plugin',
         type: 'string'
-      })
-      .option('v', {
+    })
+    .option('v', {
         alias: 'version',
-        type: 'string', 
+        type: 'string',
         default: '430',
         describe: 'Only support 4.30'
-      }) 
+    })
     .command("new", "create plugin -[g] -[p] -[v]", function (yargs) {
-        shell.echo(process.env)
         let slPath = fs.existsSync(`./Plugins`) ? `.` : `src`;
         let srcPluginName = `Nop.Plugin.${yargs.argv.g}.NopcliGeneric`;
         let pluginName = `Nop.Plugin.${yargs.argv.g}.${yargs.argv.p}`;
         let pluginsPath = `${slPath}/Plugins/${pluginName}`;
         let version = yargs.argv.v !== undefined ? yargs.argv.v : `430`;
-        
-        //TODO: Pending use var env.
+
         if (fs.existsSync(`${slPath}/Libraries/Nop.Core/NopVersion.cs`) && yargs.argv.v === undefined) {
             let nopVersionFile = shell.grep(`l`, `${slPath}/Libraries/Nop.Core/NopVersion.cs`);
-            if(nopVersionFile.includes(`"4.10"`)){
+            if (nopVersionFile.includes(`"4.10"`)) {
                 version = "410"
-            }else if(nopVersionFile.includes(`"4.20"`) || nopVersionFile.includes(`"4.30"`)){
+            } else if (nopVersionFile.includes(`"4.20"`) || nopVersionFile.includes(`"4.30"`)) {
                 version = "430"
-            }else if(nopVersionFile.includes(`"4.40"`)){
+            } else if (nopVersionFile.includes(`"4.40"`)) {
                 version = "440"
-            }else{
+            } else {
                 version = "430"
             }
         }
-        
+
         if (fs.existsSync(`${pluginsPath}`) && fs.existsSync(`${pluginsPath}/${pluginName}.csproj`)) {
             shell.echo(`this plugin ${pluginName} exists!`);
         } else {
             shell.mkdir('-p', `${pluginsPath}`);
-            //shell.cp('-R', `${process.mainModule.paths[2]}/nopcli/src/nopCommerce-${version}/${srcPluginName}/`, pluginsPath); //Public
-            shell.cp('-R', `${slPath}/nopCommerce-${version}/${srcPluginName}/`, pluginsPath); //Local
+            shell.cp('-R', `${root_path}/${slPath}/nopCommerce-${version}/${srcPluginName}/`, pluginsPath); //Local
             shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
 
             shell.find(`${pluginsPath}`)
@@ -57,7 +55,7 @@ var argv = yargs.usage("$0 command")
                         if (stats.isFile()) {
                             let fileName = fileOrFolder.replace("NopcliGeneric", yargs.argv.p);
                             shell.sed('-i', /NopcliGeneric/g, yargs.argv.p, fileOrFolder);
-                            if(fileName !== fileOrFolder) {
+                            if (fileName !== fileOrFolder) {
                                 shell.mv(`${fileOrFolder}`, `${fileName}`);
                             }
                         }
@@ -77,11 +75,11 @@ var argv = yargs.usage("$0 command")
         let pluginName = `Nop.Plugin.${yargs.argv.group}.${yargs.argv.plugin}`;
         let pluginsPath = `${slPath}/Plugins/${pluginName}`;
         shell.cd(pluginsPath);
-        shell.exec( `dotnet build ${pluginName}.csproj`);
+        shell.exec(`dotnet build ${pluginName}.csproj`);
     })
-    
+
     .demand(1, "must provide a valid command")
-  .showHelpOnFail(true)
+    .showHelpOnFail(true)
     .help("h")
     .alias("h", "help")
     .argv
