@@ -8,7 +8,7 @@
         <PackageProjectUrl>https://www.nopcommerce.com</PackageProjectUrl>
         <RepositoryUrl>https://github.com/nopSolutions/nopCommerce</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
-        <OutputPath>..\..\Presentation\Nop.Web\Plugins\Widgets.Generic</OutputPath>
+        <OutputPath>..\..\Presentation\Nop.Web\Plugins\Widgets.NopcliGeneric</OutputPath>
         <OutDir>$(OutputPath)</OutDir>
         <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
     </PropertyGroup>
