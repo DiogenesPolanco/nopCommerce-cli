@@ -128,5 +128,14 @@
 /node_modules/.bin/window-size
 /node_modules/yargs/locales/zh.json
 /src/nopCommerce/*
+/src/Build/*
+/src/Libraries/*
+/src/Plugins/*
+/src/Presentation/*
+/src/Tests/*
+/src/Deploying.Readme.txt
+/src/global.json
+/src/LICENSE.md
+/src/NopCommerce.sln
 /nopCommerce/*
 /obj/

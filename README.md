@@ -3,15 +3,10 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/DiogenesPolanco/nopCommerce-cli/development/src/assets/images/logos/nopcli.png" alt="nopCommerce CLI-logo" width="120px" height="120px"/>
   <br>
-  <i>nopCommerce CLI is a development tool for buildinopcli plugins for nopCommerce Solutions.</i>
+  <i>nopCommerce CLI is a development tool for build plugins for nopCommerce Solutions.</i>
   <br>
 </p>
-
-<p align="center">
-  <a href="#"><strong>www.nopcli.io</strong></a>
-  <br>
-</p>
-
+ 
 <p align="center">
   <a href="CONTRIBUTInopcli.md">Contributing Guidelines</a>
   ·
@@ -28,27 +23,29 @@
 
 ### Prerequisites
 
-- Install [Node.js] which includes [Node Package Manager][npm]
+- Install <a href="https://nodejs.org/es/download/">[node.js] </a>
+- Install <a href="https://dotnet.microsoft.com/download">[dotnet core]</a> 
+- Clone <a href="https://github.com/nopSolutions/nopCommerce">[nopCommerce]</a>
 
 ### Setting Up a Plugin of nopCommerce
 
 Install the nopCommerce CLI globally:
 
 ```
-npm install -g nopcli
+$ npm install -g nopcli
 ```
 
 Create workspace:
 
 ```
-nopcli --new=[PLUGIN NAME] --group=[GROUP NAME] --version=[VERSION OF NOPCOMMERCE]
+$ nopcli --new=[PLUGIN NAME] --group=[GROUP NAME] --version=[VERSION OF NOPCOMMERCE]
 ```
 
 Run the application:
 
 ```
-cd [PLUGIN NAME]
-nopcli build
+$ cd [PLUGIN NAME]
+$ nopcli build
 ```
 
 nopCommerce CLI is cross-platform, fast, scalable, has incredible tooling, and is loved by millions.

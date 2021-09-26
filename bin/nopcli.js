@@ -31,8 +31,8 @@ var argv = yargs.usage("$0 command")
             shell.echo(`this plugin ${pluginName} exists!`);
         } else {
             shell.mkdir('-p', `${pluginsPath}`);
-            shell.cp('-R', `${process.mainModule.paths[2]}/nopcli/src/nopCommerce-${version}/${srcPluginName}/`, pluginsPath); //Public
-            //shell.cp('-R', `${slPath}/nopCommerce-${version}/${srcPluginName}/`, pluginsPath); //Local
+            //shell.cp('-R', `${process.mainModule.paths[2]}/nopcli/src/nopCommerce-${version}/${srcPluginName}/`, pluginsPath); //Public
+            shell.cp('-R', `${slPath}/nopCommerce-${version}/${srcPluginName}/`, pluginsPath); //Local
             shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
 
             shell.find(`${pluginsPath}`)
@@ -57,7 +57,11 @@ var argv = yargs.usage("$0 command")
         }
     })
     .command("build", "build plugin", function (yargs) {
-        shell.echo('this build command is not available');
+        let slPath = fs.existsSync(`./Plugins`) ? `.` : `src`;
+        let pluginName = `Nop.Plugin.${yargs.argv.group}.${yargs.argv.plugin}`;
+        let pluginsPath = `${slPath}/Plugins/${pluginName}`;
+        shell.cd(pluginsPath);
+        shell.exec( `dotnet build ${pluginName}.csproj`);
     })
     .demand(1, "must provide a valid command")
     // .showHelpOnFail(true)

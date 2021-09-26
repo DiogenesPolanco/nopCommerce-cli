@@ -1,0 +1,14 @@
+﻿@model Nop.Plugin.Widgets.Test.Models.PublicInfoModel
+@{
+    Layout = "";
+}
+<div class="Test-wrapper theme-custom">
+    <div id="Test" class="Test">
+        @Model.Property
+    </div>
+</div>
+<script asp-location="Footer">
+    $(window).on('load', function () {
+        $('#Test').css({"background-color": "blue", "font-size": "200%"});
+    });
+</script>
