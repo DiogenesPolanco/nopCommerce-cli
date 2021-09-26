@@ -1,8 +1,8 @@
 ﻿using Nop.Core.Configuration;
 
-namespace Nop.Plugin.Widgets.NopcliGeneric
+namespace Nop.Plugin.Widgets.NopCliGeneric
 {
-    public class WidgetsNopcliGenericSettings : ISettings
+    public class WidgetsNopCliGenericSettings : ISettings
     {
         public string Property { get; set; }
        

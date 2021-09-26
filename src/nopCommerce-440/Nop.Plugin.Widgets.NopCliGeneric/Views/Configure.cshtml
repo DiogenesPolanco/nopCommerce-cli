@@ -1,15 +1,15 @@
-﻿@model Nop.Plugin.Widgets.NopcliGeneric.Models.ConfigurationModel
+@model Nop.Plugin.Widgets.NopCliGeneric.Models.ConfigurationModel
 
 @{
     Layout = "_ConfigurePlugin";
 }
 
 @await Component.InvokeAsync("StoreScopeConfiguration")
-<form asp-controller="WidgetsNopcliGeneric" asp-action="Configure" method="post">
+<form asp-controller="WidgetsNopCliGeneric" asp-action="Configure" method="post">
     <div class="panel-group">
         <div class="panel panel-default">
             <div class="panel-heading">
-                @T("Plugins.Widgets.NopcliGeneric.Property")
+                @T("Plugins.Widgets.NopCliGeneric.Property")
             </div>
             <div class="panel-body">
                 <div class="form-group">

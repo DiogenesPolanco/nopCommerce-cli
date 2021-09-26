@@ -1,13 +1,13 @@
 {
   "Group": "Widgets Methods",
-  "FriendlyName": "Widgets NopcliGeneric",
-  "SystemName": "Widgets.NopcliGeneric",
+  "FriendlyName": "Widgets NopCliGeneric",
+  "SystemName": "Widgets.NopCliGeneric",
   "Version": "1.00",
   "SupportedVersions": ["4.30"],
   "Author": "Widgets team",
   "DisplayOrder": 1,
-  "FileName": "Nop.Plugin.Widgets.NopcliGeneric.dll",
-  "Description": "The plugin Widgets NopcliGeneric Description",
+  "FileName": "Nop.Plugin.Widgets.NopCliGeneric.dll",
+  "Description": "The plugin Widgets NopCliGeneric Description",
   "LimitedToStores": [],
   "LimitedToCustomerRoles": [],
   "DependsOnSystemNames": []

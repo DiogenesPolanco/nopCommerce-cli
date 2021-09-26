@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Nop.Services.Localization;
 using Nop.Services.Configuration;
 using Nop.Web.Framework.Controllers;
-using Nop.Plugin.Widgets.NopcliGeneric.Models;
+using Nop.Plugin.Widgets.NopCliGeneric.Models;
 
-namespace Nop.Plugin.Widgets.NopcliGeneric.Controllers
+namespace Nop.Plugin.Widgets.NopCliGeneric.Controllers
 {
     [Area(AreaNames.Admin)]
     [AutoValidateAntiforgeryToken]
-    public class WidgetsNopcliGenericController : BasePluginController
+    public class WidgetsNopCliGenericController : BasePluginController
     {
         private readonly ILocalizationService _localizationService;
         private readonly INotificationService _notificationService;
@@ -20,7 +20,7 @@ namespace Nop.Plugin.Widgets.NopcliGeneric.Controllers
         private readonly ISettingService _settingService;
         private readonly IStoreContext _storeContext;
 
-        public WidgetsNopcliGenericController(ILocalizationService localizationService,
+        public WidgetsNopCliGenericController(ILocalizationService localizationService,
             INotificationService notificationService,
             IPermissionService permissionService,  
             ISettingService settingService,
@@ -40,19 +40,19 @@ namespace Nop.Plugin.Widgets.NopcliGeneric.Controllers
 
             //load settings for a chosen store scope
             var storeScope = _storeContext.ActiveStoreScopeConfiguration;
-            var WidgetsNopcliGenericSettings = _settingService.LoadSetting<WidgetsNopcliGenericSettings>(storeScope);
+            var WidgetsNopCliGenericSettings = _settingService.LoadSetting<WidgetsNopCliGenericSettings>(storeScope);
             var model = new ConfigurationModel
             {
-                Property = WidgetsNopcliGenericSettings.Property,
+                Property = WidgetsNopCliGenericSettings.Property,
                 ActiveStoreScopeConfiguration = storeScope
             };
 
             if (storeScope > 0)
             {
-                model.Property_OverrideForStore = _settingService.SettingExists(WidgetsNopcliGenericSettings, x => x.Property, storeScope);
+                model.Property_OverrideForStore = _settingService.SettingExists(WidgetsNopCliGenericSettings, x => x.Property, storeScope);
             }
 
-            return View("~/Plugins/Widgets.NopcliGeneric/Views/Configure.cshtml", model);
+            return View("~/Plugins/Widgets.NopCliGeneric/Views/Configure.cshtml", model);
         }
 
         [HttpPost]
@@ -63,13 +63,13 @@ namespace Nop.Plugin.Widgets.NopcliGeneric.Controllers
 
             //load settings for a chosen store scope
             var storeScope = _storeContext.ActiveStoreScopeConfiguration;
-            var WidgetsNopcliGenericSettings = _settingService.LoadSetting<WidgetsNopcliGenericSettings>(storeScope);
+            var WidgetsNopCliGenericSettings = _settingService.LoadSetting<WidgetsNopCliGenericSettings>(storeScope);
 
-            WidgetsNopcliGenericSettings.Property = model.Property; 
+            WidgetsNopCliGenericSettings.Property = model.Property; 
             /* We do not clear cache after each setting update.
              * This behavior can increase performance because cached settings will not be cleared 
              * and loaded from database after each update */
-            _settingService.SaveSettingOverridablePerStore(WidgetsNopcliGenericSettings, x => x.Property, model.Property_OverrideForStore, storeScope, false); 
+            _settingService.SaveSettingOverridablePerStore(WidgetsNopCliGenericSettings, x => x.Property, model.Property_OverrideForStore, storeScope, false); 
             //now clear settings cache
             _settingService.ClearCache();
 

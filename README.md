@@ -8,7 +8,7 @@
 </p>
  
 <p align="center">
-  <a href="CONTRIBUTInopcli.md">Contributing Guidelines</a>
+  <a href="CONTRIBUTING.md">Contributing Guidelines</a>
   ·
   <a href="https://github.com/DiogenesPolanco/nopCommerce-cli/issues">Submit an Issue</a>
   ·

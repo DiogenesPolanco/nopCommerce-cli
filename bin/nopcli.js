@@ -20,11 +20,11 @@ var argv = yargs.usage("$0 command")
         alias: 'version',
         type: 'string',
         default: '430',
-        describe: 'Only support 4.30'
+        describe: 'Only support ["4.30", "4.40"]'
     })
     .command("new", "create plugin -[g] -[p] -[v]", function (yargs) {
         let slPath = fs.existsSync(`./Plugins`) ? `.` : `src`;
-        let srcPluginName = `Nop.Plugin.${yargs.argv.g}.NopcliGeneric`;
+        let srcPluginName = `Nop.Plugin.${yargs.argv.g}.NopCliGeneric`;
         let pluginName = `Nop.Plugin.${yargs.argv.g}.${yargs.argv.p}`;
         let pluginsPath = `${slPath}/Plugins/${pluginName}`;
         let version = yargs.argv.v !== undefined ? yargs.argv.v : `430`;
@@ -53,8 +53,8 @@ var argv = yargs.usage("$0 command")
                 .forEach(function (fileOrFolder) {
                     fs.lstat(fileOrFolder, (err, stats) => {
                         if (stats.isFile()) {
-                            let fileName = fileOrFolder.replace("NopcliGeneric", yargs.argv.p);
-                            shell.sed('-i', /NopcliGeneric/g, yargs.argv.p, fileOrFolder);
+                            let fileName = fileOrFolder.replace("NopCliGeneric", yargs.argv.p);
+                            shell.sed('-i', /NopCliGeneric/g, yargs.argv.p, fileOrFolder);
                             if (fileName !== fileOrFolder) {
                                 shell.mv(`${fileOrFolder}`, `${fileName}`);
                             }
