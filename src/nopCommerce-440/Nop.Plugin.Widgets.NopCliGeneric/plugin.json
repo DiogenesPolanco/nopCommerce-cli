@@ -4,7 +4,7 @@
     "SystemName": "Widgets.NopCliGeneric",
     "Version": "1.00",
     "SupportedVersions": [ "4.40" ],
-    "Author": "Widgets team",
+    "Author": "NopCli team",
     "DisplayOrder": 1,
     "FileName": "Nop.Plugin.Widgets.NopCliGeneric.dll",
     "Description": "The plugin Widgets NopCliGeneric Description",

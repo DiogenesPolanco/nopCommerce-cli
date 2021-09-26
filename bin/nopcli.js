@@ -29,18 +29,16 @@ var argv = yargs.usage("$0 command")
         let pluginsPath = `${slPath}/Plugins/${pluginName}`;
         let version = yargs.argv.v !== undefined ? yargs.argv.v : `430`;
 
-        if (fs.existsSync(`${slPath}/Libraries/Nop.Core/NopVersion.cs`) && yargs.argv.v === undefined) {
-            let nopVersionFile = shell.grep(`l`, `${slPath}/Libraries/Nop.Core/NopVersion.cs`);
-            if (nopVersionFile.includes(`"4.10"`)) {
-                version = "410"
-            } else if (nopVersionFile.includes(`"4.20"`) || nopVersionFile.includes(`"4.30"`)) {
-                version = "430"
-            } else if (nopVersionFile.includes(`"4.40"`)) {
-                version = "440"
-            } else {
-                version = "430"
+        if(yargs.argv.v === undefined){
+            if (fs.existsSync(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`)   ) {
+                fs.readFile(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`, 'utf8', (err, data) => {
+                    if (err) throw err;
+                     let nopVersionFile = JSON.parse(data.replace(new RegExp("\/\/(.*)","g"), ''));
+                    version = nopVersionFile[3].SupportedVersion;
+                });
             }
         }
+
 
         if (fs.existsSync(`${pluginsPath}`) && fs.existsSync(`${pluginsPath}/${pluginName}.csproj`)) {
             shell.echo(`this plugin ${pluginName} exists!`);
