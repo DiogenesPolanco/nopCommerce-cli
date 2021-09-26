@@ -4,17 +4,33 @@ var shell = require("shelljs");
 var yargs = require("yargs");
 var fs = require('fs');
 
-var argv = yargs.usage("$0 command")
-    .command("new", "create plugin --[group] --[plugin] --[version]\nNote: Only support plugins of Group=Widgets\n", function (yargs) {
-
+var argv = yargs.usage("$0 command")   
+    .option('g', {
+        alias: 'group',
+        type: 'string', 
+        default: 'Widgets',
+        describe: 'Only support Widgets'
+      })
+      .option('p', {
+        alias: 'plugin',
+        type: 'string'
+      })
+      .option('v', {
+        alias: 'version',
+        type: 'string', 
+        default: '430',
+        describe: 'Only support 4.30'
+      }) 
+    .command("new", "create plugin -[g] -[p] -[v]", function (yargs) {
+        shell.echo(process.env)
         let slPath = fs.existsSync(`./Plugins`) ? `.` : `src`;
-        let srcPluginName = `Nop.Plugin.${yargs.argv.group}.NopcliGeneric`;
-        let pluginName = `Nop.Plugin.${yargs.argv.group}.${yargs.argv.plugin}`;
+        let srcPluginName = `Nop.Plugin.${yargs.argv.g}.NopcliGeneric`;
+        let pluginName = `Nop.Plugin.${yargs.argv.g}.${yargs.argv.p}`;
         let pluginsPath = `${slPath}/Plugins/${pluginName}`;
-        let version = yargs.argv.version !== undefined ? yargs.argv.version : `430`;
+        let version = yargs.argv.v !== undefined ? yargs.argv.v : `430`;
         
         //TODO: Pending use var env.
-        if (fs.existsSync(`${slPath}/Libraries/Nop.Core/NopVersion.cs`) && yargs.argv.version === undefined) {
+        if (fs.existsSync(`${slPath}/Libraries/Nop.Core/NopVersion.cs`) && yargs.argv.v === undefined) {
             let nopVersionFile = shell.grep(`l`, `${slPath}/Libraries/Nop.Core/NopVersion.cs`);
             if(nopVersionFile.includes(`"4.10"`)){
                 version = "410"
@@ -39,8 +55,8 @@ var argv = yargs.usage("$0 command")
                 .forEach(function (fileOrFolder) {
                     fs.lstat(fileOrFolder, (err, stats) => {
                         if (stats.isFile()) {
-                            let fileName = fileOrFolder.replace("NopcliGeneric", yargs.argv.plugin);
-                            shell.sed('-i', /NopcliGeneric/g, yargs.argv.plugin, fileOrFolder);
+                            let fileName = fileOrFolder.replace("NopcliGeneric", yargs.argv.p);
+                            shell.sed('-i', /NopcliGeneric/g, yargs.argv.p, fileOrFolder);
                             if(fileName !== fileOrFolder) {
                                 shell.mv(`${fileOrFolder}`, `${fileName}`);
                             }
@@ -56,15 +72,16 @@ var argv = yargs.usage("$0 command")
             }, 2000);
         }
     })
-    .command("build", "build plugin --[group] --[plugin]\nNote: Only support plugins of Group=Widgets\n", function (yargs) {
+    .command("build", "build plugin -[g] -[p]", function (yargs) {
         let slPath = fs.existsSync(`./Plugins`) ? `.` : `src`;
         let pluginName = `Nop.Plugin.${yargs.argv.group}.${yargs.argv.plugin}`;
         let pluginsPath = `${slPath}/Plugins/${pluginName}`;
         shell.cd(pluginsPath);
         shell.exec( `dotnet build ${pluginName}.csproj`);
     })
+    
     .demand(1, "must provide a valid command")
-    // .showHelpOnFail(true)
+  .showHelpOnFail(true)
     .help("h")
     .alias("h", "help")
     .argv

@@ -24,7 +24,7 @@
 ### Prerequisites
 
 - Install <a href="https://nodejs.org/es/download/">[node.js] </a>
-- Install <a href="https://dotnet.microsoft.com/download">[dotnet core]</a> 
+- Install <a href="https://dotnet.microsoft.com/download">[dotnet core]</a>
 - Clone <a href="https://github.com/nopSolutions/nopCommerce">[nopCommerce]</a>
 
 ### Setting Up a Plugin of nopCommerce
@@ -38,16 +38,15 @@ $ npm install -g nopcli
 Create plugin:
 
 ```
-$ nopcli new --group=[GROUP NAME] --plugin=[PLUGIN NAME]
+$ nopcli new -g=[GROUP NAME] -p=[PLUGIN NAME]
 ```
 
 Build the plugin:
 
 ```
-$ nopcli build --group=[GROUP NAME] --plugin=[PLUGIN NAME] 
+$ nopcli build -g=[GROUP NAME] -p=[PLUGIN NAME]
 ```
 
 nopCommerce CLI is cross-platform, fast, scalable, has incredible tooling, and is loved by millions.
- 
 
 **Love nopCommerce CLI? Give our repo a star :star: :arrow_up:.**
