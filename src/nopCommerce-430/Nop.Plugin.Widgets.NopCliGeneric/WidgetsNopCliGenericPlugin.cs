@@ -6,18 +6,18 @@ using Nop.Services.Localization;
 using Nop.Services.Plugins;
 using Nop.Web.Framework.Infrastructure;
 
-namespace Nop.Plugin.Widgets.NopcliGeneric
+namespace Nop.Plugin.Widgets.NopCliGeneric
 {
     /// <summary>
     /// PLugin
     /// </summary>
-    public class WidgetsNopcliGenericPlugin : BasePlugin, IWidgetPlugin
+    public class WidgetsNopCliGenericPlugin : BasePlugin, IWidgetPlugin
     {
         private readonly ILocalizationService _localizationService; 
         private readonly ISettingService _settingService;
         private readonly IWebHelper _webHelper; 
 
-        public WidgetsNopcliGenericPlugin(ILocalizationService localizationService, 
+        public WidgetsNopCliGenericPlugin(ILocalizationService localizationService, 
             ISettingService settingService,
             IWebHelper webHelper )
         {
@@ -40,7 +40,7 @@ namespace Nop.Plugin.Widgets.NopcliGeneric
         /// </summary>
         public override string GetConfigurationPageUrl()
         {
-            return _webHelper.GetStoreLocation() + "Admin/WidgetsWidgetsNopcliGeneric/Configure";
+            return _webHelper.GetStoreLocation() + "Admin/WidgetsWidgetsNopCliGeneric/Configure";
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Nop.Plugin.Widgets.NopcliGeneric
         /// <returns>View component name</returns>
         public string GetWidgetViewComponentName(string widgetZone)
         {
-            return "WidgetsWidgetsNopcliGeneric";
+            return "WidgetsWidgetsNopCliGeneric";
         }
 
         /// <summary>
@@ -59,15 +59,15 @@ namespace Nop.Plugin.Widgets.NopcliGeneric
         public override void Install()
         { 
             //settings
-            var settings = new WidgetsNopcliGenericSettings
+            var settings = new WidgetsNopCliGenericSettings
             { 
-                Property = "NopcliGeneric"
+                Property = "NopCliGeneric"
             };
             _settingService.SaveSetting(settings);
 
             _localizationService.AddPluginLocaleResource(new Dictionary<string, string>
             {
-                ["Plugins.Widgets.WidgetsNopcliGeneric.Property"] = "NopcliGeneric", 
+                ["Plugins.Widgets.WidgetsNopCliGeneric.Property"] = "NopCliGeneric", 
             });
 
             base.Install();
@@ -79,10 +79,10 @@ namespace Nop.Plugin.Widgets.NopcliGeneric
         public override void Uninstall()
         {
             //settings
-            _settingService.DeleteSetting<WidgetsNopcliGenericSettings>();
+            _settingService.DeleteSetting<WidgetsNopCliGenericSettings>();
 
             //locales
-            _localizationService.DeletePluginLocaleResources("Plugins.Widgets.WidgetsNopcliGeneric");
+            _localizationService.DeletePluginLocaleResources("Plugins.Widgets.WidgetsNopCliGeneric");
 
             base.Uninstall();
         }

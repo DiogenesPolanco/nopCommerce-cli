@@ -3,7 +3,7 @@ using Nop.Core.Domain.Configuration;
 using Nop.Core.Events;
 using Nop.Services.Events;
 
-namespace Nop.Plugin.Widgets.NopcliGeneric.Infrastructure.Cache
+namespace Nop.Plugin.Widgets.NopCliGeneric.Infrastructure.Cache
 {
     /// <summary>
     /// Model cache event consumer (used for caching of presentation layer models)
@@ -20,7 +20,7 @@ namespace Nop.Plugin.Widgets.NopcliGeneric.Infrastructure.Cache
         /// {0} : picture id
         /// {1} : connection type (http/https)
         /// </remarks>
-        public const string PICTURE_URL_PATTERN_KEY = "Nop.plugins.widgets.NopcliGeneric";
+        public const string PICTURE_URL_PATTERN_KEY = "Nop.plugins.widgets.NopCliGeneric";
 
         private readonly IStaticCacheManager _staticCacheManager;
 

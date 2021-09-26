@@ -1,6 +1,6 @@
 ﻿using Nop.Web.Framework.Models;
 
-namespace Nop.Plugin.Widgets.NopcliGeneric.Models
+namespace Nop.Plugin.Widgets.NopCliGeneric.Models
 {
     public class PublicInfoModel : BaseNopModel
     {
