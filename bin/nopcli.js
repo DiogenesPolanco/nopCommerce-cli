@@ -46,7 +46,7 @@ var argv = yargs.usage("$0 command")
             shell.echo(`this plugin ${pluginName} exists!`);
         } else {
             shell.mkdir('-p', `${pluginsPath}`);
-            shell.cp('-R', `${root_path}/${slPath}/nopCommerce-${version}/${srcPluginName}/`, pluginsPath); //Local
+            shell.cp('-R', `${root_path}/src/nopCommerce-${version}/${srcPluginName}/`, pluginsPath); //Local
             shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
 
             shell.find(`${pluginsPath}`)
