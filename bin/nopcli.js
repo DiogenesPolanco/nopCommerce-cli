@@ -5,7 +5,7 @@ var yargs = require("yargs");
 var fs = require('fs');
 
 var argv = yargs.usage("$0 command")
-    .command("new", "create plugin --[group] --[plugin] --[version]", function (yargs) {
+    .command("new", "create plugin --[group] --[plugin] --[version]\nNote: Only support plugins of Group=Widgets\n", function (yargs) {
 
         let slPath = fs.existsSync(`./Plugins`) ? `.` : `src`;
         let srcPluginName = `Nop.Plugin.${yargs.argv.group}.NopcliGeneric`;
@@ -56,7 +56,7 @@ var argv = yargs.usage("$0 command")
             }, 2000);
         }
     })
-    .command("build", "build plugin", function (yargs) {
+    .command("build", "build plugin --[group] --[plugin]\nNote: Only support plugins of Group=Widgets\n", function (yargs) {
         let slPath = fs.existsSync(`./Plugins`) ? `.` : `src`;
         let pluginName = `Nop.Plugin.${yargs.argv.group}.${yargs.argv.plugin}`;
         let pluginsPath = `${slPath}/Plugins/${pluginName}`;

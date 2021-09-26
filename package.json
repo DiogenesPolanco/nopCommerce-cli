@@ -1,6 +1,6 @@
 {
   "name": "nopcli",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "nopCommerce CLI is a development tool for build plugins for nopCommerce Solutions.",
   "keywords": [
     "nopCommerce",
@@ -25,7 +25,8 @@
   },
   "scripts": {
     "widget": "node bin/nopcli.js new --group=Widgets --plugin=Test",
-    "build-widget": "node bin/nopcli.js build --group=Widgets --plugin=Test"
+    "build-widget": "node bin/nopcli.js build --group=Widgets --plugin=Test",
+    "help": "node bin/nopcli.js --h"
   },
   "bin": {
     "nopcli": "bin/nopcli.js"
