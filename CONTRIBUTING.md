@@ -2,7 +2,7 @@
 
 ## Filing a bug report
 
-We love to receive bug reports (we're always trying to make ShellJS more
+We love to receive bug reports (we're always trying to make NopCli more
 stable). If you've found a bug, please follow these steps:
 
  - Please try to cut down on duplicates. Please search for issues which have
