@@ -1,14 +1,15 @@
 {
   "name": "nopcli",
-  "version": "2.0.4",
-  "description": "Portable Unix shell commands for Node.js",
+  "version": "2.0.6",
+  "description": "nopCommerce CLI is a development tool for build plugins for nopCommerce Solutions.",
   "keywords": [
     "nopCommerce",
     "Ecommerce",
     "plugin",
     "shell",
     "cli",
-    "dotnet"
+    "dotnet",
+    "nop"
   ],
   "contributors": [
     "Diogenes Polanco <diogenespolancomartinez@gmail.com> (https://github.com/diogenespolanco)",

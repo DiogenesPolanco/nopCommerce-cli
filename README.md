@@ -38,7 +38,7 @@ $ npm install -g nopcli
 Create plugin:
 
 ```
-$ nopcli new --group=[GROUP NAME] --plugin=[PLUGIN NAME] --version=[VERSION OF NOPCOMMERCE]
+$ nopcli new --group=[GROUP NAME] --plugin=[PLUGIN NAME]
 ```
 
 Build the plugin:
