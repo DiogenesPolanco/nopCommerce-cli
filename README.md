@@ -50,7 +50,7 @@ $ nopcli build -g=[GROUP NAME] -p=[PLUGIN NAME]
 nopCommerce CLI is cross-platform, fast, scalable, has incredible tooling, and is loved by millions.
 <p>
 	<a href="https://www.paypal.com/donate/?hosted_button_id=VM4NMF6PY4SMG">
-	<img width="185" src="src/assets/images/badge.svg" alt="Badge"/>
+	<img width="185" src="https://raw.githubusercontent.com/DiogenesPolanco/nopCommerce-cli/development/src/assets/images/badge.svg" alt="Badge"/>
 	</a>
 	<br><br>
 	<b>🙌 Use <a href="https://diogenespolanco.com">donations</a> to help support <b>this</b> project! 🙌</b>
