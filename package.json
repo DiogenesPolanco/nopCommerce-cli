@@ -1,6 +1,6 @@
 {
   "name": "nopcli",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "nopCommerce CLI is a development tool for build plugins for nopCommerce Solutions.",
   "keywords": [
     "nopCommerce",
@@ -27,6 +27,7 @@
     "widget": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=Widgets -p=Test",
     "misc": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=Misc -p=Test",
     "payment": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=Payments -p=Test",
+    "discount": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=DiscountRules -p=Test",
     "build-widget": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js build -g=Widgets -p=Test",
     "help": "node bin/nopcli.js -h"
   },
