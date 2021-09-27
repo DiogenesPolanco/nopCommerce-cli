@@ -1,37 +1,52 @@
-## Welcome to GitHub Pages
+<h1 align="center">nopCommerce CLI - The modern web developer's tool.</h1>
 
-You can use the [editor on GitHub](https://github.com/DiogenesPolanco/nopCommerce-cli/edit/gh-pages/docs/index.md) to maintain and preview the content for your website in Markdown files.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/DiogenesPolanco/nopCommerce-cli/development/src/assets/images/logos/nopcli.png" alt="nopCommerce CLI-logo" width="120px" height="120px"/>
+  <br>
+  <i>nopCommerce CLI is a development tool for build plugins for nopCommerce Solutions.</i>
+  <br>
+</p>
+ 
+<p align="center">
+  <a href="CONTRIBUTING.md">Contributing Guidelines</a>
+  ·
+  <a href="https://github.com/DiogenesPolanco/nopCommerce-cli/issues">Submit an Issue</a>
+  ·
+  <a href="https://blog.nopcli.io/">Blog</a>
+  <br>
+  <br>
+</p>
+ 
+<hr>
+  
+## Development Setup
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Prerequisites
 
-### Markdown
+- Install <a href="https://nodejs.org/es/download/">[node.js] </a>
+- Install <a href="https://dotnet.microsoft.com/download">[dotnet core]</a>
+- Clone <a href="https://github.com/nopSolutions/nopCommerce">[nopCommerce]</a>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Setting Up a Plugin of nopCommerce
 
-```markdown
-Syntax highlighted code block
+Install the nopCommerce CLI globally:
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+$ npm install -g nopcli
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Create plugin:
 
-### Jekyll Themes
+```
+$ nopcli new -g=[GROUP NAME] -p=[PLUGIN NAME]
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/DiogenesPolanco/nopCommerce-cli/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Build the plugin:
 
-### Support or Contact
+```
+$ nopcli build -g=[GROUP NAME] -p=[PLUGIN NAME]
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+nopCommerce CLI is cross-platform, fast, scalable, has incredible tooling, and is loved by millions.
+
+**Love nopCommerce CLI? Give our repo a star :star: :arrow_up:.**
