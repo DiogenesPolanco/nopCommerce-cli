@@ -12,7 +12,7 @@
   ·
   <a href="https://github.com/DiogenesPolanco/nopCommerce-cli/issues">Submit an Issue</a>
   ·
-  <a href="https://diogenespolanco.com/posts/nopcli">Blog</a>
+  <a href="https://dev.to/diogenespolanco/nopcommerce-cli-4do5">Blog</a>
   <br>
   <br>
 </p>
@@ -63,12 +63,12 @@ $ nopcli build -g=[GROUP NAME] -p=[PLUGIN NAME]
     <tr>
       <th style="text-align:center; border: none;">
         <a href="https://github.com/diogenespolanco" rel="nofollow">
-          <img src="https://avatars.githubusercontent.com/u/2844235?s=140&v=4" alt="Diogenes Polanco">
+          <img src="https://avatars.githubusercontent.com/u/2844235?s=64&v=4" alt="Diogenes Polanco">
         </a>
       </th>
       <th style="text-align:center; border: none;">
         <a href="http://github.com/archinux" rel="nofollow">
-          <img src="https://avatars.githubusercontent.com/u/6993888?s=140&v=4" alt="Joel Mercedes">
+          <img src="https://avatars.githubusercontent.com/u/6993888?s=64&v=4" alt="Joel Mercedes">
         </a>
       </th>
     </tr>
