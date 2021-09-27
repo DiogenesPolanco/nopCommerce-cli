@@ -56,33 +56,6 @@ Build the plugin:
 $ nopcli build -g=[GROUP NAME] -p=[PLUGIN NAME]
 ```
 
-## NopCli Team
-
-<table style="border: transparent;">
-  <thead>
-    <tr>
-      <th style="text-align:center; border: none;">
-        <a href="https://github.com/diogenespolanco" rel="nofollow">
-          <img src="https://avatars.githubusercontent.com/u/2844235?s=64&v=4" alt="Diogenes Polanco">
-        </a>
-      </th>
-      <th style="text-align:center; border: none;">
-        <a href="http://github.com/archinux" rel="nofollow">
-          <img src="https://avatars.githubusercontent.com/u/6993888?s=64&v=4" alt="Joel Mercedes">
-        </a>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td style="text-align:center; border: none;"  style="border: none !important;">
-          <a href="https://github.com/diogenespolanco" rel="nofollow">Diogenes Polanco</a></td>
-        <td style="text-align:center; border: none;">
-          <a href="http://github.com/archinux" rel="nofollow">Joel Mercedes</a></td>
-    </tr>
-  </tbody>
-</table>
-
 nopCommerce CLI is cross-platform, fast, scalable, has incredible tooling, and is loved by millions.
 
 <p>
