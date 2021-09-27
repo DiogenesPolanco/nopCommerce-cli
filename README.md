@@ -7,7 +7,7 @@
   <br>
 </p>
  
-<p align="center">
+<p  align="center">
   <a href="CONTRIBUTING.md">Contributing Guidelines</a>
   ·
   <a href="https://github.com/DiogenesPolanco/nopCommerce-cli/issues">Submit an Issue</a>
@@ -18,7 +18,11 @@
 </p>
  
 <hr>
-  
+
+## Description
+
+NopCli is a bilder nopCommerce plugin, and it gives you the opportunity to start a plugin in less than 5 minutes!
+
 ## Development Setup
 
 ### Prerequisites
@@ -26,6 +30,11 @@
 - Install <a href="https://nodejs.org/es/download/">[node.js] </a>
 - Install <a href="https://dotnet.microsoft.com/download">[dotnet core]</a>
 - Clone <a href="https://github.com/nopSolutions/nopCommerce">[nopCommerce]</a>
+
+### nopCommerce version supported
+
+- 4.30
+- 4.40
 
 ### Setting Up a Plugin of nopCommerce
 
@@ -47,17 +56,33 @@ Build the plugin:
 $ nopcli build -g=[GROUP NAME] -p=[PLUGIN NAME]
 ```
 
+## NopCli Team
+
+<table style="border: transparent;">
+  <thead>
+    <tr>
+      <th style="text-align:center; border: none;">
+        <a href="https://github.com/diogenespolanco" rel="nofollow">
+          <img src="https://avatars.githubusercontent.com/u/2844235?s=140&v=4" alt="Diogenes Polanco">
+        </a>
+      </th>
+      <th style="text-align:center; border: none;">
+        <a href="http://github.com/archinux" rel="nofollow">
+          <img src="https://avatars.githubusercontent.com/u/6993888?s=140&v=4" alt="Joel Mercedes">
+        </a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td style="text-align:center; border: none;"  style="border: none !important;">
+          <a href="https://github.com/diogenespolanco" rel="nofollow">Diogenes Polanco</a></td>
+        <td style="text-align:center; border: none;">
+          <a href="http://github.com/archinux" rel="nofollow">Joel Mercedes</a></td>
+    </tr>
+  </tbody>
+</table>
+
 nopCommerce CLI is cross-platform, fast, scalable, has incredible tooling, and is loved by millions.
-<p>
-	<a href="https://www.paypal.com/donate/?hosted_button_id=VM4NMF6PY4SMG">
-	<img width="185" src="https://raw.githubusercontent.com/DiogenesPolanco/nopCommerce-cli/development/src/assets/images/badge.svg" alt="Badge"/>
-	</a>
-	<br><br>
-	<b>🙌 Use <a href="https://diogenespolanco.com">donations</a> to help support <b>this</b> project! 🙌</b>
-	<br> 
-	<br> 
-	<b>Love nopCommerce CLI? Give our repo a star :star: :arrow_up:.</b>
-</p>
 
-
-
+**Love nopCommerce CLI? Give our repo a star :star: :arrow_up:.**
