@@ -12,7 +12,7 @@
   ·
   <a href="https://github.com/DiogenesPolanco/nopCommerce-cli/issues">Submit an Issue</a>
   ·
-  <a href="https://blog.nopcli.io/">Blog</a>
+  <a href="https://diogenespolanco.com/posts/nopcli">Blog</a>
   <br>
   <br>
 </p>

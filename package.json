@@ -25,8 +25,9 @@
   },
   "scripts": {
     "widget": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=Widgets -p=Test",
+    "misc": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=Misc -p=Test",
     "build-widget": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js build -g=Widgets -p=Test",
-    "help": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config node bin/nopcli.js --h"
+    "help": "node bin/nopcli.js -h"
   },
   "bin": {
     "nopcli": "bin/nopcli.js"

@@ -10,7 +10,7 @@ var argv = yargs.usage("$0 command")
         alias: 'group',
         type: 'string',
         default: 'Widgets',
-        describe: 'Only support Widgets'
+        describe: 'Only support Widgets and Misc'
     })
     .option('p', {
         alias: 'plugin',
