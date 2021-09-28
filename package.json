@@ -1,6 +1,6 @@
 {
   "name": "nopcli",
-  "version": "2.1.9",
+  "version": "2.2.0",
   "description": "nopCommerce CLI is a development tool for build plugins for nopCommerce Solutions.",
   "keywords": [
     "nopCommerce",
@@ -25,11 +25,15 @@
   },
   "scripts": {
     "widget": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=Widgets -p=Test",
-    "misc": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=Misc -p=Test",
-    "payment": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=Payments -p=Test",
-    "discount": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=DiscountRules -p=Test",
-    "shipping": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=Shipping -p=Test",
     "build-widget": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js build -g=Widgets -p=Test",
+    "misc": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=Misc -p=Test",
+    "build-misc": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js build -g=Misc -p=Test",
+    "payment": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=Payments -p=Test",
+    "build-payment": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js build -g=Payments -p=Test",
+    "discount": "DOTENV_CONFIG_PATH=.env.development node  -r dotenv/config bin/nopcli.js new -g=DiscountRules -p=Test",
+    "build-discount": "DOTENV_CONFIG_PATH=.env.development node  -r dotenv/config bin/nopcli.js build -g=DiscountRules -p=Test",
+    "shipping": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js new -g=Shipping -p=Test",
+    "build-shipping": "DOTENV_CONFIG_PATH=.env.development node -r dotenv/config bin/nopcli.js build -g=Shipping -p=Test",
     "help": "node bin/nopcli.js -h"
   },
   "bin": {
@@ -38,5 +42,6 @@
   "license": "osl-3.0",
   "devDependencies": {
     "dotenv": "^10.0.0"
-  }
+  },
+  "type": "module"
 }
