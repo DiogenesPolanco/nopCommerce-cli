@@ -34,10 +34,10 @@ namespace Nop.Plugin.Payments.NopCliGeneric.Components
                     ? new List<SelectListItem>()
                     : new List<SelectListItem>
                     {
-                        new SelectListItem { Text = "Visa", Value = "visa" },
-                        new SelectListItem { Text = "Master card", Value = "MasterCard" },
-                        new SelectListItem { Text = "Discover", Value = "Discover" },
-                        new SelectListItem { Text = "Amex", Value = "Amex" },
+                        new() { Text = "Visa", Value = "visa" },
+                        new() { Text = "Master card", Value = "MasterCard" },
+                        new() { Text = "Discover", Value = "Discover" },
+                        new() { Text = "Amex", Value = "Amex" },
                     }
             };
 
