@@ -42,7 +42,7 @@ export class PluginService {
 
     getOutProjectPathPluginName(args) {
         let self = this;
-        return `${self.getFullSrcPlugin(args)}/${self.getSrcPluginName(args)}.csproj`;
+        return `${self.getFullSrcPlugin(args)}/${self.getOutPluginName(args)}.csproj`;
     }
 
     async existOutProjectAsync(args) {
@@ -51,9 +51,9 @@ export class PluginService {
             let path = self.getOutProjectPathPluginName(args);
             if (path === undefined) {
                 reject(messages['005']);
+            }else {
+                resolve(await fs.existsSync(path));
             }
-            let result = await fs.existsSync(path);
-            resolve(result);
         });
     }
 
@@ -163,6 +163,8 @@ export class PluginService {
                 } else {
                     reject(messages["001"]);
                 }
+            }).catch((error) => {
+                reject(error);
             });
         });
     }
