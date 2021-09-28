@@ -1,6 +1,8 @@
+import  appRoot from 'app-root-path'
+
 export class config {
     static getPath() {
-        return process.env.NODE_ENV === 'Development' ? "./" : `${process.mainModule.paths[2]}/nopcli`;
+        return appRoot.path;
     };
 
     static getGroupAlias() {
