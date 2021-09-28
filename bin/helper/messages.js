@@ -19,7 +19,11 @@ messages = {
     },
     "005": {
         message: "Error while get value",
-        code: "004"
+        code: "005"
+    },
+    "006": {
+        message: "Creating the plugin, Please Wait...",
+        code: "006"
     }
 }
 

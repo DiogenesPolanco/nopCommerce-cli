@@ -1,6 +1,7 @@
 import shell from 'shelljs'
 import fs from 'fs'
 import {messages} from '../helper/messages.js'
+import {Helper} from '../helper/index.js'
 
 export class PluginService {
     getSrcPluginName(args) {
@@ -20,10 +21,10 @@ export class PluginService {
         return fs.existsSync(`./Plugins`) ? `.` : `src`;
     }
 
-    validateVersion(version) {
+    async validateVersion(version) {
         let self = this;
         let slPath = self.getSrcSolutionPath();
-        if (fs.existsSync(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`)) {
+        if (await fs.existsSync(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`)) {
             fs.readFile(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`, 'utf8', (err, data) => {
                 if (err) throw err;
                 let nopVersionFile = JSON.parse(data.replace(new RegExp("\/\/(.*)", "g"), ''));
@@ -33,10 +34,10 @@ export class PluginService {
         return version;
     }
 
-    getSrcVersion(args) {
+    async getSrcVersion(args) {
         let self = this;
-        let result = args.v !== undefined && args.v !== 420 ?  args.v === 450  ? 440: args.v : 430;
-        return self.validateVersion(result);
+        let result = args.v !== undefined && args.v !== 420 ? args.v === 450 ? 440 : args.v : 430;
+        return await self.validateVersion(result);
     }
 
     getOutProjectPathPluginName(args) {
@@ -46,12 +47,12 @@ export class PluginService {
 
     async existOutProjectAsync(args) {
         let self = this;
-        return await new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             let path = self.getOutProjectPathPluginName(args);
             if (path === undefined) {
                 reject(messages['005']);
             }
-            let result = fs.existsSync(path);
+            let result = await fs.existsSync(path);
             resolve(result);
         });
     }
@@ -59,12 +60,12 @@ export class PluginService {
     async copyFiles(root_path, args) {
         let self = this;
         let pluginsPath = self.getFullSrcPlugin(args);
-        return await new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             let srcPluginName = self.getSrcPluginName(args);
             let pluginName = self.getOutPluginName(args);
 
             shell.mkdir('-p', `${pluginsPath}`);
-            shell.cp('-R', `${root_path}/src/nopCommerce-${self.getSrcVersion(args)}/${srcPluginName}/`, pluginsPath);
+            shell.cp('-R', `${root_path}/src/nopCommerce-${await self.getSrcVersion(args)}/${srcPluginName}/`, pluginsPath);
             shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
 
             await fs.readFileSync(`${root_path}/src/assets/images/logos/nopcli.png`, function (err, data) {
@@ -82,12 +83,12 @@ export class PluginService {
 
     async replaceContentFiles(args) {
         let self = this;
-        let pluginsPath = self.getFullSrcPlugin(args);
-        return await new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
+            let pluginsPath = self.getFullSrcPlugin(args);
             let files = shell.find(`${pluginsPath}`);
             if (files.length > 0) {
                 for (const fileOrFolder of files) {
-                    await fs.lstatSync(fileOrFolder, (err, stats) => {
+                    fs.lstat(fileOrFolder, (err, stats) => {
                         if (stats.isFile()) {
                             let fileName = fileOrFolder.replace("NopCliGeneric", args.p);
                             shell.sed('-i', /NopCliGeneric/g, args.p, fileOrFolder);
@@ -106,42 +107,63 @@ export class PluginService {
 
     async addSolution(args) {
         let self = this;
-        return await new Promise(async (resolve, reject) => {
-            if (fs.existsSync(`${self.getSrcSolutionPath()}/NopCommerce.sln`)) {
-                shell.cd(self.getSrcSolutionPath());
-                shell.exec(`dotnet sln add ./Plugins/${self.getOutPluginName(args)}`);
-                resolve(messages["002"]);
+        return new Promise(async (resolve, reject) => {
+            if (await fs.existsSync(`${self.getSrcSolutionPath()}/NopCommerce.sln`)) {
+                Helper.printHandler(null, messages["006"])
+                shell.config.silent = true;
+                setTimeout(function () {
+                    shell.cd(self.getSrcSolutionPath());
+                    shell.exec(`dotnet sln add ./Plugins/${self.getOutPluginName(args)}`);
+                    resolve(messages["002"]);
+                }, 3000);
             } else {
-                reject(false);
+                reject(messages["001"]);
             }
         });
     }
 
-    async createProjectAsync(args, root_path, existProject) {
+    async createProjectAsync(args, root_path) {
         let self = this;
-        return await new Promise(async (resolve, reject) => {
-            if (existProject) {
-                reject(messages["001"]);
-            } else {
-                await self.copyFiles(root_path, args).then(async (copied) => {
-                    if (copied) {
-                        await self.replaceContentFiles(args).then(async (success) => {
-                            if (success) {
-                                return self.addSolution(args);
-                            } else {
-                                reject(messages["001"]);
-                            }
-                        });
-                    }
-                })
-            }
+
+        return new Promise(async (resolve, reject) => {
+            await self.copyFiles(root_path, args).then(async (copied) => {
+                if (copied) {
+                    await self.replaceContentFiles(args).then(async (success) => {
+                        if (success) {
+                            self.addSolution(args).then(async (message) => {
+                                resolve(message);
+                            }).catch((error) => {
+                                reject(error);
+                            });
+                        } else {
+                            reject(messages["001"]);
+                        }
+                    }).catch((error) => {
+                        reject(error);
+                    });
+                } else {
+                    reject(messages["001"]);
+                }
+            }).catch((error) => {
+                reject(error);
+            });
         });
     }
 
     async CreateAsync(yargs, root_path) {
         let self = this;
-        return self.existOutProjectAsync(yargs.argv).then((existProject) => {
-            return self.createProjectAsync(yargs.argv, root_path, existProject);
+        return new Promise(async (resolve, reject) => {
+            self.existOutProjectAsync(yargs.argv).then(async (existProject) => {
+                if (existProject == false) {
+                    self.createProjectAsync(yargs.argv, root_path, existProject).then((messages) => {
+                        resolve(messages);
+                    }).catch((error) => {
+                        reject(error);
+                    });
+                } else {
+                    reject(messages["001"]);
+                }
+            });
         });
     }
 

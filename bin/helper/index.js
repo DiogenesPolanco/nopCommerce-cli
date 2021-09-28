@@ -6,7 +6,7 @@ export class Helper {
         if (obj.error) {
             shell.echo(`${obj.error.code}:${obj.error.message}`);
         } else { 
-            shell.echo(`${obj.data.code}:${obj.data.message}`);
+            shell.echo(`${obj.data.message}`);
         }
     }
 }

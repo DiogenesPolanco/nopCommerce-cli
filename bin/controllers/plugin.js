@@ -4,20 +4,20 @@ import {PluginService} from '../services/plugin.js'
 
 export class PluginsController {
 
-    create(yargs) {
-        new PluginService(). CreateAsync(yargs, config.getPath())
+    async create(yargs) {
+        await new PluginService().CreateAsync(yargs, config.getPath())
             .then((data) => {
                 Helper.printHandler(null, data)
             }).catch((error) => {
-            Helper.printHandler(error, null)
-        });
+                Helper.printHandler(error, null)
+            });
     }
-    build(yargs) {
-        new PluginService(). Build(yargs, config.getPath())
+    async build(yargs) {
+        await new PluginService().Build(yargs, config.getPath())
             .then((data) => {
                 Helper.printHandler(null, data)
             }).catch((error) => {
-            Helper.printHandler(error, null)
-        });
+                Helper.printHandler(error, null)
+            });
     }
 }
