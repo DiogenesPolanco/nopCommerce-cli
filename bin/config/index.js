@@ -1,8 +1,8 @@
-import  appRoot from 'app-root-path'
+import { getInstalledPath } from'get-installed-path'
 
 export class config {
     static getPath() {
-        return appRoot.path;
+        return getInstalledPath('nopcli');
     };
 
     static getGroupAlias() {

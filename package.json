@@ -1,6 +1,6 @@
 {
   "name": "nopcli",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "nopCommerce CLI is a development tool for build plugins for nopCommerce Solutions.",
   "keywords": [
     "nopCommerce",
@@ -20,7 +20,7 @@
     "url": "git://github.com/DiogenesPolanco/nopCommerce-cli.git"
   },
   "dependencies": {
-    "app-root-path": "^3.0.0",
+    "get-installed-path": "^4.0.8",
     "shelljs": "^0.4.0",
     "yargs": "^3.9.0"
   },
