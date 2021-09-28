@@ -68,7 +68,7 @@ export class PluginService {
             shell.cp('-R', `${root_path}/src/nopCommerce-${await self.getSrcVersion(args)}/${srcPluginName}/`, pluginsPath);
             shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
 
-            await fs.readFileSync(`${root_path}/src/assets/images/logos/nopcli.png`, function (err, data) {
+            await fs.readFileSync(`${root_path}/src/assets/images/logos/logo.png`, function (err, data) {
                 if (err) {
                     reject(err);
                 } else {
