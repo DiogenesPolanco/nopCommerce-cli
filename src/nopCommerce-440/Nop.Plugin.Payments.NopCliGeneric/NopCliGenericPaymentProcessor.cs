@@ -16,7 +16,6 @@ using Nop.Services.Orders;
 using Nop.Services.Payments;
 using Nop.Services.Plugins;
 using Nop.Services.Security;
-using Nop.Web.Framework.Models.Extensions;
 using RestSharp;
 
 namespace Nop.Plugin.Payments.NopCliGeneric
@@ -76,43 +75,7 @@ namespace Nop.Plugin.Payments.NopCliGeneric
         #endregion
 
         #region Utilities
-
-        /// <summary>
-        /// Gets PDT details
-        /// </summary>
-        /// <param name="tx">TX</param>
-        /// <returns>
-        /// A task that represents the asynchronous operation
-        /// The task result contains the result, Values, Response
-        /// </returns>
-        public async Task<(bool result, Dictionary<string, string> values, string response)>
-            GetPdtDetailsAsync(string tx)
-        {
-            var values = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-            bool firstLine = true, success = false;
-            foreach (var l in tx.Split('\n'))
-            {
-                var line = l.Trim();
-                if (firstLine)
-                {
-                    success = line.Contains("ResponseMessage=APROBADA", StringComparison.OrdinalIgnoreCase);
-
-                    if (!success)
-                        success = line.Contains("ResponseCode=APROBADA", StringComparison.OrdinalIgnoreCase);
-
-                    firstLine = false;
-                }
-                else
-                {
-                    var equalPox = line.IndexOf('=');
-                    if (equalPox >= 0)
-                        values.Add(line[0..equalPox], line[(equalPox + 1)..]);
-                }
-            }
-
-            return (success, values, tx);
-        }
-
+ 
         /// <summary>
         /// Gets PDT details
         /// </summary>
@@ -120,34 +83,26 @@ namespace Nop.Plugin.Payments.NopCliGeneric
         /// <param name="values">Values</param>
         /// <param name="response">Response</param>
         /// <returns>Result</returns>
-        public async Task<bool> GetPdtDetails(string response, Dictionary<string, string> values)
+        public Dictionary<string, string> GetPdtDetails(string response)
         {
-            return await Task.Run(() =>
+           var values = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            var firstLine = true;
+            foreach (var l in response.Split('\n'))
             {
-                values = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-                bool firstLine = true, success = false;
-                foreach (var l in response.Split('\n'))
-                {
-                    var line = l.Trim();
-                    if (firstLine)
-                    {
-                        success = line.Contains("ResponseMessage=APROBADA", StringComparison.OrdinalIgnoreCase);
-
-                        if (!success)
-                            success = line.Contains("ResponseCode=APROBADA", StringComparison.OrdinalIgnoreCase);
-
-                        firstLine = false;
-                    }
-                    else
-                    {
-                        var equalPox = line.IndexOf('=');
-                        if (equalPox >= 0)
-                            values.Add(line[..equalPox], line[(equalPox + 1)..]);
-                    }
+                var line = l.Trim();
+                if (firstLine)
+                { 
+                    firstLine = false;
                 }
+                else
+                {
+                    var equalPox = line.IndexOf('=');
+                    if (equalPox >= 0)
+                        values.Add(line[..equalPox], line[(equalPox + 1)..]);
+                }
+            }
 
-                return success;
-            });
+            return values;
         }
 
         /// <summary>
@@ -251,7 +206,7 @@ namespace Nop.Plugin.Payments.NopCliGeneric
 
         public Task<ProcessPaymentResult> ProcessRecurringPaymentAsync(ProcessPaymentRequest processPaymentRequest)
         {
-            return Task.FromResult(new ProcessPaymentResult {Errors = new[] {"Recurring payment not supported"}});
+            return Task.FromResult(new ProcessPaymentResult { Errors = new[] { "Recurring payment not supported" } });
         }
 
         /// <summary>
@@ -261,7 +216,7 @@ namespace Nop.Plugin.Payments.NopCliGeneric
         /// <returns>Capture payment result</returns>
         public Task<CapturePaymentResult> CaptureAsync(CapturePaymentRequest capturePaymentRequest)
         {
-            return Task.FromResult(new CapturePaymentResult {Errors = new[] {"Capture method not supported"}});
+            return Task.FromResult(new CapturePaymentResult { Errors = new[] { "Capture method not supported" } });
         }
 
         /// <summary>
@@ -271,7 +226,7 @@ namespace Nop.Plugin.Payments.NopCliGeneric
         /// <returns>Result</returns>
         public Task<RefundPaymentResult> RefundAsync(RefundPaymentRequest refundPaymentRequest)
         {
-            return Task.FromResult(new RefundPaymentResult {Errors = new[] {"Capture method not supported"}});
+            return Task.FromResult(new RefundPaymentResult { Errors = new[] { "Capture method not supported" } });
         }
 
         /// <summary>
@@ -281,7 +236,7 @@ namespace Nop.Plugin.Payments.NopCliGeneric
         /// <returns>Result</returns>
         public Task<VoidPaymentResult> VoidAsync(VoidPaymentRequest voidPaymentRequest)
         {
-            return Task.FromResult(new VoidPaymentResult {Errors = new[] {"Capture method not supported"}});
+            return Task.FromResult(new VoidPaymentResult { Errors = new[] { "Capture method not supported" } });
         }
 
         /// <summary>
@@ -291,7 +246,7 @@ namespace Nop.Plugin.Payments.NopCliGeneric
         /// <returns>Process payment result</returns>
         public Task<ProcessPaymentResult> ProcessRecurringPayment(ProcessPaymentRequest processPaymentRequest)
         {
-            return Task.FromResult(new ProcessPaymentResult {Errors = new[] {"Capture method not supported"}});
+            return Task.FromResult(new ProcessPaymentResult { Errors = new[] { "Capture method not supported" } });
         }
 
         /// <summary>
@@ -303,7 +258,7 @@ namespace Nop.Plugin.Payments.NopCliGeneric
             CancelRecurringPaymentRequest cancelPaymentRequest)
         {
             return Task.FromResult(
-                new CancelRecurringPaymentResult {Errors = new[] {"Recurring payment not supported"}});
+                new CancelRecurringPaymentResult { Errors = new[] { "Recurring payment not supported" } });
         }
 
         /// <summary>
@@ -320,7 +275,7 @@ namespace Nop.Plugin.Payments.NopCliGeneric
 
                 //let's ensure that at least 5 seconds passed after order is placed
                 //P.S. there's no any particular reason for that. we just do it
-                return !((DateTime.UtcNow - order.CreatedOnUtc).TotalSeconds < 5);   
+                return !((DateTime.UtcNow - order.CreatedOnUtc).TotalSeconds < 5);
             });
         }
 
@@ -459,7 +414,7 @@ namespace Nop.Plugin.Payments.NopCliGeneric
         public override async Task InstallAsync()
         {
             //settings
-            await _settingService.SaveSettingAsync(new NopCliGenericPaymentSettings {UseDev = true});
+            await _settingService.SaveSettingAsync(new NopCliGenericPaymentSettings { UseDev = true });
 
             //locales
             await _localizationService.AddLocaleResourceAsync(new Dictionary<string, string>

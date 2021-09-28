@@ -154,7 +154,7 @@ namespace Nop.Plugin.Payments.NopCliGeneric.Controllers
             return Configure();
         }
 
-        //action displaying notification (warning) to a store owner about inaccurate Azul rounding
+        //action displaying notification (warning) to a store owner about inaccurate  rounding
         [AuthorizeAdmin]
         [Area(AreaNames.Admin)]
         public IActionResult RoundingWarning(bool passProductNamesAndTotals)
@@ -207,7 +207,7 @@ namespace Nop.Plugin.Payments.NopCliGeneric.Controllers
         {
             if (!(_paymentPluginManager.LoadPluginBySystemName("Payments.NopCliGeneric") is NopCliGenericPaymentProcessor
                 processor) || !_paymentPluginManager.IsPluginActive(processor))
-                throw new NopException("Azul Standard module cannot be loaded");
+                throw new NopException(" Standard module cannot be loaded");
 
             if (!processor.GetPdtDetails(HttpContext.Request.QueryString.Value, out var values) && values.Any())
                 return RedirectToAction("Index", "Home", new { area = "" });
@@ -221,12 +221,12 @@ namespace Nop.Plugin.Payments.NopCliGeneric.Controllers
                 return RedirectToRoute("OrderDetails", new { orderId });
 
             var authorizationCode = _webHelper.QueryString<string>("AuthorizationCode");
-            var azulOrderId = _webHelper.QueryString<string>("AzulOrderId");
+            var OrderId = _webHelper.QueryString<string>("OrderId");
             var responseMessage = _webHelper.QueryString<string>("ResponseMessage");
             var newPaymentStatus = NopCliGenericHelper.GetPaymentStatus(responseMessage);
 
             order.AuthorizationTransactionCode = authorizationCode;
-            order.AuthorizationTransactionId = azulOrderId;
+            order.AuthorizationTransactionId = OrderId;
             _orderService.UpdateOrder(order);
 
             #region Standard payment
@@ -289,7 +289,7 @@ namespace Nop.Plugin.Payments.NopCliGeneric.Controllers
         {
             if (!(_paymentPluginManager.LoadPluginBySystemName("Payments.NopCliGeneric") is NopCliGenericPaymentProcessor
                 processor) || !_paymentPluginManager.IsPluginActive(processor))
-                throw new NopException("Azul Standard module cannot be loaded");
+                throw new NopException(" Standard module cannot be loaded");
 
             if (!processor.GetPdtDetails(HttpContext.Request.QueryString.Value, out var values) && values.Any())
                 return RedirectToAction("Index", "Home", new { area = "" });
@@ -303,14 +303,14 @@ namespace Nop.Plugin.Payments.NopCliGeneric.Controllers
                 return RedirectToRoute("OrderDetails", new { orderId });
 
             var authorizationCode = _webHelper.QueryString<string>("AuthorizationCode");
-            var azulOrderId = _webHelper.QueryString<string>("AzulOrderId");
+            var OrderId = _webHelper.QueryString<string>("OrderId");
             var errorDescription = _webHelper.QueryString<string>("ErrorDescription");
             var responseMessage = _webHelper.QueryString<string>("ResponseMessage");
 
             _orderService.InsertOrderNote((new OrderNote()
             {
                 OrderId = orderId,
-                Note = $"AzulOrderId: {azulOrderId}: Response:{responseMessage} Description:{errorDescription}"
+                Note = $"OrderId: {OrderId}: Response:{responseMessage} Description:{errorDescription}"
             }));
 
             if (_orderProcessingService.CanVoidOffline(order))
