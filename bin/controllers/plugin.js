@@ -2,12 +2,10 @@ import {Helper} from '../helper/index.js'
 import {config} from '../config/index.js'
 import {PluginService} from '../services/plugin.js'
 
-let {build, create} = new PluginService();
-
 export class PluginsController {
 
     create(yargs) {
-        create(yargs, config.getPath())
+        new PluginService(). CreateAsync(yargs, config.getPath())
             .then((data) => {
                 Helper.printHandler(null, data)
             }).catch((error) => {
@@ -15,7 +13,7 @@ export class PluginsController {
         });
     }
     build(yargs) {
-        build(yargs, config.getPath())
+        new PluginService(). Build(yargs, config.getPath())
             .then((data) => {
                 Helper.printHandler(null, data)
             }).catch((error) => {

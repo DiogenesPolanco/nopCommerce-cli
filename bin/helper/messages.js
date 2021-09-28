@@ -1,5 +1,5 @@
 export let messages;
-  messages=  {
+messages = {
 
     "001": {
         message: "Error during the generation of the plugin",
@@ -15,6 +15,10 @@ export let messages;
     },
     "004": {
         message: "The build of the plugin was successful",
+        code: "004"
+    },
+    "005": {
+        message: "Error while get value",
         code: "004"
     }
 }
