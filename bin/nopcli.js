@@ -5,7 +5,7 @@ import {config} from './config/index.js'
 import {PluginsController} from './controllers/plugin.js'
 let {build, create} = new PluginsController();
 
-var argv = yargs.usage("$0 command")
+ yargs.usage("$0 command")
     .option('g', config.getGroupAlias())
     .option('p', config.getPluginAlias())
     .option('v', config.getVersionAlias())
