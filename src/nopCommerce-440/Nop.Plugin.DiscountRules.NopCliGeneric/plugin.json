@@ -1,0 +1,14 @@
+﻿{
+  "Group": "Discount requirements",
+  "FriendlyName": "Must be assigned to NopCliGeneric",
+  "SystemName": "DiscountRequirement.MustBeAssignedToNopCliGeneric",
+  "Version": "1.00",
+  "SupportedVersions": [ "4.40", "4.50" ],
+  "Author": "NopCli team",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.DiscountRules.NopCliGeneric.dll",
+  "Description": "This plugin allows you to configure discounts for certain NopCliGeneric rules",
+  "LimitedToStores": [],
+  "LimitedToCustomerRoles": [],
+  "DependsOnSystemNames": []
+}

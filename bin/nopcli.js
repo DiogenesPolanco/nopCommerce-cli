@@ -33,20 +33,25 @@ var argv = yargs.usage("$0 command")
             if (fs.existsSync(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`)   ) {
                 fs.readFile(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`, 'utf8', (err, data) => {
                     if (err) throw err;
-                     let nopVersionFile = JSON.parse(data.replace(new RegExp("\/\/(.*)","g"), ''));
+                    let nopVersionFile = JSON.parse(data.replace(new RegExp("\/\/(.*)","g"), ''));
                     version = nopVersionFile[3].SupportedVersion;
                 });
             }
         }
 
-
         if (fs.existsSync(`${pluginsPath}`) && fs.existsSync(`${pluginsPath}/${pluginName}.csproj`)) {
             shell.echo(`this plugin ${pluginName} exists!`);
         } else {
             shell.mkdir('-p', `${pluginsPath}`);
-            shell.cp('-R', `${root_path}/src/nopCommerce-${version}/${srcPluginName}/`, pluginsPath); //Local
+            shell.cp('-R', `${root_path}/src/nopCommerce-${version}/${srcPluginName}/`, pluginsPath);
             shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
 
+            fs.readFile(`${root_path}/src/nopCommerce-${version}/logo.png` , function (err, data) {
+                if (err) throw err;
+                fs.writeFile(`${pluginsPath}/logos.png`, data, 'base64' , function (err) {
+                    if (err) throw err;
+                });
+            });
             shell.find(`${pluginsPath}`)
                 .forEach(function (fileOrFolder) {
                     fs.lstat(fileOrFolder, (err, stats) => {

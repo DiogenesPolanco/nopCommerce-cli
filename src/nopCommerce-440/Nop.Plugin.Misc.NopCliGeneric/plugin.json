@@ -3,7 +3,7 @@
   "FriendlyName": "NopCliGeneric",
   "SystemName": "Misc.NopCliGeneric",
   "Version": "1.00",
-  "SupportedVersions": [ "4.40" ],
+  "SupportedVersions": [ "4.40", "4.50" ],
   "Author": "NopCli team",
   "DisplayOrder": 1,
   "FileName": "Nop.Plugin.Misc.NopCliGeneric.dll",

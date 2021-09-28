@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-         <Copyright>Copyright © NopCli</Copyright>
-         <Company>NopCli</Company>
-         <Authors>DiogenesPolanco, ArchinuxRD</Authors>
-         <PackageLicenseUrl></PackageLicenseUrl>
-         <PackageProjectUrl>https://diogenespolanco.github.io/nopCommerce-cli</PackageProjectUrl>
-         <RepositoryUrl>https://github.com/DiogenesPolanco/nopCommerce-cli</RepositoryUrl>
+        <Copyright>Copyright © NopCli</Copyright>
+        <Company>NopCli</Company>
+        <Authors>DiogenesPolanco, ArchinuxRD</Authors>
+        <PackageLicenseUrl></PackageLicenseUrl>
+        <PackageProjectUrl>https://diogenespolanco.github.io/nopCommerce-cli</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/DiogenesPolanco/nopCommerce-cli</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <OutputPath>..\..\Presentation\Nop.Web\Plugins\Widgets.NopCliGeneric</OutputPath>
         <OutDir>$(OutputPath)</OutDir>
