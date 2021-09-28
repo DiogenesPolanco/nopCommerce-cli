@@ -15,9 +15,9 @@ export class config {
     static getVersionAlias() {
         return {
             alias: 'version',
-            type: 'string',
-            default: '430',
-            describe: 'Only support ["4.20", "4.30", "4.40"]'
+            type: 'number',
+            default: 430,
+            describe: 'Only support ["4.20", "4.30", "4.40", "4.50"]'
         };
     }
 

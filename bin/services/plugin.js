@@ -9,8 +9,8 @@ export class PluginService {
             let srcPluginName = `Nop.Plugin.${yargs.argv.g}.NopCliGeneric`;
             let pluginName = `Nop.Plugin.${yargs.argv.g}.${yargs.argv.p}`;
             let pluginsPath = `${slPath}/Plugins/${pluginName}`;
-            let version = yargs.argv.v !== undefined && yargs.argv.v !== '420' ? yargs.argv.v : `430`;
-
+            let version = yargs.argv.v !== undefined && yargs.argv.v !== 420 ?  yargs.argv.v === 450  ? 440: yargs.argv.v : 430;
+ 
             if (yargs.argv.v === undefined) {
                 if (fs.existsSync(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`)) {
                     fs.readFile(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`, 'utf8', (err, data) => {
@@ -35,17 +35,19 @@ export class PluginService {
                     });
                 });
                 shell.find(`${pluginsPath}`)
-                    .forEach(function (fileOrFolder) {
-                        fs.lstat(fileOrFolder, (err, stats) => {
-                            if (stats.isFile()) {
-                                let fileName = fileOrFolder.replace("NopCliGeneric", yargs.argv.p);
-                                shell.sed('-i', /NopCliGeneric/g, yargs.argv.p, fileOrFolder);
-                                if (fileName !== fileOrFolder) {
-                                    shell.mv(`${fileOrFolder}`, `${fileName}`);
-                                }
+                .forEach(function (fileOrFolder) {
+                    fs.lstat(fileOrFolder, (err, stats) => {
+                        if (stats.isFile()) {
+                            let fileName = fileOrFolder.replace("NopCliGeneric", yargs.argv.p);
+                            shell.sed('-i', /NopCliGeneric/g, yargs.argv.p, fileOrFolder);
+                            if(fileOrFolder === `${pluginsPath}/${pluginName}.csproj` && yargs.argv.v === 420)
+                                shell.sed('-i', /netcoreapp3.1/g, "netcoreapp2.2", `${pluginsPath}/${pluginName}.csproj`);
+                            if (fileName !== fileOrFolder) {
+                                shell.mv(`${fileOrFolder}`, `${fileName}`);
                             }
-                        });
+                        }
                     });
+                });
 
                 setTimeout(function () {
                     if (fs.existsSync(`${slPath}/NopCommerce.sln`)) {
@@ -53,7 +55,7 @@ export class PluginService {
                         shell.exec(`dotnet sln add ./Plugins/${pluginName}/${pluginName}.csproj`);
                     }
                 }, 2000);
-                resolve(messages['001']);
+                resolve(messages['002']);
             }
         })
     }
