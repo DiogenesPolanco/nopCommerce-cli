@@ -37,6 +37,6 @@ export class config {
     }
 
     static getDescriptionDemand() {
-        return "must provide a valid command";
+        return "please choose a valid command";
     }
 }

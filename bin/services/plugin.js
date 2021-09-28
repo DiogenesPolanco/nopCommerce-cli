@@ -3,75 +3,160 @@ import fs from 'fs'
 import {messages} from '../helper/messages.js'
 
 export class PluginService {
-    create(yargs, root_path) {
-        return new Promise((resolve, reject) => {
-            let slPath = fs.existsSync(`./Plugins`) ? `.` : `src`;
-            let srcPluginName = `Nop.Plugin.${yargs.argv.g}.NopCliGeneric`;
-            let pluginName = `Nop.Plugin.${yargs.argv.g}.${yargs.argv.p}`;
-            let pluginsPath = `${slPath}/Plugins/${pluginName}`;
-            let version = yargs.argv.v !== undefined && yargs.argv.v !== 420 ?  yargs.argv.v === 450  ? 440: yargs.argv.v : 430;
- 
-            if (yargs.argv.v === undefined) {
-                if (fs.existsSync(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`)) {
-                    fs.readFile(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`, 'utf8', (err, data) => {
-                        if (err) throw err;
-                        let nopVersionFile = JSON.parse(data.replace(new RegExp("\/\/(.*)", "g"), ''));
-                        version = nopVersionFile[3].SupportedVersion;
+    getSrcPluginName(args) {
+        return `Nop.Plugin.${args.g}.NopCliGeneric`;
+    }
+
+    getOutPluginName(args) {
+        return `Nop.Plugin.${args.g}.${args.p}`;
+    }
+
+    getFullSrcPlugin(args) {
+        let self = this;
+        return `${self.getSrcSolutionPath(args)}/Plugins/${self.getOutPluginName(args)}`;
+    }
+
+    getSrcSolutionPath() {
+        return fs.existsSync(`./Plugins`) ? `.` : `src`;
+    }
+
+    validateVersion(version) {
+        let self = this;
+        let slPath = self.getSrcSolutionPath();
+        if (fs.existsSync(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`)) {
+            fs.readFile(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`, 'utf8', (err, data) => {
+                if (err) throw err;
+                let nopVersionFile = JSON.parse(data.replace(new RegExp("\/\/(.*)", "g"), ''));
+                version = nopVersionFile[3].SupportedVersion;
+            });
+        }
+        return version;
+    }
+
+    getSrcVersion(args) {
+        let self = this;
+        let result = args.v !== undefined && args.v !== 420 ?  args.v === 450  ? 440: args.v : 430;
+        return self.validateVersion(result);
+    }
+
+    getOutProjectPathPluginName(args) {
+        let self = this;
+        return `${self.getFullSrcPlugin(args)}/${self.getSrcPluginName(args)}.csproj`;
+    }
+
+    async existOutProjectAsync(args) {
+        let self = this;
+        return await new Promise((resolve, reject) => {
+            let path = self.getOutProjectPathPluginName(args);
+            if (path === undefined) {
+                reject(messages['005']);
+            }
+            let result = fs.existsSync(path);
+            resolve(result);
+        });
+    }
+
+    async copyFiles(root_path, args) {
+        let self = this;
+        let pluginsPath = self.getFullSrcPlugin(args);
+        return await new Promise(async (resolve, reject) => {
+            let srcPluginName = self.getSrcPluginName(args);
+            let pluginName = self.getOutPluginName(args);
+
+            shell.mkdir('-p', `${pluginsPath}`);
+            shell.cp('-R', `${root_path}/src/nopCommerce-${self.getSrcVersion(args)}/${srcPluginName}/`, pluginsPath);
+            shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
+
+            await fs.readFileSync(`${root_path}/src/assets/images/logos/nopcli.png`, function (err, data) {
+                if (err) {
+                    reject(err);
+                } else {
+                    fs.writeFile(`${pluginsPath}/logos.png`, data, 'base64', function (err) {
+                        if (err) reject(err);
                     });
                 }
-            }
+            });
+            resolve(true);
+        });
+    }
 
-            if (fs.existsSync(`${pluginsPath}`) && fs.existsSync(`${pluginsPath}/${pluginName}.csproj`)) {
-                reject(messages['001']);
-            } else {
-                shell.mkdir('-p', `${pluginsPath}`);
-                shell.cp('-R', `${root_path}/src/nopCommerce-${version}/${srcPluginName}/`, pluginsPath);
-                shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
-
-                fs.readFile(`${root_path}/src/assets/images/logos/nopcli.png`, function (err, data) {
-                    if (err) throw err;
-                    fs.writeFile(`${pluginsPath}/logos.png`, data, 'base64', function (err) {
-                        if (err) throw err;
-                    });
-                });
-                shell.find(`${pluginsPath}`)
-                .forEach(function (fileOrFolder) {
-                    fs.lstat(fileOrFolder, (err, stats) => {
+    async replaceContentFiles(args) {
+        let self = this;
+        let pluginsPath = self.getFullSrcPlugin(args);
+        return await new Promise(async (resolve, reject) => {
+            let files = shell.find(`${pluginsPath}`);
+            if (files.length > 0) {
+                for (const fileOrFolder of files) {
+                    await fs.lstatSync(fileOrFolder, (err, stats) => {
                         if (stats.isFile()) {
-                            let fileName = fileOrFolder.replace("NopCliGeneric", yargs.argv.p);
-                            shell.sed('-i', /NopCliGeneric/g, yargs.argv.p, fileOrFolder);
-                            if(fileOrFolder === `${pluginsPath}/${pluginName}.csproj` && yargs.argv.v === 420)
-                                shell.sed('-i', /netcoreapp3.1/g, "netcoreapp2.2", `${pluginsPath}/${pluginName}.csproj`);
+                            let fileName = fileOrFolder.replace("NopCliGeneric", args.p);
+                            shell.sed('-i', /NopCliGeneric/g, args.p, fileOrFolder);
                             if (fileName !== fileOrFolder) {
                                 shell.mv(`${fileOrFolder}`, `${fileName}`);
                             }
                         }
                     });
-                });
-
-                setTimeout(function () {
-                    if (fs.existsSync(`${slPath}/NopCommerce.sln`)) {
-                        shell.cd(slPath);
-                        shell.exec(`dotnet sln add ./Plugins/${pluginName}/${pluginName}.csproj`);
-                    }
-                }, 2000);
-                resolve(messages['002']);
+                }
+                resolve(true);
+            } else {
+                reject(false);
             }
-        })
+        });
     }
 
-    build(yargs) {
-        return new Promise((resolve, reject) => {
-            let slPath = fs.existsSync(`./Plugins`) ? `.` : `src`;
-            let pluginName = `Nop.Plugin.${yargs.argv.g}.${yargs.argv.p}`;
-            let pluginsPath = `${slPath}/Plugins/${pluginName}`;
-            if (fs.existsSync(`${pluginName}.csproj`)) {
-                shell.cd(pluginsPath);
-                shell.exec(`dotnet build ${pluginName}.csproj`);
+    async addSolution(args) {
+        let self = this;
+        return await new Promise(async (resolve, reject) => {
+            if (fs.existsSync(`${self.getSrcSolutionPath()}/NopCommerce.sln`)) {
+                shell.cd(self.getSrcSolutionPath());
+                shell.exec(`dotnet sln add ./Plugins/${self.getOutPluginName(args)}`);
+                resolve(messages["002"]);
+            } else {
+                reject(false);
+            }
+        });
+    }
+
+    async createProjectAsync(args, root_path, existProject) {
+        let self = this;
+        return await new Promise(async (resolve, reject) => {
+            if (existProject) {
+                reject(messages["001"]);
+            } else {
+                await self.copyFiles(root_path, args).then(async (copied) => {
+                    if (copied) {
+                        await self.replaceContentFiles(args).then(async (success) => {
+                            if (success) {
+                                return self.addSolution(args);
+                            } else {
+                                reject(messages["001"]);
+                            }
+                        });
+                    }
+                })
+            }
+        });
+    }
+
+    async CreateAsync(yargs, root_path) {
+        let self = this;
+        return self.existOutProjectAsync(yargs.argv).then((existProject) => {
+            return self.createProjectAsync(yargs.argv, root_path, existProject);
+        });
+    }
+
+    async Build(yargs) {
+        let self = this;
+        return new Promise(async (resolve, reject) => {
+            if (await self.existOutProjectAsync(yargs.argv)) {
+                shell.cd(self.getSrcPluginName(yargs.argv));
+                shell.exec(`dotnet build ${self.getOutPluginName(yargs.argv)}.csproj`);
                 resolve(messages['003']);
-            }else{
+            } else {
                 reject(messages['004']);
             }
         });
     }
 }
+
+
