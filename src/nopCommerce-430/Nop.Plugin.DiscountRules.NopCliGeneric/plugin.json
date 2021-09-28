@@ -3,7 +3,7 @@
   "FriendlyName": "Must be assigned to NopCliGeneric",
   "SystemName": "DiscountRequirement.MustBeAssignedToNopCliGeneric",
   "Version": "1.00",
-  "SupportedVersions": [ "4.30" ],
+  "SupportedVersions": [ "4.20", "4.30" ],
   "Author": "NopCli team",
   "DisplayOrder": 1,
   "FileName": "Nop.Plugin.DiscountRules.NopCliGeneric.dll",

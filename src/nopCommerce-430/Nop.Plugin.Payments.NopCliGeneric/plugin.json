@@ -3,7 +3,7 @@
   "FriendlyName": "NopCliGeneric",
   "SystemName": "Payments.NopCliGeneric",
   "Version": "1.00",
-  "SupportedVersions": [ "4.30" ],
+  "SupportedVersions": [ "4.20", "4.30" ],
   "Author": "NopCli team",
   "DisplayOrder": 1,
   "FileName": "Nop.Plugin.Payments.NopCliGeneric.dll",

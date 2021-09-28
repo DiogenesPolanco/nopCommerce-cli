@@ -10,7 +10,7 @@ var argv = yargs.usage("$0 command")
         alias: 'group',
         type: 'string',
         default: 'Widgets',
-        describe: 'Only support Widgets, Payments, DiscountRules and Misc'
+        describe: 'support Widgets, Payments, DiscountRules, Shipping and Misc'
     })
     .option('p', {
         alias: 'plugin',
@@ -20,14 +20,14 @@ var argv = yargs.usage("$0 command")
         alias: 'version',
         type: 'string',
         default: '430',
-        describe: 'Only support ["4.30", "4.40"]'
+        describe: 'Only support ["4.20", "4.30", "4.40"]'
     })
     .command("new", "create plugin -[g] -[p] -[v]", function (yargs) {
         let slPath = fs.existsSync(`./Plugins`) ? `.` : `src`;
         let srcPluginName = `Nop.Plugin.${yargs.argv.g}.NopCliGeneric`;
         let pluginName = `Nop.Plugin.${yargs.argv.g}.${yargs.argv.p}`;
         let pluginsPath = `${slPath}/Plugins/${pluginName}`;
-        let version = yargs.argv.v !== undefined ? yargs.argv.v : `430`;
+        let version = yargs.argv.v !== undefined && version !== '420' ? yargs.argv.v : `430`;
 
         if(yargs.argv.v === undefined){
             if (fs.existsSync(`${slPath}/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json`)   ) {
@@ -38,7 +38,6 @@ var argv = yargs.usage("$0 command")
                 });
             }
         }
-
 
         if (fs.existsSync(`${pluginsPath}`) && fs.existsSync(`${pluginsPath}/${pluginName}.csproj`)) {
             shell.echo(`this plugin ${pluginName} exists!`);

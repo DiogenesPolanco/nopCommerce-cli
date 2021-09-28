@@ -1,0 +1,14 @@
+﻿{
+  "Group": "Shipping rate computation",
+  "FriendlyName": "ShippingNopCliGeneric",
+  "SystemName": "Shipping.Shipping",
+  "Version": "1.00",
+  "SupportedVersions": [ "4.20", "4.30" ],
+  "Author": "NopCli team",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Shipping.NopCliGeneric.dll",
+  "Description": "This plugin offers shipping rates with ShippingNopCliGeneric",
+  "LimitedToStores": [],
+  "LimitedToCustomerRoles": [],
+  "DependsOnSystemNames": []
+}
