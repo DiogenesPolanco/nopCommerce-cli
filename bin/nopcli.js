@@ -46,7 +46,7 @@ var argv = yargs.usage("$0 command")
             shell.cp('-R', `${root_path}/src/nopCommerce-${version}/${srcPluginName}/`, pluginsPath);
             shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
 
-            fs.readFile(`${root_path}/src/nopCommerce-${version}/logo.png` , function (err, data) {
+            fs.readFile(`${root_path}/src/assets/images/logos/nopcli.png` , function (err, data) {
                 if (err) throw err;
                 fs.writeFile(`${pluginsPath}/logos.png`, data, 'base64' , function (err) {
                     if (err) throw err;
