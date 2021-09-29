@@ -20,6 +20,9 @@
     "url": "git://github.com/DiogenesPolanco/nopCommerce-cli.git"
   },
   "dependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "babel-jest": "^27.2.4",
     "get-installed-path": "^4.0.8",
     "shelljs": "^0.4.0",
     "yargs": "^3.9.0"
@@ -35,11 +38,33 @@
     "build-discount": "node bin/nopcli.js build -g=DiscountRules -p=Test",
     "shipping": "node bin/nopcli.js new -g=Shipping -p=Test",
     "build-shipping": "node bin/nopcli.js build -g=Shipping -p=Test",
-    "help": "node bin/nopcli.js -h"
+    "help": "node bin/nopcli.js -h",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --collect-coverage",
+    "test:snapshot": "jest --updateSnapshot"
   },
   "bin": {
     "nopcli": "bin/nopcli.js"
   },
   "license": "osl-3.0",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.6",
+    "jest": "^27.2.4"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testFileExtensions": [
+      "es6",
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "es6"
+    ]
+  }
 }
