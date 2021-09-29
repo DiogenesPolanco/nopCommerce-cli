@@ -20,9 +20,6 @@
     "url": "git://github.com/DiogenesPolanco/nopCommerce-cli.git"
   },
   "dependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/node": "^7.15.4",
-    "babel-jest": "^27.2.4",
     "get-installed-path": "^4.0.8",
     "shelljs": "^0.4.0",
     "yargs": "^3.9.0"
