@@ -51,7 +51,7 @@ export class PluginService {
             let path = self.getOutProjectPathPluginName(args);
             if (path === undefined) {
                 reject(messages['005']);
-            }else {
+            } else {
                 resolve(await fs.existsSync(path));
             }
         });
@@ -105,17 +105,21 @@ export class PluginService {
         });
     }
 
+    wait(ms = 100) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     async addSolution(args) {
         let self = this;
         return new Promise(async (resolve, reject) => {
             if (await fs.existsSync(`${self.getSrcSolutionPath()}/NopCommerce.sln`)) {
                 Helper.printHandler(null, messages["006"])
                 shell.config.silent = true;
-                setTimeout(function () {
+                self.wait().then(() => {
                     shell.cd(self.getSrcSolutionPath());
                     shell.exec(`dotnet sln add ./Plugins/${self.getOutPluginName(args)}`);
                     resolve(messages["002"]);
-                }, 3000);
+                })
             } else {
                 reject(messages["001"]);
             }
