@@ -1,8 +1,6 @@
-#! /usr/bin/env node
-
-import yargs from 'yargs'
-import {config} from './config/index.js'
-import {PluginsController} from './controllers/plugin.js'
+import yargs from "yargs"
+import {config} from "./config/index.js"
+import {PluginsController} from "./controllers/plugin.js"
 let {build, create} = new PluginsController();
 
  yargs.usage("$0 command")

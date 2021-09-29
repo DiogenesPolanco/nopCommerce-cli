@@ -1,5 +1,4 @@
 language: node_js
-sudo: false
 node_js:
   - 8
   - 9
@@ -14,13 +13,6 @@ os:
   - osx
 script:
   - npm run test
-  #- npm run lint
-  # make sure when the docs are generated nothing changes (a.k.a. the docs have already been generated)
-  #- npm run gendocs
-  #- npm run check-node-support
-  #- npm run after-travis "Make sure to generate docs!"
-after_success:
-  #- npm run codecov -- -f coverage/lcov.info
 
 notifications:
   email: false

@@ -1,5 +1,4 @@
-import {config} from "../../bin/config/index.js";
-
+import {config} from "./index.js";
 
 describe('config tests', () => {
     test('getPath', () => {

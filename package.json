@@ -1,6 +1,6 @@
 {
   "name": "nopcli",
-  "version": "2.2.4",
+  "version": "2.2.8",
   "description": "nopCommerce CLI is a development tool for build plugins for nopCommerce Solutions.",
   "keywords": [
     "nopCommerce",
@@ -39,16 +39,20 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --collect-coverage",
-    "test:snapshot": "jest --updateSnapshot"
+    "test:snapshot": "jest --updateSnapshot",
+    "build": "rollup --config rollup.config.js --minimize && sed -i '1 i\\#! /usr/bin/env node' dist/nopcli.min.js"
   },
   "bin": {
-    "nopcli": "bin/nopcli.js"
+    "nopcli": "dist/nopcli.min.js"
   },
   "license": "osl-3.0",
   "type": "module",
   "devDependencies": {
     "@babel/preset-env": "^7.15.6",
-    "jest": "^27.2.4"
+    "jest": "^27.2.4",
+    "rollup": "^2.57.0",
+    "rollup-plugin-minify-cli": "^1.0.1",
+    "rollup-plugin-terser": "^7.0.2"
   },
   "jest": {
     "testPathIgnorePatterns": [

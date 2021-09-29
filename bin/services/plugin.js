@@ -18,7 +18,7 @@ export class PluginService {
     }
 
     getSrcSolutionPath() {
-        return fs.existsSync(`./Plugins`) ? `.` : `src`;
+        return fs.existsSync(`Plugins`) ? `.` : `src`;
     }
 
     async validateVersion(version) {
@@ -59,8 +59,8 @@ export class PluginService {
 
     async copyFiles(root_path, args) {
         let self = this;
-        let pluginsPath = self.getFullSrcPlugin(args);
         return new Promise(async (resolve, reject) => {
+            let pluginsPath = self.getFullSrcPlugin(args);
             let srcPluginName = self.getSrcPluginName(args);
             let pluginName = self.getOutPluginName(args);
 
@@ -158,7 +158,7 @@ export class PluginService {
         let self = this;
         return new Promise(async (resolve, reject) => {
             self.existOutProjectAsync(yargs.argv).then(async (existProject) => {
-                if (existProject == false) {
+                if (existProject === false) {
                     self.createProjectAsync(yargs.argv, root_path, existProject).then((messages) => {
                         resolve(messages);
                     }).catch((error) => {
