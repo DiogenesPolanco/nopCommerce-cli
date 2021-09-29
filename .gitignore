@@ -144,4 +144,5 @@
 /.idea/*
 /.idea/jsLibraryMappings.xml
 /src/.idea/
+/coverage/*
 
