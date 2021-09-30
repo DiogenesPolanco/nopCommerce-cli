@@ -72,10 +72,10 @@ export class PluginService {
 
             await fs.readFileSync(`${root_path}/src/assets/images/logos/logo.png`, function (err, data) {
                 if (err) {
-                    reject(err);
+                    resolve(false);
                 } else {
                     fs.writeFile(`${pluginsPath}/logos.png`, data, 'base64', function (err) {
-                        if (err) reject(err);
+                        if (err) resolve(false);
                     });
                 }
             });
@@ -85,7 +85,7 @@ export class PluginService {
 
     async replaceContentFiles(args) {
         let self = this;
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             let pluginsPath = self.getFullSrcPlugin(args);
             let files = shell.find(`${pluginsPath}`);
             if (files.length > 0) {
@@ -102,7 +102,7 @@ export class PluginService {
                 }
                 resolve(true);
             } else {
-                reject(false);
+                resolve(false);
             }
         });
     }
@@ -170,9 +170,12 @@ export class PluginService {
         return new Promise(async (resolve, reject) => {
             self.createProjectAsync(args, root_path).then((messages) => {
                 resolve(messages);
-            }).catch((error) => {
-                self.clearPlugin(yargs.argv);
-                reject(error);
+            }).catch(() => {
+                self.clearPlugin(args).then((result) => {
+                    resolve(messages[result ? "002" : "001"]);
+                }).catch((error) => {
+                    reject(error);
+                });
             });
         });
     }
@@ -190,14 +193,12 @@ export class PluginService {
                 } else {
                     if (yargs.argv.c) {
                         self.clearPlugin(yargs.argv).then((result) => {
-                            if (result) {
-                                self.TryToCreate(yargs.argv, root_path, result)
-                                    .then((messages) => {
-                                        resolve(messages)
-                                    }).catch((error) => {
-                                    reject(error);
-                                });
-                            }
+                            self.TryToCreate(yargs.argv, root_path, result)
+                                .then((messages) => {
+                                    resolve(messages)
+                                }).catch((error) => {
+                                reject(error);
+                            });
                         })
                     } else {
                         reject(messages["001"]);
