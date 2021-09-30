@@ -137,6 +137,7 @@
 /src/global.json
 /src/LICENSE.md
 /src/NopCommerce.sln
+/package-lock.json
 /nopCommerce/*
 /node_modules/*
 /obj/
@@ -145,4 +146,3 @@
 /.idea/jsLibraryMappings.xml
 /src/.idea/
 /coverage/*
-
