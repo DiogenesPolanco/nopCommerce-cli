@@ -4,9 +4,17 @@ export class Helper {
     static printHandler(error, data) {
         let obj = {error: error, data: data};
         if (obj.error) {
-            shell.echo(`${obj.error.code}:${obj.error.message}`);
+            if(obj.error.code === undefined){
+                shell.echo(`${obj.error}\n`);
+            }else{
+                shell.echo(`${obj.error.code}: ${obj.error.message}\n`);
+            }
         } else { 
-            shell.echo(`${obj.data.message}`);
+            if(obj.data.message === undefined){
+                shell.echo(`${obj.data}\n`);
+            }else{
+                shell.echo(`${obj.data.message}\n`);
+            }
         }
     }
 }

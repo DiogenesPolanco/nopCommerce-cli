@@ -111,15 +111,15 @@ export class PluginService {
         let self = this;
         return new Promise(async (resolve, reject) => {
             if (await fs.existsSync(`${self.getSrcSolutionPath()}/NopCommerce.sln`)) {
-                Helper.printHandler(null, messages["006"])
+                Helper.printHandler(null, messages["006"].message.replace('{{nopCli}}', self.getOutPluginName(args)))
                 shell.config.silent = true;
                 ProgressService.waitProgress().then(() => {
                     shell.cd(self.getSrcSolutionPath());
                     shell.exec(`dotnet sln add ./Plugins/${self.getOutPluginName(args)}`);
-                    resolve(messages["002"]);
-                })
+                    resolve(messages["002"].message.replace('{{nopCli}}', self.getOutPluginName(args)));
+                });
             } else {
-                reject(messages["001"]);
+                reject(messages["001"].message.replace('{{nopCli}}', self.getOutPluginName(args)));
             }
         });
     }
@@ -151,13 +151,13 @@ export class PluginService {
                                 reject(error);
                             });
                         } else {
-                            reject(messages["001"]);
+                            reject(messages["001"].message.replace('{{nopCli}}', self.getOutPluginName(args)));
                         }
                     }).catch((error) => {
                         reject(error);
                     });
                 } else {
-                    reject(messages["001"]);
+                    reject(messages["001"].message.replace('{{nopCli}}', self.getOutPluginName(args)));
                 }
             }).catch((error) => {
                 reject(error);
@@ -172,7 +172,7 @@ export class PluginService {
                 resolve(messages);
             }).catch(() => {
                 self.clearPlugin(args).then((result) => {
-                    resolve(messages[result ? "002" : "001"]);
+                    resolve(messages[result ? "002" : "001"].message.replace('{{nopCli}}', self.getOutPluginName(args)));
                 }).catch((error) => {
                     reject(error);
                 });
@@ -201,7 +201,7 @@ export class PluginService {
                             });
                         })
                     } else {
-                        reject(messages["001"]);
+                        reject(messages["001"].message.replace('{{nopCli}}', self.getOutPluginName(yargs.argv)));
                     }
                 }
             }).catch((error) => {

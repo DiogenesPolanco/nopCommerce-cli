@@ -1,4 +1,5 @@
 import cliProgress from 'cli-progress'
+import shell from 'shelljs';
 
 export class ProgressService {
 
@@ -7,8 +8,9 @@ export class ProgressService {
         let self = this;
         let progress = new cliProgress.Bar({
             format: 'progress [{bar}] {percentage}% | {value}/{total}'
-        }, type)
+        }, type);
         progress.start(total, 0);
+        
         return new Promise((resolve) => {
 
             const timer = setInterval(() => {
@@ -26,6 +28,7 @@ export class ProgressService {
                     progress.stop();
 
                     // run complete callback
+                    shell.echo("");
                     resolve(self);
                 }
             }, ms);

@@ -2,27 +2,27 @@ export let messages;
 messages = {
 
     "001": {
-        message: "Error during the generation of the plugin",
+        message: "The plugin: \"{{nopCli}}\" already exists!",
         code: "001"
     },
     "002": {
-        message: "The creation of the plugin was successful",
+        message: "The plugin: \"{{nopCli}}\" was created successfully!",
         code: "002"
     },
     "003": {
-        message: "Error while building plugin",
+        message: "There was an error while building the plugin, please check and try again!",
         code: "003"
     },
     "004": {
-        message: "The build of the plugin was successful",
+        message: "Plugin build was successful!",
         code: "004"
     },
     "005": {
-        message: "Error while get value",
+        message: "There was an error while getting the path value, please check and try again!",
         code: "005"
     },
     "006": {
-        message: "Creating the plugin, Please Wait...",
+        message: "Creating the plugin: \"{{nopCli}}\", Please Wait...",
         code: "006"
     }
 }
