@@ -5,10 +5,10 @@ import yargs from 'yargs-parser'
 let {create} = new PluginsController();
 
 describe('Plugins Controller tests', () => {
-    test('create Widgets 4.30', () => {
-        let args = yargs("-g=Widgets -p=Test");
-        create(  args).then((message)=>{
-            expect(args!== null).toBe(true)
+    it('create Widgets 4.30', (done) => {
+        let args = yargs("-g=Widgets -p=Test"); 
+        create(  { argv: args }).then(()=>{
+            done()
         });
     });
 });
