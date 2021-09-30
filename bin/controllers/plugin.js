@@ -5,7 +5,7 @@ import {PluginService} from '../services/plugin.js'
 export class PluginsController {
 
     async create(yargs) {
-        config.getPath().then(async (path) => {
+      return  config.getPath().then(async (path) => {
             await new PluginService().CreateAsync(yargs, path)
                 .then((data) => {
                     Helper.printHandler(null, data)
@@ -16,7 +16,7 @@ export class PluginsController {
     }
 
     async build(yargs) {
-        config.getPath().then(async (path) => {
+       return  config.getPath().then(async (path) => {
             await new PluginService().Build(yargs, path)
                 .then((data) => {
                     Helper.printHandler(null, data)

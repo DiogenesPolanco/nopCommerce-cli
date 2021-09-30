@@ -19,6 +19,6 @@ describe('config tests', () => {
         expect(config.getDescriptionBuildCommand()).toBe("build plugin -[g] -[p]");
     });
     test('getDescriptionBuildCommand', () => {
-        expect(config.getDescriptionNewCommand()).toBe("create plugin -[g] -[p] -[v]");
+        expect(config.getDescriptionNewCommand()).toBe("create plugin -[g] -[p] -[v] -[c]");
     });
 });
