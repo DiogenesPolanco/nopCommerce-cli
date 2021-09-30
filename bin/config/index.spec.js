@@ -2,8 +2,8 @@ import {config} from "./index.js";
 
 describe('config tests', () => {
     test('getPath', () => {
-       config.getPath().then((path)=>{
-           expect(path).toContain("nopcli");
+        config.getPath().then((path)=>{
+            expect(path).toContain("nopcli");
         });
     });
     test('getGroupAlias', () => {
