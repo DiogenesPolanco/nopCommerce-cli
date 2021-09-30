@@ -16,7 +16,7 @@ export class PluginService {
 
     getFullSrcPlugin(args) {
         let self = this;
-        return `${self.getSrcSolutionPath(args)}/Plugins/${self.getOutPluginName(args)}`;
+        return `${self.getSrcSolutionPath()}/Plugins/${self.getOutPluginName(args)}`;
     }
 
     getSrcSolutionPath() {
@@ -61,7 +61,8 @@ export class PluginService {
 
     async copyFiles(root_path, args) {
         let self = this;
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
+            console.log(args)
             let pluginsPath = self.getFullSrcPlugin(args);
             let srcPluginName = self.getSrcPluginName(args);
             let pluginName = self.getOutPluginName(args);
