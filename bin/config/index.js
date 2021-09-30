@@ -30,8 +30,16 @@ export class config {
         };
     }
 
+    static getClearAlias() {
+        return {
+            alias: 'clear',
+            type: 'boolean',
+            default: false
+        };
+    }
+
     static getDescriptionNewCommand() {
-        return "create plugin -[g] -[p] -[v]";
+        return "create plugin -[g] -[p] -[v] -[c]";
     }
 
     static getDescriptionBuildCommand() {

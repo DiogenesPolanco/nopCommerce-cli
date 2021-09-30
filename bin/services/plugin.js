@@ -2,8 +2,10 @@ import shell from 'shelljs'
 import fs from 'fs'
 import {messages} from '../helper/messages.js'
 import {Helper} from '../helper/index.js'
+import {ProgressService} from "./progress.js";
 
 export class PluginService {
+
     getSrcPluginName(args) {
         return `Nop.Plugin.${args.g}.NopCliGeneric`;
     }
@@ -105,17 +107,13 @@ export class PluginService {
         });
     }
 
-    wait(ms = 100) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
     async addSolution(args) {
         let self = this;
         return new Promise(async (resolve, reject) => {
             if (await fs.existsSync(`${self.getSrcSolutionPath()}/NopCommerce.sln`)) {
                 Helper.printHandler(null, messages["006"])
                 shell.config.silent = true;
-                self.wait().then(() => {
+                ProgressService.waitProgress().then(() => {
                     shell.cd(self.getSrcSolutionPath());
                     shell.exec(`dotnet sln add ./Plugins/${self.getOutPluginName(args)}`);
                     resolve(messages["002"]);
@@ -126,9 +124,22 @@ export class PluginService {
         });
     }
 
+    async clearPlugin(args) {
+        let self = this;
+        return new Promise(async (resolve, reject) => {
+            self.existOutProjectAsync(args).then((result) => {
+                if (result) {
+                    shell.rm("-r", self.getFullSrcPlugin(args));
+                }
+                resolve(result);
+            }).catch((error) => {
+                reject(error);
+            });
+        });
+    }
+
     async createProjectAsync(args, root_path) {
         let self = this;
-
         return new Promise(async (resolve, reject) => {
             await self.copyFiles(root_path, args).then(async (copied) => {
                 if (copied) {
@@ -154,18 +165,43 @@ export class PluginService {
         });
     }
 
+    async TryToCreate(args, root_path) {
+        let self = this;
+        return new Promise(async (resolve, reject) => {
+            self.createProjectAsync(args, root_path).then((messages) => {
+                resolve(messages);
+            }).catch((error) => {
+                self.clearPlugin(yargs.argv);
+                reject(error);
+            });
+        });
+    }
+
     async CreateAsync(yargs, root_path) {
         let self = this;
         return new Promise(async (resolve, reject) => {
             self.existOutProjectAsync(yargs.argv).then(async (existProject) => {
                 if (existProject === false) {
-                    self.createProjectAsync(yargs.argv, root_path, existProject).then((messages) => {
-                        resolve(messages);
+                    self.TryToCreate(yargs.argv, root_path).then((messages) => {
+                        resolve(messages)
                     }).catch((error) => {
                         reject(error);
                     });
                 } else {
-                    reject(messages["001"]);
+                    if (yargs.argv.c) {
+                        self.clearPlugin(yargs.argv).then((result) => {
+                            if (result) {
+                                self.TryToCreate(yargs.argv, root_path, result)
+                                    .then((messages) => {
+                                        resolve(messages)
+                                    }).catch((error) => {
+                                    reject(error);
+                                });
+                            }
+                        })
+                    } else {
+                        reject(messages["001"]);
+                    }
                 }
             }).catch((error) => {
                 reject(error);

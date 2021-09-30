@@ -1,6 +1,6 @@
 {
   "name": "nopcli",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "nopCommerce CLI is a development tool for build plugins for nopCommerce Solutions.",
   "keywords": [
     "nopCommerce",
@@ -20,20 +20,26 @@
     "url": "git://github.com/DiogenesPolanco/nopCommerce-cli.git"
   },
   "dependencies": {
+    "cli-progress": "^3.9.1",
     "get-installed-path": "^4.0.8",
     "shelljs": "^0.4.0",
     "yargs": "^3.9.0"
   },
   "scripts": {
     "widget": "node bin/nopcli.js new -g=Widgets -p=Test",
+    "widget-clear": "node bin/nopcli.js new -g=Widgets -p=Test -c=true",
     "build-widget": "node bin/nopcli.js build -g=Widgets -p=Test",
     "misc": "node bin/nopcli.js new -g=Misc -p=Test",
+    "misc-clear": "node bin/nopcli.js new -g=Misc -p=Test -c=true",
     "build-misc": "node bin/nopcli.js build -g=Misc -p=Test",
     "payment": "node bin/nopcli.js new -g=Payments -p=Test",
+    "payment-clear": "node bin/nopcli.js new -g=Payments -p=Test -c=true",
     "build-payment": "node bin/nopcli.js build -g=Payments -p=Test",
     "discount": "node bin/nopcli.js new -g=DiscountRules -p=Test",
+    "discount-clear": "node bin/nopcli.js new -g=DiscountRules -p=Test -c=true",
     "build-discount": "node bin/nopcli.js build -g=DiscountRules -p=Test",
     "shipping": "node bin/nopcli.js new -g=Shipping -p=Test",
+    "shipping-clear": "node bin/nopcli.js new -g=Shipping -p=Test -c=true",
     "build-shipping": "node bin/nopcli.js build -g=Shipping -p=Test",
     "help": "node bin/nopcli.js -h",
     "test": "jest",

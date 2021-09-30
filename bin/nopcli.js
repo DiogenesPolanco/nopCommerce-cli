@@ -1,12 +1,14 @@
 import yargs from "yargs"
 import {config} from "./config/index.js"
 import {PluginsController} from "./controllers/plugin.js"
+
 let {build, create} = new PluginsController();
 
- yargs.usage("$0 command")
+yargs.usage("$0 command")
     .option('g', config.getGroupAlias())
     .option('p', config.getPluginAlias())
     .option('v', config.getVersionAlias())
+    .option('c', config.getClearAlias())
     .command("new", config.getDescriptionNewCommand(), yargs => create(yargs))
     .command("build", config.getDescriptionBuildCommand(), yargs => build(yargs))
     .demand(1, config.getDescriptionDemand())

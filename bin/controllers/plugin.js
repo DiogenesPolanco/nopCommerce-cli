@@ -12,7 +12,7 @@ export class PluginsController {
                 }).catch((error) => {
                     Helper.printHandler(error, null)
                 });
-        })
+        });
     }
 
     async build(yargs) {
