@@ -1,8 +1,14 @@
-import { getInstalledPath } from'get-installed-path'
+import {getInstalledPath} from 'get-installed-path'
 
 export class config {
     static getPath() {
-        return getInstalledPath('nopcli');
+        return new Promise((resolve) => {
+            getInstalledPath('nopcli').then((path) => {
+                resolve(path !== undefined ? path : "./");
+            }).catch((error) => {
+                resolve(  "./");
+            });
+        });
     };
 
     static getGroupAlias() {
