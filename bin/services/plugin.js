@@ -61,7 +61,7 @@ export class PluginService {
 
     async copyFiles(root_path, args) {
         let self = this;
-        return new Promise(async (resolve) => { 
+        return new Promise(async (resolve) => {
             let pluginsPath = self.getFullSrcPlugin(args);
             let srcPluginName = self.getSrcPluginName(args);
             let pluginName = self.getOutPluginName(args);
@@ -210,6 +210,37 @@ export class PluginService {
         });
     }
 
+    async cloneAsync(yargs) {
+        let self = this;
+        return new Promise(async (resolve, reject) => {
+            if (!shell.which('git')) {
+                resolve('Sorry, this script requires git');
+                shell.exit(1);
+            } else {
+                //shell.config.silent = true;
+                let ff = ProgressService.waitProgressTwo();
+
+                let value = 0;
+               /* shell.exec('git clone https://github.com/DiogenesPolanco/RD.js.git', function(code, stdout, stderr) {
+                   // console.log('Exit code:', code);
+                    //console.log('Program output:', stdout);
+                    //console.log('Program stderr:', stderr);
+                    value++
+                    console.log('value code:', value);
+                    ff=  ProgressService.waitProgressTwo(ff,value );
+                });*/
+
+               //var child = shell.exec('git clone https://github.com/nopSolutions/nopCommerce.git --branch release-4.30 --depth 1 ', {async: true});
+               // var child = shell.exec('git clone https://github.com/DiogenesPolanco/RD.js.git ', {async: true});
+               /* child.stdout.on('data', function (data) {
+                    value++
+                  ff=  ProgressService.waitProgressTwo(ff,value );
+
+                });*/
+            }
+        });
+    }
+
     async Build(yargs) {
         let self = this;
         return new Promise(async (resolve, reject) => {
@@ -220,6 +251,29 @@ export class PluginService {
             } else {
                 reject(messages['004']);
             }
+        });
+    }
+
+    async Init(yargs, root_path) {
+        let self = this;
+        return new Promise(async (resolve, reject) => {
+            await self.cloneAsync(yargs.argv).then((msg) => {
+                if (yargs.argv.p) {
+                    self.createProjectAsync(yargs.argv, root_path).then((msgCreated) => {
+                        if (yargs.argv.b) {
+                            self.Build(yargs).then((msgBuild) => {
+                                resolve(msgBuild);
+                            });
+                        } else {
+                            resolve(msgCreated);
+                        }
+                    })
+                } else {
+                    resolve(msg);
+                }
+            }).catch((error) => {
+                reject(error);
+            });
         });
     }
 }

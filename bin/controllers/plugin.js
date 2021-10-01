@@ -25,4 +25,15 @@ export class PluginsController {
                 });
         })
     }
+
+    async init(yargs) {
+        return  config.getPath().then(async (path) => {
+            await new PluginService().Init(yargs, path)
+                .then((data) => {
+                    Helper.printHandler(null, data)
+                }).catch((error) => {
+                    Helper.printHandler(error, null)
+                });
+        })
+    }
 }

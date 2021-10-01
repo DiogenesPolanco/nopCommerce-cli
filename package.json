@@ -26,6 +26,7 @@
     "yargs": "^3.9.0"
   },
   "scripts": {
+    "init": "node bin/nopcli.js init -g=Widgets -p=Test",
     "widget": "node bin/nopcli.js new -g=Widgets -p=Test",
     "widget-clear": "node bin/nopcli.js new -g=Widgets -p=Test -c=true",
     "build-widget": "node bin/nopcli.js build -g=Widgets -p=Test",

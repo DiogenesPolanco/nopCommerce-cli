@@ -44,12 +44,32 @@ export class config {
         };
     }
 
+    static getBuildAlias() {
+        return {
+            alias: 'build',
+            type: 'boolean',
+            default: false
+        };
+    }
+
+    static getInitAlias() {
+        return {
+            alias: 'init',
+            type: 'boolean',
+            default: false
+        };
+    }
+
     static getDescriptionNewCommand() {
-        return "create plugin -[g] -[p] -[v] -[c]";
+        return "create plugin -[g] -[p] -[v] -[c] -[b] -[i]";
     }
 
     static getDescriptionBuildCommand() {
         return "build plugin -[g] -[p]";
+    }
+
+    static getDescriptionInitCommand() {
+        return "init plugin -[g] -[p] -[v] -[b]";
     }
 
     static getDescriptionDemand() {
