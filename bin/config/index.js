@@ -77,7 +77,7 @@ export default class Config {
     }
 
     static getCloneNopDefaultCommand() {
-        return "git clone https://github.com/nopSolutions/nopCommerce.git ./src/nopCommerce --branch release-4.30 --depth 1";
+        return "git clone https://github.com/nopSolutions/nopCommerce.git ./ --branch release-4.30 --depth 1";
     }
 
     static getNopCommercePath() {

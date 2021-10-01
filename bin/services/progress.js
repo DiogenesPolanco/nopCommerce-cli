@@ -7,7 +7,7 @@ export default class ProgressService {
 
         let self = this;
         let progress = new cliProgress.Bar({
-            format: 'progress [{bar}] {percentage}% | {value}/{total}'
+            format: 'progress [{bar}] {percentage}%'
         }, type);
         progress.start(total, 0);
 

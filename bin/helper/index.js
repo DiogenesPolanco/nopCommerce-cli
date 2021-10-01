@@ -1,7 +1,7 @@
 import shell from 'shelljs'
 
 export default class Helper {
-    static printHandler(error, data) {
+    static printHandler(error, data, exit) {
         let obj = {error: error, data: data};
         if (obj.error) {
             if(obj.error.code === undefined){
@@ -15,6 +15,9 @@ export default class Helper {
             }else{
                 shell.echo(`${obj.data.message}\n`);
             }
+        }
+        if(exit){
+            shell.exit(exit);
         }
     }
 }

@@ -72,11 +72,11 @@ class PluginService {
             shell.cp('-R', `${root_path}/src/nopCommerce-${await self.getSrcVersion(args)}/${srcPluginName}/`, pluginsPath);
             shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
 
-            await fs.readFileSync(`${root_path}/src/assets/images/logos/logo.png`, function (err, data) {
+              fs.readFile(`${root_path}/src/assets/images/logos/logo.png`,  function (err, data) {
                 if (err) {
                     resolve(false);
                 } else {
-                    fs.writeFile(`${pluginsPath}/logos.png`, data, 'base64', function (err) {
+                      fs.writeFile(`${pluginsPath}/logo.png`, data, 'base64', function (err) {
                         if (err) resolve(false);
                     });
                 }
@@ -227,7 +227,7 @@ class PluginService {
                         if (stderr) {
                             reject(stderr)
                         } else {
-                            //shell.cd(Config.getNopCommercePath());
+                            shell.cd(Config.getNopCommercePath());
                             resolve(stdout);
                         }
                     });
