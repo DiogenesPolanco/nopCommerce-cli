@@ -1,6 +1,6 @@
 import {getInstalledPath} from 'get-installed-path'
 
-export class config {
+export default class Config {
     static getPath() {
         return new Promise((resolve) => {
             getInstalledPath('nopcli').then((path) => {
@@ -74,5 +74,9 @@ export class config {
 
     static getDescriptionDemand() {
         return "please choose a valid command";
+    }
+
+    static getCloneNopDefaultCommand() {
+        return "git clone https://github.com/nopSolutions/nopCommerce.git --branch release-4.30 --depth 1";
     }
 }

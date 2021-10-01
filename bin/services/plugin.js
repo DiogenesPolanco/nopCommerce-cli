@@ -1,10 +1,12 @@
 import shell from 'shelljs'
 import fs from 'fs'
 import {messages} from '../helper/messages.js'
-import {Helper} from '../helper/index.js'
-import {ProgressService} from "./progress.js";
+import Helper from '../helper/index.js'
+import ProgressService from "./progress.js";
+import Config from '../config/index.js'
 
-export class PluginService {
+
+class PluginService {
 
     getSrcPluginName(args) {
         return `Nop.Plugin.${args.g}.NopCliGeneric`;
@@ -217,26 +219,17 @@ export class PluginService {
                 resolve('Sorry, this script requires git');
                 shell.exit(1);
             } else {
-                //shell.config.silent = true;
-                let ff = ProgressService.waitProgressTwo();
-
-                let value = 0;
-               /* shell.exec('git clone https://github.com/DiogenesPolanco/RD.js.git', function(code, stdout, stderr) {
-                   // console.log('Exit code:', code);
-                    //console.log('Program output:', stdout);
-                    //console.log('Program stderr:', stderr);
-                    value++
-                    console.log('value code:', value);
-                    ff=  ProgressService.waitProgressTwo(ff,value );
-                });*/
-
-               //var child = shell.exec('git clone https://github.com/nopSolutions/nopCommerce.git --branch release-4.30 --depth 1 ', {async: true});
-               // var child = shell.exec('git clone https://github.com/DiogenesPolanco/RD.js.git ', {async: true});
-               /* child.stdout.on('data', function (data) {
-                    value++
-                  ff=  ProgressService.waitProgressTwo(ff,value );
-
-                });*/
+                ProgressService.waitInfinityProgress((progress) => {
+                    shell.exec( Config.getCloneNopDefaultCommand(), function (code, stdout, stderr) {
+                        progress.setTotal(100);
+                        progress.stop();
+                        if (stderr) {
+                            reject(stderr)
+                        } else {
+                            resolve(stdout);
+                        }
+                    });
+                });
             }
         });
     }
@@ -278,4 +271,5 @@ export class PluginService {
     }
 }
 
-
+const pluginService = new PluginService();
+export default pluginService;

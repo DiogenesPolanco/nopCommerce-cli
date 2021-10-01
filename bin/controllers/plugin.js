@@ -1,12 +1,12 @@
-import {Helper} from '../helper/index.js'
-import {config} from '../config/index.js'
-import {PluginService} from '../services/plugin.js'
+import Helper from '../helper/index.js'
+import Config from '../config/index.js'
+import pluginService from '../services/plugin.js'
 
-export class PluginsController {
+export default class PluginsController {
 
-    async create(yargs) {
-        return  config.getPath().then(async (path) => {
-            await new PluginService().CreateAsync(yargs, path)
+    static async create(yargs) {
+        return  Config.getPath().then(async (path) => {
+            await pluginService.CreateAsync(yargs, path)
                 .then((data) => {
                     Helper.printHandler(null, data)
                 }).catch((error) => {
@@ -15,9 +15,9 @@ export class PluginsController {
         });
     }
 
-    async build(yargs) {
-        return  config.getPath().then(async (path) => {
-            await new PluginService().Build(yargs, path)
+    static async build(yargs) {
+        return  Config.getPath().then(async (path) => {
+            await pluginService.Build(yargs, path)
                 .then((data) => {
                     Helper.printHandler(null, data)
                 }).catch((error) => {
@@ -26,9 +26,9 @@ export class PluginsController {
         })
     }
 
-    async init(yargs) {
-        return  config.getPath().then(async (path) => {
-            await new PluginService().Init(yargs, path)
+    static async init(yargs) {
+        return  Config.getPath().then(async (path) => {
+            await pluginService.Init(yargs, path)
                 .then((data) => {
                     Helper.printHandler(null, data)
                 }).catch((error) => {

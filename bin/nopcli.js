@@ -1,20 +1,18 @@
 import yargs from "yargs"
-import {config} from "./config/index.js"
-import {PluginsController} from "./controllers/plugin.js"
-
-let {build, create, init} = new PluginsController();
+import Config from "./config/index.js"
+import pluginsController from "./controllers/plugin.js"
 
 yargs.usage("$0 command")
-    .option('g', config.getGroupAlias())
-    .option('p', config.getPluginAlias())
-    .option('v', config.getVersionAlias())
-    .option('c', config.getClearAlias())
-    .option('b', config.getBuildAlias())
-    .option('i', config.getInitAlias())
-    .command("new", config.getDescriptionNewCommand(), yargs => create(yargs))
-    .command("build", config.getDescriptionBuildCommand(), yargs => build(yargs))
-    .command("init", config.getDescriptionInitCommand(), yargs => init(yargs))
-    .demand(1, config.getDescriptionDemand())
+    .option('g', Config.getGroupAlias())
+    .option('p', Config.getPluginAlias())
+    .option('v', Config.getVersionAlias())
+    .option('c', Config.getClearAlias())
+    .option('b', Config.getBuildAlias())
+    .option('i', Config.getInitAlias())
+    .command("new", Config.getDescriptionNewCommand(), yargs => pluginsController.create(yargs))
+    .command("build", Config.getDescriptionBuildCommand(), yargs => pluginsController.build(yargs))
+    .command("init", Config.getDescriptionInitCommand(), yargs => pluginsController.init(yargs))
+    .demand(1, Config.getDescriptionDemand())
     .showHelpOnFail(true)
     .help("h")
     .alias("h", "help")

@@ -1,7 +1,7 @@
 import cliProgress from 'cli-progress'
 import shell from 'shelljs';
 
-export class ProgressService {
+export default class ProgressService {
 
     static waitProgress(type = cliProgress.Presets.shades_classic, value = 0, total = 100, ms = 10) {
 
@@ -34,27 +34,35 @@ export class ProgressService {
         });
     }
 
-    static waitProgressTwo(progress, value = 0, type = cliProgress.Presets.shades_classic, total = 100) {
+    static waitInfinityProgress(callback, silent=true, type = cliProgress.Presets.rect, value = 0, total = 100, ms = 1000) {
 
-        progress = progress ?? new cliProgress.Bar({
-            format: 'progress [{bar}] {percentage}% | {value}/{total}'
-        }, type);
-        progress.start(total, 0);
+         shell.config.silent = silent;
 
+        let progress = new cliProgress.Bar({
+            format: 'progress [{bar}]'
+        }, cliProgress.Presets.rect);
+        progress.start(total, value);
 
-        // increment value
-        value++;
-        // update the bar value
-        progress.update(value)
+        callback(progress);
 
-        // set limit
-        if (value >= progress.getTotal()) {
+        const timer = setInterval(function () {
+            // increment value
+            value++;
 
-            progress.stop();
+            // update the bar value
+            progress.update(value)
 
-            // run complete callback
-            shell.echo("");
-        }
-        return progress;
+            // change the total value
+            if (value === total) {
+                total = total * 2;
+                progress.setTotal(total);
+            }
+
+            // limit reached ?
+            if (value >= progress.getTotal()) {
+                // stop timer
+                clearInterval(timer);
+            }
+        }, ms);
     }
 }

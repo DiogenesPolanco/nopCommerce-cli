@@ -1,6 +1,6 @@
 import shell from 'shelljs'
 
-export class Helper {
+export default class Helper {
     static printHandler(error, data) {
         let obj = {error: error, data: data};
         if (obj.error) {
