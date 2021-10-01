@@ -72,11 +72,11 @@ class PluginService {
             shell.cp('-R', `${root_path}/src/nopCommerce-${await self.getSrcVersion(args)}/${srcPluginName}/`, pluginsPath);
             shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
 
-              fs.readFile(`${root_path}/src/assets/images/logos/logo.png`,  function (err, data) {
+            fs.readFile(`${root_path}/src/assets/images/logos/logo.png`, function (err, data) {
                 if (err) {
                     resolve(false);
                 } else {
-                      fs.writeFile(`${pluginsPath}/logo.png`, data, 'base64', function (err) {
+                    fs.writeFile(`${pluginsPath}/logo.png`, data, 'base64', function (err) {
                         if (err) resolve(false);
                     });
                 }
@@ -212,23 +212,28 @@ class PluginService {
         });
     }
 
-    async cloneAsync(yargs) {
-        let self = this;
+    async cloneAsync() {
         return new Promise(async (resolve, reject) => {
             if (!shell.which('git')) {
                 resolve('Sorry, this script requires git');
                 shell.exit(1);
             } else {
                 ProgressService.waitInfinityProgress((progress) => {
-                    shell.exec( Config.getCloneNopDefaultCommand(), function (code, stdout, stderr) {
-                        progress.setTotal(100); 
+                    shell.exec(Config.getCloneNopDefaultCommand(), function (code, stdout, stderr) {
+                        progress.setTotal(100);
                         progress.update(100);
                         progress.stop();
                         if (stderr) {
                             reject(stderr)
                         } else {
-                            shell.cd(Config.getNopCommercePath());
-                            resolve(stdout);
+                            shell.rm("-r", Config.getGitNopCommercePath());
+                            shell.exec("git init && git add *.*", function (codeGit, stdoutGit, stderrGit) {
+                                if (stderrGit) {
+                                    reject(stderrGit)
+                                } else {
+                                    resolve(stdoutGit);
+                                }
+                            });
                         }
                     });
                 });
@@ -252,7 +257,7 @@ class PluginService {
     async Init(yargs, root_path) {
         let self = this;
         return new Promise(async (resolve, reject) => {
-            await self.cloneAsync(yargs.argv).then((msg) => {
+            await self.cloneAsync().then((msg) => {
                 if (yargs.argv.p) {
                     self.createProjectAsync(yargs.argv, root_path).then((msgCreated) => {
                         if (yargs.argv.b) {

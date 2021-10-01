@@ -5,8 +5,8 @@ export default class Config {
         return new Promise((resolve) => {
             getInstalledPath('nopcli').then((path) => {
                 resolve(path !== undefined ? path : "./");
-            }).catch((error) => {
-                resolve(  "./");
+            }).catch(() => {
+                resolve("./");
             });
         });
     };
@@ -80,7 +80,15 @@ export default class Config {
         return "git clone https://github.com/nopSolutions/nopCommerce.git ./ --branch release-4.30 --depth 1";
     }
 
-    static getNopCommercePath() {
-        return "nopCommerce";
+    static getGitNopCommercePath() {
+        return "./.git";
+    }
+
+    static getDotNetAlias() {
+        return {
+            alias: 'dotnet',
+            type: 'boolean',
+            default: false
+        };
     }
 }
