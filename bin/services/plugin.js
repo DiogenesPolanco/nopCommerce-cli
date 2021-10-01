@@ -221,11 +221,13 @@ class PluginService {
             } else {
                 ProgressService.waitInfinityProgress((progress) => {
                     shell.exec( Config.getCloneNopDefaultCommand(), function (code, stdout, stderr) {
-                        progress.setTotal(100);
+                        progress.setTotal(100); 
+                        progress.update(100);
                         progress.stop();
                         if (stderr) {
                             reject(stderr)
                         } else {
+                            //shell.cd(Config.getNopCommercePath());
                             resolve(stdout);
                         }
                     });

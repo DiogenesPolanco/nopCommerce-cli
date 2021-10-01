@@ -34,11 +34,12 @@ export default class ProgressService {
         });
     }
 
-    static waitInfinityProgress(callback, silent=true, type = cliProgress.Presets.rect, value = 0, total = 100, ms = 1000) {
+    static waitInfinityProgress(callback, silent=true, clearOnComplete=false,  type = cliProgress.Presets.rect, value = 0, total = 100, ms = 500) {
 
          shell.config.silent = silent;
 
         let progress = new cliProgress.Bar({
+            clearOnComplete:clearOnComplete,
             format: 'progress [{bar}]'
         }, cliProgress.Presets.rect);
         progress.start(total, value);
