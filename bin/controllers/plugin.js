@@ -1,7 +1,6 @@
 import Helper from '../helper/index.js'
 import Config from '../config/index.js'
 import pluginService from '../services/plugin.js'
-import shell from "shelljs";
 
 export default class PluginsController {
 

@@ -61,7 +61,7 @@ export default class Config {
     }
 
     static getDescriptionNewCommand() {
-        return "create plugin -[g] -[p] -[v] -[c] -[b] -[i]";
+        return "create plugin -[g] -[p] -[v] -[c] -[b]";
     }
 
     static getDescriptionBuildCommand() {

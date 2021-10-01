@@ -17,7 +17,7 @@ export default class Helper {
             }
         }
         if(exit){
-            shell.exit(exit);
+             shell.exit(exit);
         }
     }
 }
