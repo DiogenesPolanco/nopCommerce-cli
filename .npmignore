@@ -169,5 +169,6 @@ coverage
 .travis.yml
 jest.config.js
 rollup.config.js
-
+/.github/*
+/.github
 /bin/*

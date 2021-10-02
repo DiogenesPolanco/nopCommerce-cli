@@ -1,15 +1,15 @@
-<h1 align="center">nopCommerce CLI - The modern web developer's tool.
+<h1 style="text-align:center">nopCommerce CLI - The modern web developer's tool.
 	<img src="https://app.travis-ci.com/DiogenesPolanco/nopCommerce-cli.svg?branch=development" alt="build:"> 
 </h1>
  
-<p align="center">
+<p style="text-align:center">
   <img src="https://raw.githubusercontent.com/DiogenesPolanco/nopCommerce-cli/development/src/assets/images/logos/nopcli.png" alt="nopCommerce CLI-logo" width="120px" height="120px"/>
   <br>
   <i>nopCommerce CLI is a development tool for build plugins for nopCommerce Solutions.</i>
   <br>
 </p>
  
-<p  align="center">
+<p  style="text-align:center">
   <a href="CONTRIBUTING.md">Contributing Guidelines</a>
   ·
   <a href="https://github.com/DiogenesPolanco/nopCommerce-cli/issues">Submit an Issue</a>
