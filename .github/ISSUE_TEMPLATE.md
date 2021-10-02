@@ -10,7 +10,7 @@ Before posting your issue, please check our FAQ:
 
 **Description of the bug:**  
 
-** Example nopcli command to reproduce the error:**
+**Example nopcli command to reproduce the error:**
 
 ```javascript
  nopcli 
