@@ -1,0 +1,58 @@
+{
+  "fullName": "nopCommerce-cli",
+  "shortName": "nopcli",
+  "description": "nopCommerce CLI (NopCli) is a bilder nopCommerce plugin, and it gives you the opportunity to start a plugin in less than 5 minutes!",
+  "plugin": {
+    "groups": [
+      {
+        "name": "DiscountRoles"
+      },
+      {
+        "name": "Misc"
+      },
+      {
+        "name": "Payments"
+      },
+      {
+        "name": "Shipping"
+      },
+      {
+        "name": "Widgets"
+      }
+    ]
+  },
+  "nopCommerce": {
+    "versions": [
+      {
+        "nopVersion": "420",
+        "Sdk": "2.2",
+        "FrameWork": "netcoreapp2.2"
+      },
+      {
+        "nopVersion": "430",
+        "Sdk": "3.1",
+        "FrameWork": "netcoreapp3.1"
+      },
+      {
+        "nopVersion": "440",
+        "Sdk": "5.0",
+        "FrameWork": "net5.0"
+      },
+      {
+        "nopVersion": "450",
+        "Sdk": "5.0",
+        "FrameWork": "net5.0"
+      }
+    ]
+  },
+  "group": "Widgets",
+  "version": "430",
+  "name": "NopCliGeneric",
+  "author": "NopCli team",
+  "toBeAutoClear": true,
+  "toBeAutoBuild": true,
+  "toBeIniCore": true,
+  "toBeIniNop": true,
+  "toBeIniGit": false,
+  "docker": []
+}

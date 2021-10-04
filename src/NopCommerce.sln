@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE72A8B2-332A-4175-9319-6726D36E9D25}
+	EndGlobalSection
+	GlobalSection(NDepend) = preSolution
+		Project = ".\NopCommerce.ndproj"
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C2FC45E9-7CB1-4BAE-B982-7053B38E4A90} = {46E87467-108E-4D5F-8DC3-F21E12AA86B5}
+		{B12A447B-3F78-47E4-B9DF-D97F71C2276F} = {74180709-A94C-45F3-80AC-531ECFD91175}
+		{75A6704C-D63B-456C-88AB-EF9F5BDD92B9} = {74180709-A94C-45F3-80AC-531ECFD91175}
+		{238819C7-DD27-47E7-BDBA-90D60AC8654A} = {C0D76401-33FD-48DF-B1DF-6A88D38EA927}
+	EndGlobalSection
+EndGlobal

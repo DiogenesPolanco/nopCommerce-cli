@@ -24,6 +24,18 @@ messages = {
     "006": {
         message: "Creating the plugin: \"{{nopCli}}\", Please Wait...",
         code: "006"
+    },
+    "007": {
+        message: "Setting Plugins was successful!",
+        code: "007"
+    },
+    "008": {
+        message: "Init was successful!",
+        code: "008"
+    },
+    "009": {
+        message: "Init not successful!",
+        code: "009"
     }
 }
 
