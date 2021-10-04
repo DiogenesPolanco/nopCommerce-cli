@@ -66,4 +66,11 @@ export default class ProgressService {
             }
         }, ms);
     }
+
+    static  SetCompleted(progress, callback){
+        progress.setTotal(100);
+        progress.update(100);
+        progress.stop();
+        callback();
+    }
 }

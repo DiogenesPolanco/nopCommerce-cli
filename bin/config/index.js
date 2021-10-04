@@ -1,12 +1,14 @@
 import {getInstalledPath} from 'get-installed-path'
+import inquirer from "inquirer";
+import fs from 'fs'
 
 export default class Config {
-    static getPath() {
+    static getPath(name, opts) {
         return new Promise((resolve) => {
-            getInstalledPath('nopcli').then((path) => {
-                resolve(path !== undefined ? path : "./");
+            getInstalledPath('nopcli', opts).then((path) => {
+                resolve(path === undefined ? path : ".");
             }).catch(() => {
-                resolve("./");
+                resolve(".");
             });
         });
     };
@@ -60,6 +62,10 @@ export default class Config {
         };
     }
 
+    static getDescriptionConfigCommand() {
+        return "config plugin -[g] -[p] -[v] -[c] -[b]";
+    }
+
     static getDescriptionNewCommand() {
         return "create plugin -[g] -[p] -[v] -[c] -[b]";
     }
@@ -90,5 +96,139 @@ export default class Config {
             type: 'boolean',
             default: false
         };
+    }
+
+    static getGitAlias() {
+        return {
+            alias: 'git',
+            type: 'boolean',
+            default: false
+        };
+    }
+
+    static getClientSettingFileName() {
+        return '.nopcli';
+    }
+
+    static getConfigPluginQuestions() {
+        return [
+            {
+                type: 'list',
+                name: 'group',
+                message: 'What plugin group do you want to have by default?',
+                choices: [
+                    'DiscountRoles',
+                    'Misc',
+                    'Payments',
+                    'Shipping',
+                    'Widgets',
+                    new inquirer.Separator(),
+                    'Ask for help',
+                    {
+                        name: 'Contact support',
+                        disabled: 'Unavailable at this time',
+                    },
+                    'Leave',
+                ],
+            },
+            {
+                type: 'list',
+                name: 'version',
+                message: 'What version of nopCommerce do you need?',
+                choices: ['4.20', '4.30', '4.40', '4.50'],
+                filter(val) {
+                    return val.replace(".", "");
+                },
+            },
+            {
+                type: 'input',
+                name: 'name',
+                message: 'What name do you want to use by default?',
+                filter(val) {
+                    return val.toLowerCase();
+                },
+                validate(value) {
+                    const letters = value.match(/[a-zA-Z]+/g);
+                    if (value !== "" && letters) {
+                        return true;
+                    }
+
+                    return 'String- Please enter a default name for your plugins';
+                }
+            },
+            {
+                type: 'input',
+                name: 'author',
+                message: 'What author do you want to use by default?',
+                default: "NopCli team",
+                validate(value) {
+                    const letters = value.match(/[a-zA-Z]+/g);
+                    if (value !== "" && letters) {
+                        return true;
+                    }
+
+                    return 'String- Please enter a default author for your plugins';
+                }
+            },
+            {
+                type: 'confirm',
+                name: 'toBeAutoClear',
+                message: 'Do you want to remove your plugins if they exist when trying to create?',
+                default: false,
+            },
+            {
+                type: 'confirm',
+                name: 'toBeAutoBuild',
+                message: 'Do you want to build after creating the plugins?',
+                default: false,
+            },
+            {
+                type: 'confirm',
+                name: 'toBeIniCore',
+                message: 'do you want to install dotnet core?',
+                default: false,
+            },
+            {
+                type: 'confirm',
+                name: 'toBeIniNop',
+                message: 'do you want to clone nopcommerce?',
+                default: false,
+            },
+            {
+                type: 'confirm',
+                name: 'toBeIniGit',
+                message: 'do you want to init git?',
+                default: false,
+            }
+        ];
+    }
+
+    static getSetting(path) {
+        let self = this;
+
+        if (fs.existsSync(`${path}/${self.getClientSettingFileName()}`)) {
+            path = `${path}/${self.getClientSettingFileName()}`;
+        } else if (fs.existsSync(`${path}/src/${self.getClientSettingFileName()}`)) {
+            path = `${path}/src/${self.getClientSettingFileName()}`
+        } else {
+            return {};
+        }
+        let rawData = fs.readFileSync(path);
+        return JSON.parse(rawData);
+    }
+
+    static Prepare(path, args) {
+        let self = this;
+
+        let setting = self.getSetting(path);
+        args.p = args.p ?? setting.name;
+        args.g = args.g ?? setting.group;
+        args.v = args.v ?? setting.version;
+        args.a = args.a ?? setting.author;
+        args.c = args.c ?? setting.toBeAutoClear;
+        args.b = args.b ?? setting.toBeAutoBuild;
+        args.i = args.i ?? setting.toBeIniNop;
+        args.git = args.git ?? setting.toBeIniGit;
+        return args;
     }
 }
