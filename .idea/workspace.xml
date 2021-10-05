@@ -1,74 +1,695 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="138b20dc-ed97-4059-b779-9803a56d6a17" name="Changes" comment="#7">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/nopcli.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/services/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/.nopcli" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NopCommerce.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/.npmignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/controllers/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controllers/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/helper/messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/helper/messages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/nopcli.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/nopcli.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/services/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/services/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/services/progress.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/services/progress.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/nopcli.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/nopcli.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="d7f22b8f-9afc-4f10-b90e-7fd2cd217b73" name="Changes" comment="working with .nopcli" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="development" />
+        <entry key="$PROJECT_DIR$" value="7e3665229bc2abcb63c502551459eeb66a104c22" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1z3xLksE7WCaE8RHOjSUrD7oASr" />
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1ybRZZ4JrBz9NcznVR6QcdpeWTB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="autoscrollToSource" value="true" />
-    <option name="compactDirectories" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="javascript.nodejs.core.library.configured.version" value="16.10.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="16.10.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.scopes" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/bin/controllers" />
+      <recent name="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.Payments.NopCliGeneric" />
+      <recent name="$PROJECT_DIR$/src/nopCommerce-430/Nop.Plugin.Misc.NopCliGeneric" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bin/controllers" />
+      <recent name="$PROJECT_DIR$/bin/config" />
+      <recent name="$PROJECT_DIR$/src/assets/images/logos" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/nopCommerce" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.widget">
+    <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Plugins Controller tests" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/bin/controllers/plugin.spec.js" />
+      <test-names>
+        <test-name value="Plugins Controller tests" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Plugins Controller tests.create Widgets 4.30" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/bin/controllers/plugin.spec.js" />
+      <test-names>
+        <test-name value="Plugins Controller tests" />
+        <test-name value="create Widgets 4.30" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Plugins Controller tests.should handle async exceptions" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/bin/controllers/plugin.spec.js" />
+      <test-names>
+        <test-name value="Plugins Controller tests" />
+        <test-name value="should handle async exceptions" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="config tests" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/bin/config/index.spec.js" />
+      <test-names>
+        <test-name value="config tests" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="config tests.getPath" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/bin/config/index.spec.js" />
+      <test-names>
+        <test-name value="config tests" />
+        <test-name value="getPath" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="build-discount" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build-discount" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build-misc" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build-misc" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build-payment" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build-payment" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build-shipping" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build-shipping" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build-widget" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build-widget" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="discount" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="discount" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="misc" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="misc" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="payment" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="payment" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="shipping" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="shipping" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test:watch" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test:watch" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="widget" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="widget" />
+      </scripts>
+      <node-interpreter value="node" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Jest.All Tests" />
+      <item itemvalue="Jest.Plugins Controller tests" />
+      <item itemvalue="Jest.Plugins Controller tests.create Widgets 4.30" />
+      <item itemvalue="Jest.Plugins Controller tests.should handle async exceptions" />
+      <item itemvalue="Jest.config tests" />
+      <item itemvalue="Jest.config tests.getPath" />
+      <item itemvalue="npm.build-discount" />
+      <item itemvalue="npm.build-misc" />
+      <item itemvalue="npm.build-payment" />
+      <item itemvalue="npm.build-shipping" />
+      <item itemvalue="npm.build-widget" />
+      <item itemvalue="npm.build" />
+      <item itemvalue="npm.discount" />
+      <item itemvalue="npm.misc" />
+      <item itemvalue="npm.payment" />
+      <item itemvalue="npm.shipping" />
+      <item itemvalue="npm.test:watch" />
+      <item itemvalue="npm.widget" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.config tests" />
+        <item itemvalue="Jest.config tests.getPath" />
+        <item itemvalue="Jest.Plugins Controller tests.create Widgets 4.30" />
+        <item itemvalue="Jest.Plugins Controller tests.should handle async exceptions" />
+        <item itemvalue="Jest.Plugins Controller tests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="138b20dc-ed97-4059-b779-9803a56d6a17" name="Changes" comment="" />
-      <created>1633390519168</created>
+      <changelist id="d7f22b8f-9afc-4f10-b90e-7fd2cd217b73" name="Changes" comment="" />
+      <created>1632518358017</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1633390519168</updated>
-      <workItem from="1633390520860" duration="306000" />
+      <updated>1632518358017</updated>
+      <workItem from="1632518360154" duration="2384000" />
+      <workItem from="1632520803438" duration="3759000" />
+      <workItem from="1632574929900" duration="11961000" />
+      <workItem from="1632592035350" duration="3011000" />
+      <workItem from="1632615253124" duration="11461000" />
+      <workItem from="1632692851851" duration="8613000" />
+      <workItem from="1632749329659" duration="18271000" />
+      <workItem from="1632802131323" duration="4072000" />
+      <workItem from="1632830180146" duration="33152000" />
+      <workItem from="1632931341828" duration="16194000" />
+      <workItem from="1633005906947" duration="23673000" />
+      <workItem from="1633052825998" duration="4990000" />
+      <workItem from="1633090894559" duration="6804000" />
+      <workItem from="1633111921095" duration="3137000" />
+      <workItem from="1633117834946" duration="6985000" />
+      <workItem from="1633199023156" duration="1482000" />
+      <workItem from="1633265268774" duration="91000" />
+      <workItem from="1633265396078" duration="3592000" />
+      <workItem from="1633272723047" duration="4410000" />
+      <workItem from="1633350456017" duration="6976000" />
+      <workItem from="1633375426544" duration="6108000" />
     </task>
+    <task id="LOCAL-00007" summary="fix root">
+      <created>1632618720544</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1632618720544</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix root">
+      <created>1632618763097</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1632618763097</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix root">
+      <created>1632619259361</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1632619259361</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix v">
+      <created>1632619616192</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1632619616192</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix v 2.0.4">
+      <created>1632619931505</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1632619931505</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix v 2.0.6">
+      <created>1632620229576</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1632620229576</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix v 2.0.9">
+      <created>1632630850660</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1632630850660</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix v 2.1.0">
+      <created>1632631307995</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1632631307996</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix sl path">
+      <created>1632693465127</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1632693465127</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix sl path">
+      <created>1632693546490</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1632693546490</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fix plugin names and authors">
+      <created>1632696738681</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1632696738681</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Add Misc 4.30">
+      <created>1632752870599</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1632752870599</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fix image team">
+      <created>1632753009896</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1632753009896</updated>
+    </task>
+    <task id="LOCAL-00020" summary="btn donations">
+      <created>1632753246905</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1632753246905</updated>
+    </task>
+    <task id="LOCAL-00021" summary="remove team in README.md">
+      <created>1632753309897</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1632753309897</updated>
+    </task>
+    <task id="LOCAL-00022" summary="v2.1.4">
+      <created>1632753462979</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1632753462979</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Add Payments Plugins">
+      <created>1632760119813</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1632760119813</updated>
+    </task>
+    <task id="LOCAL-00024" summary="update RestSharp -v 106.12.0">
+      <created>1632760414627</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1632760414627</updated>
+    </task>
+    <task id="LOCAL-00025" summary="2.1.5">
+      <created>1632760491463</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1632760491463</updated>
+    </task>
+    <task id="LOCAL-00026" summary="2.1.6 +DiscountRules 4.30">
+      <created>1632767282845</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1632767282845</updated>
+    </task>
+    <task id="LOCAL-00027" summary="2.1.7 +Shipping 4.20 and 4.30">
+      <created>1632793009596</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1632793009596</updated>
+    </task>
+    <task id="LOCAL-00028" summary="2.1.7 +Shipping 4.20 and 4.30">
+      <created>1632796222938</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1632796222938</updated>
+    </task>
+    <task id="LOCAL-00029" summary="2.1.9 refactor logo plugins">
+      <created>1632798729260</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1632798729260</updated>
+    </task>
+    <task id="LOCAL-00030" summary="add ignore folder idea">
+      <created>1632802330732</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1632802330733</updated>
+    </task>
+    <task id="LOCAL-00031" summary="refactory logic plugin">
+      <created>1632838955452</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1632838955452</updated>
+    </task>
+    <task id="LOCAL-00032" summary="refactory logic plugin">
+      <created>1632841496026</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1632841496026</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Async Methods">
+      <created>1632849887376</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1632849887376</updated>
+    </task>
+    <task id="LOCAL-00034" summary="path fix">
+      <created>1632857374178</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1632857374178</updated>
+    </task>
+    <task id="LOCAL-00035" summary="  fix 2.2.1">
+      <created>1632859633616</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1632859633616</updated>
+    </task>
+    <task id="LOCAL-00036" summary="  fix 2.2.2">
+      <created>1632861471941</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1632861471941</updated>
+    </task>
+    <task id="LOCAL-00037" summary="  fix 2.2.3">
+      <created>1632862205573</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1632862205573</updated>
+    </task>
+    <task id="LOCAL-00038" summary="  fix async processing 2.2.4">
+      <created>1632881086711</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1632881086711</updated>
+    </task>
+    <task id="LOCAL-00039" summary="add unit test with jest">
+      <created>1632938565422</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1632938565422</updated>
+    </task>
+    <task id="LOCAL-00040" summary="remove dependency no use for jest">
+      <created>1632938837235</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1632938837235</updated>
+    </task>
+    <task id="LOCAL-00041" summary="add ignore coverage folder">
+      <created>1632938948815</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1632938948815</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Add test workflow">
+      <created>1632939013236</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1632939013236</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Add build workflow">
+      <created>1632946226138</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1632946226138</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Add progress bar and add clear plugin params">
+      <created>1633017954468</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1633017954468</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Add progress bar and add clear plugin params">
+      <created>1633019878229</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1633019878229</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Add fix unitTests">
+      <created>1633026349717</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1633026349717</updated>
+    </task>
+    <task id="LOCAL-00047" summary="base version">
+      <created>1633036573177</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1633036573177</updated>
+    </task>
+    <task id="LOCAL-00048" summary="base version">
+      <created>1633045466578</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1633045466578</updated>
+    </task>
+    <task id="LOCAL-00049" summary="working with git clone nopcommerce">
+      <created>1633092339644</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1633092339644</updated>
+    </task>
+    <task id="LOCAL-00050" summary="command to git clone nopcommerce">
+      <created>1633114998881</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1633114998882</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Add dotnet-install files">
+      <created>1633120921421</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1633120921421</updated>
+    </task>
+    <task id="LOCAL-00052" summary="fix json and other fix">
+      <created>1633123787419</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1633123787419</updated>
+    </task>
+    <task id="LOCAL-00053" summary="build min.js">
+      <created>1633123950049</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1633123950049</updated>
+    </task>
+    <task id="LOCAL-00054" summary="add files">
+      <created>1633180038519</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1633180038520</updated>
+    </task>
+    <task id="LOCAL-00055" summary="working with .nopcli">
+      <created>1633387174888</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1633387174889</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -83,8 +704,37 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="#7" />
-    <option name="LAST_COMMIT_MESSAGE" value="#7" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/RD.js" />
+      <path value="$PROJECT_DIR$/nopCommerce" />
+    </ignored-roots>
+    <MESSAGE value="2.1.9 refactor logo plugins" />
+    <MESSAGE value="add ignore folder idea" />
+    <MESSAGE value="refactory logic plugin" />
+    <MESSAGE value="Async Methods" />
+    <MESSAGE value="path fix" />
+    <MESSAGE value="  fix 2.2.01" />
+    <MESSAGE value="  fix 2.2.1" />
+    <MESSAGE value="  fix 2.2.2" />
+    <MESSAGE value="  fix 2.2.3" />
+    <MESSAGE value="  fix async processing 2.2.4" />
+    <MESSAGE value="add unit test with jest" />
+    <MESSAGE value="remove dependency no use for jest" />
+    <MESSAGE value="add ignore coverage folder" />
+    <MESSAGE value="Add test workflow" />
+    <MESSAGE value="Add build workflow" />
+    <MESSAGE value="Add progress bar and add clear plugin params" />
+    <MESSAGE value="Add fix unitTests" />
+    <MESSAGE value="base version" />
+    <MESSAGE value="working with git clone nopcommerce" />
+    <MESSAGE value="command to git clone nopcommerce" />
+    <MESSAGE value="Add dotnet-install files" />
+    <MESSAGE value="fix json and other fix" />
+    <MESSAGE value="build min.js" />
+    <MESSAGE value="add files" />
+    <MESSAGE value="working with .nopcli" />
+    <option name="LAST_COMMIT_MESSAGE" value="working with .nopcli" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/nopCommerce_cli$All_Tests.info" NAME="All Tests Coverage Results" MODIFIED="1633045516147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
