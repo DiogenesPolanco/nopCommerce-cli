@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7f22b8f-9afc-4f10-b90e-7fd2cd217b73" name="Changes" comment="add scripts">
+      <change afterPath="$PROJECT_DIR$/.nopcli" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/services/validator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/controllers/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controllers/plugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/helper/messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/helper/messages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/nopcli.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/nopcli.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/services/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/services/plugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/services/progress.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/services/progress.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.nopcli" beforeDir="false" afterPath="$PROJECT_DIR$/src/.nopcli" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NopCommerce.sln" beforeDir="false" afterPath="$PROJECT_DIR$/src/NopCommerce.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +88,7 @@
       <recent name="$PROJECT_DIR$/src/nopCommerce" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.widget">
+  <component name="RunManager" selected="npm.misc">
     <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -340,13 +350,10 @@
       <workItem from="1633272723047" duration="4410000" />
       <workItem from="1633350456017" duration="6976000" />
       <workItem from="1633375426544" duration="6108000" />
-    </task>
-    <task id="LOCAL-00008" summary="fix root">
-      <created>1632618763097</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1632618763097</updated>
+      <workItem from="1633399093379" duration="1820000" />
+      <workItem from="1633435366805" duration="3384000" />
+      <workItem from="1633460071023" duration="9902000" />
+      <workItem from="1633525841931" duration="930000" />
     </task>
     <task id="LOCAL-00009" summary="fix root">
       <created>1632619259361</created>
@@ -684,7 +691,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633392382064</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="add scripts">
+      <created>1633399183108</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1633399183110</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

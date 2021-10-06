@@ -1,6 +1,9 @@
 export let messages;
 messages = {
-
+    "000": {
+        message: "Sorry, this script requires git",
+        code: "000"
+    },
     "001": {
         message: "The plugin: \"{{nopCli}}\" already exists!",
         code: "001"
@@ -10,7 +13,7 @@ messages = {
         code: "002"
     },
     "003": {
-        message: "There was an error while building the plugin, please check and try again!",
+        message: "There was an error while building the  \"{{nopCli}}\", please check and try again!",
         code: "003"
     },
     "004": {
@@ -36,6 +39,10 @@ messages = {
     "009": {
         message: "Init not successful!",
         code: "009"
+    },
+    "010": {
+        message: "Command was successful!",
+        code: "010"
     }
 }
 

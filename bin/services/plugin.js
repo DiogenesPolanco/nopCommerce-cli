@@ -8,6 +8,11 @@ import Config from '../config/index.js'
 
 class PluginService {
 
+    ReplacePluginName(message, args) {
+        let self = this;
+        return message.replace('{{nopCli}}', self.getOutPluginName(args));
+    }
+
     getSrcPluginName(args) {
         return `Nop.Plugin.${args.g}.NopCliGeneric`;
     }
@@ -52,11 +57,16 @@ class PluginService {
     existOutProject(args) {
         let self = this;
         return new Promise((resolve, reject) => {
-            let path = self.getOutProjectPathPluginName(args);
-            if (path === undefined) {
-                reject(messages['005']);
+            if (args.g === undefined && args.p === undefined) {
+                resolve(false);
             } else {
-                resolve(fs.existsSync(path));
+                let path = self.getOutProjectPathPluginName(args);
+                if (path === undefined) {
+                    shell.echo(messages['005'])
+                    reject(false);
+                } else {
+                    resolve(fs.existsSync(path));
+                }
             }
         });
     }
@@ -109,30 +119,27 @@ class PluginService {
         let self = this;
         return new Promise((resolve, reject) => {
             if (fs.existsSync(`${self.getSrcSolutionPath()}/NopCommerce.sln`)) {
-                Helper.printHandler(null, messages["006"].message.replace('{{nopCli}}', self.getOutPluginName(args)))
-                shell.config.silent = true;
+                shell.echo("");
+                Helper.printHandler(self.ReplacePluginName(messages["006"].message, args));
                 ProgressService.waitProgress().then(() => {
                     shell.cd(self.getSrcSolutionPath());
                     shell.exec(`dotnet sln add ./Plugins/${self.getOutPluginName(args)}`);
-                    resolve(messages["002"].message.replace('{{nopCli}}', self.getOutPluginName(args)));
+                    resolve(self.ReplacePluginName(messages["002"].message, args));
                 });
             } else {
-                reject(messages["001"].message.replace('{{nopCli}}', self.getOutPluginName(args)));
+                reject(self.ReplacePluginName(messages["003"].message, args));
             }
         });
     }
 
     clearPlugin(args) {
         let self = this;
-        return new Promise((resolve, reject) => {
-            self.existOutProject(args).then((result) => {
-                if (result) {
-                    shell.rm("-r", self.getFullSrcPlugin(args));
-                }
-                resolve(result);
-            }).catch((error) => {
-                reject(error);
-            });
+        return new Promise((resolve) => {
+            let result = args.c;
+            if (result) {
+                shell.rm("-r", self.getFullSrcPlugin(args));
+            }
+            resolve(result);
         });
     }
 
@@ -140,119 +147,57 @@ class PluginService {
         let self = this;
         return new Promise((resolve, reject) => {
             self.copyFiles(root_path, args).then((copied) => {
-
                 if (copied) {
                     self.replaceContentFiles(args).then((success) => {
                         if (success) {
                             self.addSolution(args).then((message) => {
                                 resolve(message);
-                            }).catch((error) => {
-                                reject(error);
-                            });
+                            })
                         } else {
-                            reject(messages["001"].message.replace('{{nopCli}}', self.getOutPluginName(args)));
+                            reject(self.ReplacePluginName(messages["001"].message, args));
                         }
-                    }).catch((error) => {
-                        reject(error);
-                    });
+                    })
                 } else {
-                    reject(messages["001"].message.replace('{{nopCli}}', self.getOutPluginName(args)));
+                    reject(self.ReplacePluginName(messages["001"].message, args));
                 }
-            }).catch((error) => {
-                reject(error);
-            });
-        });
-    }
-
-    TryToCreate(args, root_path) {
-        let self = this;
-        return new Promise((resolve, reject) => {
-            self.createProject(args, root_path).then((messages) => {
-                resolve(messages);
-            }).catch(() => {
-                self.clearPlugin(args).then((result) => {
-                    resolve(messages[result ? "002" : "001"].message.replace('{{nopCli}}', self.getOutPluginName(args)));
-                }).catch((error) => {
-                    reject(error);
-                });
-            });
-        });
-    }
-
-    Create(args, root_path) {
-        let self = this;
-        return new Promise((resolve, reject) => {
-
-            self.existOutProject(args).then((existProject) => {
-
-                if (existProject === false) {
-                    self.TryToCreate(args, root_path).then((messages) => {
-                        resolve(messages)
-                    }).catch((error) => {
-                        reject(error);
-                    });
-                } else {
-                    if (args.c) {
-                        self.clearPlugin(args).then((result) => {
-                            self.TryToCreate(args, root_path, result)
-                                .then((messages) => {
-                                    resolve(messages)
-                                }).catch((error) => {
-                                reject(error);
-                            });
-                        })
-                    } else {
-                        reject(messages["001"].message.replace('{{nopCli}}', self.getOutPluginName(args)));
-                    }
-                }
-            }).catch((error) => {
-                reject(error);
             });
         });
     }
 
     clone(args) {
         return new Promise((resolve, reject) => {
-            if (!shell.which('git')) {
-                resolve('Sorry, this script requires git');
-                shell.exit(1);
-            } else {
-                ProgressService.waitInfinityProgress((progress) => {
-                    shell.exec(Config.getCloneNopDefaultCommand(), function (code, stdout, stderr) {
-                        ProgressService.SetCompleted(progress, () => {
-                            if (stderr) {
-                                resolve(messages['009']);
-                            } else if (args.git) {
-                                shell.rm("-r", Config.getGitNopCommercePath());
-                                shell.exec("git init && git add *.*", function (codeGit, stdoutGit, stderrGit) {
-                                    if (stderrGit) {
-                                        reject(stderrGit)
-                                    } else {
-                                        resolve(messages['008']);
-                                    }
-                                });
-                            } else {
-                                resolve(messages['008']);
-                            }
-                        });
+            ProgressService.waitInfinityProgress((progress) => {
+                shell.exec(Config.getCloneNopDefaultCommand(), function () {
+                    ProgressService.SetCompleted(progress, () => {
+                        if (args.git) {
+                            shell.rm("-r", Config.getGitNopCommercePath());
+                            shell.exec("git init && git add *.*", function (codeGit, stdoutGit, stderrGit) {
+                                if (stderrGit) {
+                                    reject(self.ReplacePluginName(messages["009"].message, args));
+                                } else {
+                                    resolve(self.ReplacePluginName(messages["00"].message, args));
+                                }
+                            });
+                        } else {
+                            resolve(self.ReplacePluginName(messages["008"].message, args));
+                        }
                     });
                 });
-            }
+            });
         });
     }
 
     Build(args) {
         let self = this;
-        return new Promise((resolve, reject) => {
-            self.existOutProject(args).then((existProject) => {
-                if (existProject) {
-                    shell.cd(self.getSrcPluginName(args));
-                    shell.exec(`dotnet build ${self.getOutPluginName(args)}.csproj`);
-                    resolve(messages['003']);
-                } else {
-                    reject(messages['004']);
-                }
-            });
+        return new Promise((resolve) => {
+            let result = args.b;
+            if (result) {
+                shell.cd(self.getFullSrcPlugin(args));
+                shell.exec(`dotnet build ${self.getOutPluginName(args)}.csproj`);
+                resolve(self.ReplacePluginName(messages["004"].message, args));
+            } else {
+                resolve(false);
+            }
         });
     }
 
@@ -276,6 +221,22 @@ class PluginService {
             }).catch((error) => {
                 reject(error);
             });
+        });
+    }
+
+    test(args, root_path) {
+        let self = this;
+        return new Promise((resolve, reject) => {
+            let clone = self.clone(args);
+            let existOutProject = clone.then(self.existOutProject(args));
+            let clearPlugin = existOutProject.then(self.clearPlugin(args));
+            let tryToCreate = clearPlugin.then(self.tryToCreate(args, root_path));
+            return Promise.all([clone, existOutProject, clearPlugin, tryToCreate])
+                .then(() => {
+                    resolve(true);
+                }).catch((error) => {
+                    reject(error)
+                });
         });
     }
 }

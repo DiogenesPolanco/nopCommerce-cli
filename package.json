@@ -23,9 +23,11 @@
     "cli-progress": "^3.9.1",
     "get-installed-path": "^4.0.8",
     "shelljs": "^0.4.0",
+    "validatorjs": "^3.22.1",
     "yargs": "^3.9.0"
   },
   "scripts": {
+    "config": "node bin/nopcli.js config init",
     "init": "node bin/nopcli.js init -g=Widgets -p=Test",
     "widget": "node bin/nopcli.js new -g=Widgets -p=Test",
     "widget-clear": "node bin/nopcli.js new -g=Widgets -p=Test -c=true",
