@@ -21,10 +21,16 @@ class ValidatorService {
                 g: 'required',
                 p: 'required',
                 c: 'required|boolean',
-                exitPlugin: 'required|boolean|hasClearPlugin'
+                b: 'required|boolean',
+                exitPlugin: 'required|boolean|hasClearPlugin|hasBuildPlugin'
             };
             args.exitPlugin = fs.existsSync(pluginService.getOutProjectPathPluginName(args));
             let val = new Validator(args, rules);
+
+            Validator.register('hasBuildPlugin', function (value) {
+                return (value && args.b ) ;
+            }, pluginService.ReplacePluginName(messages["001-1"].message, args));
+
             Validator.register('hasClearPlugin', function (value) {
                 return (value && args.c ) || !value;
             }, pluginService.ReplacePluginName(messages["001"].message, args));

@@ -8,6 +8,10 @@ messages = {
         message: "The plugin: \"{{nopCli}}\" already exists!",
         code: "001"
     },
+    "001-1": {
+        message: "The plugin: \"{{nopCli}}\" not exists!",
+        code: "001-1"
+    },
     "002": {
         message: "The plugin: \"{{nopCli}}\" was created successfully!",
         code: "002"

@@ -3,7 +3,7 @@
   "version": "430",
   "name": "tests",
   "author": "NopCli team",
-  "toBeAutoClear": true,
+  "toBeAutoClear": false,
   "toBeAutoBuild": false,
   "toBeIniCore": false,
   "toBeIniNop": false,
