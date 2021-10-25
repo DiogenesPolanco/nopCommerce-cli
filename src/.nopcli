@@ -49,7 +49,7 @@
   "version": "430",
   "name": "NopCliGeneric",
   "author": "NopCli team",
-  "toBeAutoClear": true,
+  "toBeAutoClear": false,
   "toBeAutoBuild": true,
   "toBeIniCore": true,
   "toBeIniNop": true,

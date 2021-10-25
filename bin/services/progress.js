@@ -34,7 +34,7 @@ export default class ProgressService {
         });
     }
 
-    static waitInfinityProgress(callback, silent=true, clearOnComplete=false,  type = cliProgress.Presets.rect, value = 0, total = 100, ms = 500) {
+    static waitInfinityProgress(callback, silent=true, clearOnComplete=true,  type = cliProgress.Presets.rect, value = 0, total = 100, ms = 500) {
 
          shell.config.silent = silent;
 
