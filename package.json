@@ -22,7 +22,7 @@
   "dependencies": {
     "cli-progress": "^3.9.1",
     "get-installed-path": "^4.0.8",
-    "shelljs": "^0.4.0",
+    "shelljs": ">=0.8.5",
     "validatorjs": "^3.22.1",
     "yargs": "^3.9.0"
   },
