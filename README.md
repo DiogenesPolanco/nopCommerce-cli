@@ -39,6 +39,7 @@ NopCli is a bilder nopCommerce plugin, and it gives you the opportunity to start
 - 4.30 [netcoreapp3.1]
 - 4.40 [net5.0]
 - 4.50 [net5.0]
+- 4.60 [net6.0]
 
 ### Setting Up a Plugin of nopCommerce
 
@@ -48,8 +49,11 @@ Install the nopCommerce CLI globally:
 $ npm install -g nopcli
 ```
 
+Create configuation plugin by default:
+```
+$ nopcli config
+```
 Create plugin:
-
 ```
 $ nopcli new -g=[GROUP NAME] -p=[PLUGIN NAME] -c=[true|false (default=false)]
 ```

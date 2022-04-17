@@ -1,0 +1,14 @@
+@model Nop.Plugin.Widgets.NopCliGeneric.Models.PublicInfoModel
+@{
+    Layout = "";
+}
+<div class="NopCliGeneric-wrapper theme-custom">
+    <div id="NopCliGeneric" class="NopCliGeneric">
+        @Model.Property
+    </div>
+</div>
+<script asp-location="Footer">
+    $(window).on('load', function () {
+        $('#NopCliGeneric').css({"background-color": "blue", "font-size": "200%"});
+    });
+</script>

@@ -1,11 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7f22b8f-9afc-4f10-b90e-7fd2cd217b73" name="Changes" comment="working with validator">
+    <list default="true" id="d7f22b8f-9afc-4f10-b90e-7fd2cd217b73" name="Changes" comment="  &quot;version&quot;: &quot;1.0.2&quot;">
+      <change afterPath="$PROJECT_DIR$/src/.idea/.idea.NopCommerce/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.idea/.idea.NopCommerce/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.idea/.idea.NopCommerce/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.idea/.idea.NopCommerce/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.idea/.idea.NopCommerce/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/deploy.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.DiscountRules.NopCliGeneric/Controllers/DiscountRulesNopCliGenericController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.DiscountRules.NopCliGeneric/DiscountRequirementDefaults.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.DiscountRules.NopCliGeneric/Infrastructure/Cache/DiscountRequirementEventConsumer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.DiscountRules.NopCliGeneric/Models/RequirementModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.DiscountRules.NopCliGeneric/Nop.Plugin.DiscountRules.NopCliGeneric.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.DiscountRules.NopCliGeneric/NopCliGenericDiscountRequirementRule.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.DiscountRules.NopCliGeneric/Validators/RequirementModelValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.DiscountRules.NopCliGeneric/Views/Configure.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.DiscountRules.NopCliGeneric/Views/_ViewImports.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.DiscountRules.NopCliGeneric/plugin.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/Components/WidgetsNopCliGenericViewComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/Content/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/Controllers/MiscNopCliGenericController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/Infrastructure/Mapper/MapperConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/Infrastructure/RouteProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/MiscNopCliGenericDefaults.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/MiscNopCliGenericPlugin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/MiscNopCliGenericSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/Models/ConfigurationModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/Nop.Plugin.Misc.NopCliGeneric.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/Services/EventConsumer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/Services/INopCliGenericService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/Services/NopCliGenericService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/Views/Configure.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/Views/PublicInfo.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/Views/_ViewImports.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Misc.NopCliGeneric/plugin.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/Components/PaymentNopCliGenericViewComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/Controllers/PaymentNopCliGenericController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/Infrastructure/RouteProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/Models/ConfigurationModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/Models/PaymentInfoModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/Models/PaymentResponseDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/Nop.Plugin.Payments.NopCliGeneric.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/NopCliGenericHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/NopCliGenericPaymentProcessor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/NopCliGenericPaymentSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/Validators/PaymentInfoValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/Views/Authorize.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/Views/Configure.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/Views/PaymentInfo.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/Views/_ViewImports.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Payments.NopCliGeneric/plugin.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/Controllers/ShippingNopCliGenericController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/Infrastructure/DependencyRegistrar.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/Models/ShippingNopCliGenericModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/Nop.Plugin.Shipping.NopCliGeneric.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/PackingType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/RouteProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/ServiceType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/Services/IShippingNopCliGenericService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/Services/ShippingNopCliGenericService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/ShippingNopCliGenericComputationMethod.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/ShippingNopCliGenericServiceRate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/ShippingNopCliGenericSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/Views/Configure.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/Views/_ViewImports.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Shipping.NopCliGeneric/plugin.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Widgets.NopCliGeneric/Components/WidgetsNopCliGenericViewComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Widgets.NopCliGeneric/Controllers/WidgetsNopCliGenericController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Widgets.NopCliGeneric/Infrastructure/Cache/ModelCacheEventConsumer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Widgets.NopCliGeneric/Models/ConfigurationModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Widgets.NopCliGeneric/Models/PublicInfoModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Widgets.NopCliGeneric/Nop.Plugin.Widgets.NopCliGeneric.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Widgets.NopCliGeneric/Views/Configure.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Widgets.NopCliGeneric/Views/PublicInfo.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Widgets.NopCliGeneric/Views/_ViewImports.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Widgets.NopCliGeneric/WidgetsNopCliGenericPlugin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Widgets.NopCliGeneric/WidgetsNopCliGenericSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-450/Nop.Plugin.Widgets.NopCliGeneric/plugin.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.DiscountRules.NopCliGeneric/Controllers/DiscountRulesNopCliGenericController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.DiscountRules.NopCliGeneric/DiscountRequirementDefaults.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.DiscountRules.NopCliGeneric/Infrastructure/Cache/DiscountRequirementEventConsumer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.DiscountRules.NopCliGeneric/Models/RequirementModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.DiscountRules.NopCliGeneric/Nop.Plugin.DiscountRules.NopCliGeneric.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.DiscountRules.NopCliGeneric/NopCliGenericDiscountRequirementRule.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.DiscountRules.NopCliGeneric/Validators/RequirementModelValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.DiscountRules.NopCliGeneric/Views/Configure.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.DiscountRules.NopCliGeneric/Views/_ViewImports.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.DiscountRules.NopCliGeneric/plugin.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/Components/WidgetsNopCliGenericViewComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/Content/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/Controllers/MiscNopCliGenericController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/Infrastructure/Mapper/MapperConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/Infrastructure/RouteProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/MiscNopCliGenericDefaults.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/MiscNopCliGenericPlugin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/MiscNopCliGenericSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/Models/ConfigurationModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/Nop.Plugin.Misc.NopCliGeneric.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/Services/EventConsumer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/Services/INopCliGenericService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/Services/NopCliGenericService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/Views/Configure.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/Views/PublicInfo.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/Views/_ViewImports.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Misc.NopCliGeneric/plugin.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/Components/PaymentNopCliGenericViewComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/Controllers/PaymentNopCliGenericController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/Infrastructure/RouteProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/Models/ConfigurationModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/Models/PaymentInfoModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/Models/PaymentResponseDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/Nop.Plugin.Payments.NopCliGeneric.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/NopCliGenericHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/NopCliGenericPaymentProcessor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/NopCliGenericPaymentSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/Validators/PaymentInfoValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/Views/Authorize.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/Views/Configure.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/Views/PaymentInfo.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/Views/_ViewImports.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Payments.NopCliGeneric/plugin.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/Controllers/ShippingNopCliGenericController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/Infrastructure/DependencyRegistrar.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/Models/ShippingNopCliGenericModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/Nop.Plugin.Shipping.NopCliGeneric.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/PackingType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/RouteProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/ServiceType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/Services/IShippingNopCliGenericService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/Services/ShippingNopCliGenericService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/ShippingNopCliGenericComputationMethod.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/ShippingNopCliGenericServiceRate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/ShippingNopCliGenericSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/Views/Configure.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/Views/_ViewImports.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Shipping.NopCliGeneric/plugin.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Widgets.NopCliGeneric/Components/WidgetsNopCliGenericViewComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Widgets.NopCliGeneric/Controllers/WidgetsNopCliGenericController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Widgets.NopCliGeneric/Infrastructure/Cache/ModelCacheEventConsumer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Widgets.NopCliGeneric/Models/ConfigurationModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Widgets.NopCliGeneric/Models/PublicInfoModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Widgets.NopCliGeneric/Nop.Plugin.Widgets.NopCliGeneric.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Widgets.NopCliGeneric/Views/Configure.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Widgets.NopCliGeneric/Views/PublicInfo.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Widgets.NopCliGeneric/Views/_ViewImports.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Widgets.NopCliGeneric/WidgetsNopCliGenericPlugin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Widgets.NopCliGeneric/WidgetsNopCliGenericSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nopCommerce-460/Nop.Plugin.Widgets.NopCliGeneric/plugin.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.nopcli" beforeDir="false" afterPath="$PROJECT_DIR$/.nopcli" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nopcli" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/controllers/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controllers/plugin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/helper/messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/helper/messages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/services/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/services/plugin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/services/validator.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/services/validator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/nopcli.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/nopcli.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.nopcli" beforeDir="false" afterPath="$PROJECT_DIR$/src/.nopcli" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Libraries/Nop.Services/Plugins/Samples/uploadedItems.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NopCommerce.sln" beforeDir="false" afterPath="$PROJECT_DIR$/src/NopCommerce.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nopCommerce-430/Nop.Plugin.DiscountRules.NopCliGeneric/Notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nopCommerce-430/Nop.Plugin.Misc.NopCliGeneric/Notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nopCommerce-430/Nop.Plugin.Payments.NopCliGeneric/Notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nopCommerce-430/Nop.Plugin.Shipping.NopCliGeneric/Notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.DiscountRules.NopCliGeneric/Notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.DiscountRules.NopCliGeneric/plugin.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.DiscountRules.NopCliGeneric/plugin.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.Misc.NopCliGeneric/Notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.Misc.NopCliGeneric/plugin.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.Misc.NopCliGeneric/plugin.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.Payments.NopCliGeneric/Notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.Shipping.NopCliGeneric/Notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.Shipping.NopCliGeneric/plugin.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.Shipping.NopCliGeneric/plugin.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.Widgets.NopCliGeneric/plugin.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.Widgets.NopCliGeneric/plugin.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +208,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1ybRZZ4JrBz9NcznVR6QcdpeWTB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -50,28 +220,25 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="16.10.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="16.10.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests" />
-    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.scopes" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/sinope/RiderProjects/nopCommerce-cli/src/nopCommerce-460&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/sinope/.local/share/JetBrains/Toolbox/apps/WebStorm/ch-0/221.5080.193/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/nopCommerce-460" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/bin/controllers" />
       <recent name="$PROJECT_DIR$/src/nopCommerce-440/Nop.Plugin.Payments.NopCliGeneric" />
-      <recent name="$PROJECT_DIR$/src/nopCommerce-430/Nop.Plugin.Misc.NopCliGeneric" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/bin/controllers" />
@@ -81,7 +248,7 @@
       <recent name="$PROJECT_DIR$/src/nopCommerce" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.misc">
+  <component name="RunManager" selected="npm.widget">
     <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -348,6 +515,9 @@
       <workItem from="1633460071023" duration="9902000" />
       <workItem from="1633525841931" duration="1737000" />
       <workItem from="1633560239297" duration="1644000" />
+      <workItem from="1650080174113" duration="3746000" />
+      <workItem from="1650112603760" duration="11138000" />
+      <workItem from="1650227674676" duration="5205000" />
     </task>
     <task id="LOCAL-00010" summary="fix v">
       <created>1632619616192</created>
@@ -711,7 +881,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -719,7 +888,6 @@
       <path value="$PROJECT_DIR$/RD.js" />
       <path value="$PROJECT_DIR$/nopCommerce" />
     </ignored-roots>
-    <MESSAGE value="refactory logic plugin" />
     <MESSAGE value="Async Methods" />
     <MESSAGE value="path fix" />
     <MESSAGE value="  fix 2.2.01" />
@@ -744,7 +912,20 @@
     <MESSAGE value="working with .nopcli" />
     <MESSAGE value="add scripts" />
     <MESSAGE value="working with validator" />
-    <option name="LAST_COMMIT_MESSAGE" value="working with validator" />
+    <MESSAGE value="  &quot;version&quot;: &quot;1.0.2&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="  &quot;version&quot;: &quot;1.0.2&quot;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/bin/config/index.js</url>
+          <line>224</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/nopCommerce_cli$All_Tests.info" NAME="All Tests Coverage Results" MODIFIED="1633045516147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

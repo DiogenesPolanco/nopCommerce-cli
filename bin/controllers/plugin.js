@@ -11,7 +11,7 @@ export default class PluginsController {
         shell.config.silent = false;
         Config.getPath().then((path) => {
             let args = Config.Prepare(path, yargs.argv)
-            return validatorService.validateCreatePlugin(args).then((result) => {
+            return validatorService.validateCreatePlugin(args, path).then((result) => {
                 if (result.valid === false) {
                     shell.echo(result.errors)
                 } else {

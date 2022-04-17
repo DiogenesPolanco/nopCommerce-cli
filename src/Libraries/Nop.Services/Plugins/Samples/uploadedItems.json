@@ -6,22 +6,25 @@
     "SystemName": "DiscountRequirement.MustBeAssignedToCustomerRole",
     "SourceDirectoryPath": "DiscountRules.CustomerRoles/nopCommerce 3.90/Nop.Plugin.DiscountRules.CustomerRoles/"
   },
+
   {
     "Type": "Plugin",
-    "SupportedVersion": "4.30",
-    "DirectoryPath": "DiscountRules.CustomerRoles/nopCommerce 4.30/DiscountRules.CustomerRoles/",
+    "SupportedVersion": "4.50",
+    "DirectoryPath": "DiscountRules.CustomerRoles/nopCommerce 4.50/DiscountRules.CustomerRoles/",
     "SystemName": "DiscountRequirement.MustBeAssignedToCustomerRole",
-    "SourceDirectoryPath": "DiscountRules.CustomerRoles/nopCommerce 4.30/Nop.Plugin.DiscountRules.CustomerRoles/"
+    "SourceDirectoryPath": "DiscountRules.CustomerRoles/nopCommerce 4.50/Nop.Plugin.DiscountRules.CustomerRoles/"
   },
+
   {
     "Type": "Plugin",
-    "SupportedVersion": "4.30",
+    "SupportedVersion": "4.50",
     "DirectoryPath": "DiscountRules.HasOneProduct/",
     "SystemName": "DiscountRequirement.HasOneProduct"
   },
+
   {
     "Type": "Theme",
-    "SupportedVersion": "4.30",
+    "SupportedVersion": "4.50",
     "DirectoryPath": "DefaultClean/"
   }
 ]

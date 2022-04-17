@@ -40,16 +40,21 @@
       },
       {
         "nopVersion": "450",
-        "Sdk": "5.0",
-        "FrameWork": "net5.0"
+        "Sdk": "6.0",
+        "FrameWork": "net6.0"
+      },
+      {
+        "nopVersion": "460",
+        "Sdk": "6.0",
+        "FrameWork": "net6.0"
       }
     ]
   },
   "group": "Widgets",
-  "version": "430",
+  "version": "460",
   "name": "NopCliGeneric",
   "author": "NopCli team",
-  "toBeAutoClear": false,
+  "toBeAutoClear": true,
   "toBeAutoBuild": true,
   "toBeIniCore": true,
   "toBeIniNop": true,

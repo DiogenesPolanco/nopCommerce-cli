@@ -45,8 +45,7 @@ class PluginService {
 
     getSrcVersion(args) {
         let self = this;
-        let result = args.v !== undefined && args.v !== 420 ? args.v === 450 ? 440 : args.v : 430;
-        return self.validateVersion(result);
+        return self.validateVersion(args.v);
     }
 
     getOutProjectPathPluginName(args) {
@@ -73,17 +72,17 @@ class PluginService {
 
     copyFiles(root_path, args) {
         let self = this;
-        return new Promise((resolve) => {
+        return new Promise(async (resolve) => {
             let pluginsPath = self.getFullSrcPlugin(args);
             let srcPluginName = self.getSrcPluginName(args);
             let pluginName = self.getOutPluginName(args);
-
             shell.mkdir('-p', `${pluginsPath}`);
-            shell.cp('-R', `${root_path}/src/nopCommerce-${self.getSrcVersion(args)}/${srcPluginName}/`, pluginsPath);
+            shell.cp('-R', `${root_path}/src/nopCommerce-${self.getSrcVersion(args)}/${srcPluginName}/*`, pluginsPath);
             shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
 
-            fs.readFileSync(`${root_path}/src/assets/images/logos/logo.png`, function (err, data) {
+            fs.readFile(`src/assets/images/logos/logo.png`, function (err, data) {
                 if (err) {
+                    console.log(err);
                     resolve(false);
                 } else {
                     fs.writeFileSync(`${pluginsPath}/logo.png`, data, 'base64');
@@ -165,11 +164,12 @@ class PluginService {
     }
 
     clone(args) {
+        let self = this;
         return new Promise((resolve, reject) => {
-            ProgressService.waitInfinityProgress((progress) => {
-                shell.exec(Config.getCloneNopDefaultCommand(), function () {
-                    ProgressService.SetCompleted(progress, () => {
-                        if (args.git) {
+            if (args.git) {
+                ProgressService.waitInfinityProgress((progress) => {
+                    shell.exec(Config.getCloneNopDefaultCommand(), function () {
+                        ProgressService.SetCompleted(progress, () => {
                             shell.rm("-r", Config.getGitNopCommercePath());
                             shell.exec("git init && git add *.*", function (codeGit, stdoutGit, stderrGit) {
                                 if (stderrGit) {
@@ -178,13 +178,14 @@ class PluginService {
                                     resolve(self.ReplacePluginName(messages["00"].message, args));
                                 }
                             });
-                        } else {
-                            resolve(self.ReplacePluginName(messages["008"].message, args));
-                        }
+                        });
                     });
                 });
-            });
+            } else {
+                resolve(self.ReplacePluginName(messages["008"].message, args));
+            }
         });
+
     }
 
     Build(args) {
@@ -221,22 +222,6 @@ class PluginService {
             }).catch((error) => {
                 reject(error);
             });
-        });
-    }
-
-    test(args, root_path) {
-        let self = this;
-        return new Promise((resolve, reject) => {
-            let clone = self.clone(args);
-            let existOutProject = clone.then(self.existOutProject(args));
-            let clearPlugin = existOutProject.then(self.clearPlugin(args));
-            let tryToCreate = clearPlugin.then(self.tryToCreate(args, root_path));
-            return Promise.all([clone, existOutProject, clearPlugin, tryToCreate])
-                .then(() => {
-                    resolve(true);
-                }).catch((error) => {
-                    reject(error)
-                });
         });
     }
 }

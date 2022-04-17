@@ -1,0 +1,14 @@
+{
+  "Group": "Payment methods",
+  "FriendlyName": "NopCliGeneric",
+  "SystemName": "Payments.NopCliGeneric",
+  "Version": "1.00",
+  "SupportedVersions": [ "4.60" ],
+  "Author": "NopCli team",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Payments.NopCliGeneric.dll",
+  "Description": "This plugin allows paying with NopCliGeneric",
+  "LimitedToStores": [],
+  "LimitedToCustomerRoles": [],
+  "DependsOnSystemNames": []
+}

@@ -3,7 +3,7 @@
   "FriendlyName": "ShippingNopCliGeneric",
   "SystemName": "Shipping.Shipping",
   "Version": "1.00",
-  "SupportedVersions": [ "4.40", "4.50" ],
+  "SupportedVersions": [ "4.40"],
   "Author": "NopCli team",
   "DisplayOrder": 1,
   "FileName": "Nop.Plugin.Shipping.NopCliGeneric.dll",

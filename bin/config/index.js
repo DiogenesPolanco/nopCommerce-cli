@@ -26,8 +26,8 @@ export default class Config {
         return {
             alias: 'version',
             type: 'number',
-            default: 430,
-            describe: 'Only support ["4.20", "4.30", "4.40", "4.50"]'
+            default: 450,
+            describe: 'Only support ["4.20", "4.30", "4.40", "4.50", "4.60"]'
         };
     }
 
@@ -135,7 +135,7 @@ export default class Config {
                 type: 'list',
                 name: 'version',
                 message: 'What version of nopCommerce do you need?',
-                choices: ['4.20', '4.30', '4.40', '4.50'],
+                choices: ['4.20', '4.30', '4.40', '4.50', '4.60'],
                 filter(val) {
                     return val.replace(".", "");
                 },
@@ -203,7 +203,7 @@ export default class Config {
         ];
     }
 
-    static getSetting(path) {
+    static   getSetting(path) {
         let self = this;
 
         if (fs.existsSync(`${path}/${self.getClientSettingFileName()}`)) {
@@ -213,7 +213,7 @@ export default class Config {
         } else {
             return {};
         }
-        let rawData = fs.readFileSync(path);
+        let rawData =   fs.readFileSync(path);
         return JSON.parse(rawData);
     }
 
@@ -221,14 +221,14 @@ export default class Config {
         let self = this;
 
         let setting = self.getSetting(path);
-        args.p = args.p ?? setting.name;
-        args.g = args.g ?? setting.group;
-        args.v = args.v ?? setting.version;
-        args.a = args.a ?? setting.author;
-        args.c = args.c ?? setting.toBeAutoClear;
-        args.b = args.b ?? setting.toBeAutoBuild;
-        args.i = args.i ?? setting.toBeIniNop;
-        args.git = args.git ?? setting.toBeIniGit;
+        args.p = args.p === undefined ? setting.name : args.p;
+        args.g = args.g === undefined ?  setting.group : args.g;
+        args.v = args.v=== undefined ?  setting.version : args.v;
+        args.a = args.a=== undefined ? setting.author : args.a;
+        args.c = args.c === undefined ? setting.toBeAutoClear : args.c;
+        args.b = args.b=== undefined ? setting.toBeAutoBuild : args.b;
+        args.i = args.i === undefined ? setting.toBeIniNop : args.i;
+        args.git = args.git === undefined ? setting.toBeIniGit : args.git;
         return args;
     }
 }
