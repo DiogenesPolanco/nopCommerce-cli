@@ -80,7 +80,7 @@ class PluginService {
             shell.cp('-R', `${root_path}/src/nopCommerce-${self.getSrcVersion(args)}/${srcPluginName}/*`, pluginsPath);
             shell.mv(`${pluginsPath}/${srcPluginName}.csproj`, `${pluginsPath}/${pluginName}.csproj`);
 
-            fs.readFile(`src/assets/images/logos/logo.png`, function (err, data) {
+            fs.readFile(`${root_path}/src/assets/images/logos/logo.png`, function (err, data) {
                 if (err) {
                     console.log(err);
                     resolve(false);
@@ -165,19 +165,14 @@ class PluginService {
 
     clone(args) {
         let self = this;
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             if (args.git) {
                 ProgressService.waitInfinityProgress((progress) => {
                     shell.exec(Config.getCloneNopDefaultCommand(), function () {
                         ProgressService.SetCompleted(progress, () => {
                             shell.rm("-r", Config.getGitNopCommercePath());
-                            shell.exec("git init && git add *.*", function (codeGit, stdoutGit, stderrGit) {
-                                if (stderrGit) {
-                                    reject(self.ReplacePluginName(messages["009"].message, args));
-                                } else {
-                                    resolve(self.ReplacePluginName(messages["00"].message, args));
-                                }
-                            });
+                            shell.exec("git init && git add *.*");
+                            resolve(self.ReplacePluginName(messages["008"].message, args));
                         });
                     });
                 });
@@ -202,23 +197,11 @@ class PluginService {
         });
     }
 
-    Init(args, root_path) {
+    Init(args) {
         let self = this;
         return new Promise((resolve, reject) => {
             self.clone(args).then((msg) => {
-                if (args.p) {
-                    self.createProject(args, root_path).then((msgCreated) => {
-                        if (args.b) {
-                            self.Build(args).then((msgBuild) => {
-                                resolve(msgBuild);
-                            });
-                        } else {
-                            resolve(msgCreated);
-                        }
-                    })
-                } else {
-                    resolve(msg);
-                }
+                resolve(msg);
             }).catch((error) => {
                 reject(error);
             });

@@ -139,7 +139,7 @@ namespace Nop.Plugin.Shipping.NopCliGeneric.Controllers
                 var service = _webHelper.QueryString<string>("service");
                 var trackingNumber = _webHelper.QueryString<string>("tracking_number");
 
-                _shippingNopCliGenericService.CreateOrUpadeteShipping(orderNumber, carrier, service, trackingNumber);
+              await  _shippingNopCliGenericService.CreateOrUpdateShippingAsync(orderNumber, carrier, service, trackingNumber);
 
                 //nothing should be rendered to visitor
                 return Content(string.Empty);
@@ -157,8 +157,8 @@ namespace Nop.Plugin.Shipping.NopCliGeneric.Controllers
 
             var startDate = string.IsNullOrEmpty(startDateParam) ? (DateTime?)null : DateTime.ParseExact(startDateParam, _shippingNopCliGenericService.DateFormat, CultureInfo.InvariantCulture);
             var endDate = string.IsNullOrEmpty(endDateParam) ? (DateTime?)null : DateTime.ParseExact(endDateParam, _shippingNopCliGenericService.DateFormat, CultureInfo.InvariantCulture);
-            
-            return Content(_shippingNopCliGenericService.GetXmlOrders(startDate, endDate, pageIndex, 200), "text/xml");
+
+            return Content(await _shippingNopCliGenericService.GetXmlOrdersAsync(startDate, endDate, pageIndex, 200), "text/xml");
         }
     }
 }

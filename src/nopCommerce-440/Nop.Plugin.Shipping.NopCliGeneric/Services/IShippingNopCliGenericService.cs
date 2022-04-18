@@ -15,7 +15,7 @@ namespace Nop.Plugin.Shipping.NopCliGeneric.Services
         /// A task that represents the asynchronous operation
         /// The task result contains the 
         /// </returns>
-        Task<IList<ShippingNopCliGenericService>> GetAllRatesAsync(GetShippingOptionRequest shippingOptionRequest);
+        Task<IList<ShippingNopCliGenericServiceRate>> GetAllRatesAsync(GetShippingOptionRequest shippingOptionRequest);
         
         /// <summary>
         /// Create or update shipping

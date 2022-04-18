@@ -48,6 +48,16 @@ namespace Nop.Plugin.Widgets.NopCliGeneric
             return $"{_webHelper.GetStoreLocation()}Admin/Widgets.NopCliGeneric/Configure";
         }
 
+        /// <summary>
+        /// Gets a name of a view component for displaying widget
+        /// </summary>
+        /// <param name="widgetZone">Name of the widget zone</param>
+        /// <returns>View component name</returns>
+        public string GetWidgetViewComponentName(string widgetZone)
+        {
+            return "WidgetsWidgetsNopCliGeneric";
+        }
+
          /// <summary>
         /// Gets a name of a view component for displaying widget
         /// </summary>

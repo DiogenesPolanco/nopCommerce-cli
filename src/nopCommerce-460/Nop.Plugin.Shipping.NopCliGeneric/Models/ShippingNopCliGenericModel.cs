@@ -5,7 +5,7 @@ using Nop.Web.Framework.Mvc.ModelBinding;
 
 namespace Nop.Plugin.Shipping.NopCliGeneric.Models
 {
-    public class ShippingNopCliGenericModel : BaseNopModel
+    public record ShippingNopCliGenericModel : BaseNopModel
     {
         public int ActiveStoreScopeConfiguration { get; set; }
 

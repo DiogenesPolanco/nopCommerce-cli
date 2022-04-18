@@ -6,7 +6,7 @@ export default class Config {
     static getPath(name, opts) {
         return new Promise((resolve) => {
             getInstalledPath('nopcli', opts).then((path) => {
-                resolve(path === undefined ? path : ".");
+                resolve(path !== undefined ? path : ".");
             }).catch(() => {
                 resolve(".");
             });
@@ -26,7 +26,7 @@ export default class Config {
         return {
             alias: 'version',
             type: 'number',
-            default: 450,
+            default: 460,
             describe: 'Only support ["4.20", "4.30", "4.40", "4.50", "4.60"]'
         };
     }
@@ -83,7 +83,7 @@ export default class Config {
     }
 
     static getCloneNopDefaultCommand() {
-        return "git clone https://github.com/nopSolutions/nopCommerce.git ./ --branch release-4.30 --depth 1";
+        return "git clone https://github.com/nopSolutions/nopCommerce.git ./ --branch release-4.50.2 --depth 1";
     }
 
     static getGitNopCommercePath() {
@@ -220,7 +220,7 @@ export default class Config {
     static Prepare(path, args) {
         let self = this;
 
-        let setting = self.getSetting(path);
+        let setting = self.getSetting('.');
         args.p = args.p === undefined ? setting.name : args.p;
         args.g = args.g === undefined ?  setting.group : args.g;
         args.v = args.v=== undefined ?  setting.version : args.v;

@@ -31,6 +31,7 @@ NopCli is a bilder nopCommerce plugin, and it gives you the opportunity to start
 
 - Install <a href="https://nodejs.org/es/download/">[node.js] </a>
 - Install <a href="https://dotnet.microsoft.com/download">[dotnet core]</a>
+- Install <a href="https://git-scm.com/downloads">[git]</a>
 - Clone <a href="https://github.com/nopSolutions/nopCommerce">[nopCommerce]</a>
 
 ### nopCommerce version supported
@@ -38,7 +39,7 @@ NopCli is a bilder nopCommerce plugin, and it gives you the opportunity to start
 - 4.20 [netcoreapp2.2]
 - 4.30 [netcoreapp3.1]
 - 4.40 [net5.0]
-- 4.50 [net5.0]
+- 4.50 [net6.0]
 - 4.60 [net6.0]
 
 ### Setting Up a Plugin of nopCommerce
@@ -48,8 +49,11 @@ Install the nopCommerce CLI globally:
 ```
 $ npm install -g nopcli
 ```
-
-Create configuation plugin by default:
+Prepare your environment with clone nopCommerce from git:
+```
+$ nopcli init --git
+```
+Create configuration of plugins by default:
 ```
 $ nopcli config
 ```

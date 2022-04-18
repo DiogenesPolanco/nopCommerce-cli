@@ -54,12 +54,24 @@ namespace Nop.Plugin.Shipping.NopCliGeneric
         /// </summary>
         /// <param name="getShippingOptionRequest">A request for getting shipping options</param>
         /// <returns>Fixed shipping rate; or null in case there's no fixed shipping rate</returns>
-        public decimal? GetFixedRate(GetShippingOptionRequest getShippingOptionRequest)
+        public Task<decimal?> GetFixedRateAsync(GetShippingOptionRequest getShippingOptionRequest)
         {
             if (getShippingOptionRequest == null)
                 throw new ArgumentNullException(nameof(getShippingOptionRequest));
 
             return null;
+        }
+
+        /// <summary>
+        /// Get associated shipment tracker
+        /// </summary>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the shipment tracker
+        /// </returns>
+        public Task<IShipmentTracker> GetShipmentTrackerAsync()
+        {
+            return Task.FromResult<IShipmentTracker>(null);
         }
 
         /// <summary>
@@ -162,11 +174,6 @@ namespace Nop.Plugin.Shipping.NopCliGeneric
             }
 
             return response;
-        }
-
-        public Task<decimal?> GetFixedRateAsync(GetShippingOptionRequest getShippingOptionRequest)
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>
