@@ -14,11 +14,11 @@ messages = {
     },
     "001-2": {
         message: "The plugin: \"{{nopCli}}\" can't clear!",
-        code: "001-1"
+        code: "001-2"
     },
     "001-3": {
         message: "The plugin: \"{{nopCli}}\" can't build!",
-        code: "001-1"
+        code: "001-3"
     },
     "002": {
         message: "The plugin: \"{{nopCli}}\" was created successfully!",

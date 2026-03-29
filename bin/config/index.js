@@ -83,7 +83,7 @@ export default class Config {
     }
 
     static getCloneNopDefaultCommand() {
-        return "git clone https://github.com/nopSolutions/nopCommerce.git ./ --branch release-4.50.2 --depth 1";
+        return "git clone https://github.com/nopSolutions/nopCommerce.git ./ --branch release-4.60.2 --depth 1";
     }
 
     static getGitNopCommercePath() {
@@ -117,7 +117,7 @@ export default class Config {
                 name: 'group',
                 message: 'What plugin group do you want to have by default?',
                 choices: [
-                    'DiscountRoles',
+                    'DiscountRules',
                     'Misc',
                     'Payments',
                     'Shipping',

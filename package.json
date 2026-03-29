@@ -1,6 +1,6 @@
 {
   "name": "nopcli",
-  "version": "1.0.68",
+  "version": "2.0.0",
   "description": "nopCommerce CLI is a development tool for build plugins for nopCommerce Solutions.",
   "keywords": [
     "nopCommerce",
@@ -9,24 +9,31 @@
     "shell",
     "cli",
     "dotnet",
-    "nop", 
-  "cmd"
+    "nop",
+    "cmd"
   ],
   "contributors": [
     "Diogenes Polanco <diogenespolancomartinez@gmail.com> (https://github.com/diogenespolanco)",
-    "Joel Mercedes <joelmercedes29@gmail.com> (https://github.com/archinuxrd)"
+    "Joel Mercedes <joelmercedes29@gmail.com> (https://github.com/archlinuxrd)"
   ],
   "repository": {
     "type": "git",
     "url": "git://github.com/DiogenesPolanco/nopCommerce-cli.git"
   },
+  "homepage": "https://github.com/DiogenesPolanco/nopCommerce-cli#readme",
+  "bugs": {
+    "url": "https://github.com/DiogenesPolanco/nopCommerce-cli/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
-    "cli-progress": "^3.9.1",
+    "cli-progress": "^3.12.0",
     "get-installed-path": "^4.0.8",
-    "shelljs": ">=0.8.5",
+    "inquirer": "^9.2.12",
+    "shelljs": "^0.8.5",
     "validatorjs": "^3.22.1",
-    "yargs": "^3.9.0",
-    "inquirer": "^8.1.5"
+    "yargs": "^17.7.2"
   },
   "scripts": {
     "config": "node bin/nopcli.js config init",
@@ -47,38 +54,37 @@
     "shipping-clear": "node bin/nopcli.js new -g=Shipping -p=Test -c=true",
     "build-shipping": "node bin/nopcli.js build -g=Shipping -p=Test",
     "help": "node bin/nopcli.js -h",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --collect-coverage",
-    "test:snapshot": "jest --updateSnapshot",
-    "build": "rollup --config rollup.config.js --minimize && sed -i '1 i\\#! /usr/bin/env node' dist/nopcli.min.js"
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "test:watch": "node --experimental-vm-modules node_modules/.bin/jest --watch",
+    "test:coverage": "node --experimental-vm-modules node_modules/.bin/jest --collect-coverage",
+    "lint": "eslint bin/",
+    "build": "rollup --config rollup.config.js && node scripts/add-shebang.js"
   },
   "bin": {
-    "nopcli": "dist/nopcli.min.js"
+    "nopcli": "dist/nopcli.js"
   },
   "license": "OSL-3.0",
   "type": "module",
   "devDependencies": {
-    "@babel/preset-env": "^7.15.6",
-    "babel-jest": "^27.2.4",
-    "jest": "^27.2.4",
-    "rollup": "^2.57.0",
-    "rollup-plugin-minify-cli": "^1.0.1",
-    "rollup-plugin-terser": "^7.0.2",
-    "yargs-parser": "^20.2.9"
+    "@jest/globals": "^29.7.0",
+    "@rollup/plugin-terser": "^1.0.0",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "rollup": "^4.12.0"
   },
   "jest": {
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "testFileExtensions": [
-      "es6",
-      "js"
+    "testEnvironment": "node",
+    "transform": {},
+    "testMatch": [
+      "**/*.spec.js"
     ],
     "moduleFileExtensions": [
       "js",
-      "json",
-      "es6"
+      "json"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
     ]
   }
 }

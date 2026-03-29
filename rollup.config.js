@@ -1,11 +1,17 @@
-import minify from 'rollup-plugin-minify-cli';
+import terser from '@rollup/plugin-terser';
 
 export default {
     input: './bin/nopcli.js',
     output: {
-        file: './dist/nopcli.js'
+        file: './dist/nopcli.js',
+        format: 'esm',
+        banner: '#!/usr/bin/env node'
     },
     plugins: [
-        minify()
+        terser({
+            compress: {
+                drop_console: true
+            }
+        })
     ]
 };

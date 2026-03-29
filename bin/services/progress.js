@@ -5,7 +5,6 @@ export default class ProgressService {
 
     static waitProgress(type = cliProgress.Presets.shades_classic, value = 0, total = 100, ms = 10) {
 
-        let self = this;
         let progress = new cliProgress.Bar({
             format: 'progress [{bar}] {percentage}%'
         }, type);
@@ -14,63 +13,70 @@ export default class ProgressService {
         return new Promise((resolve) => {
 
             const timer = setInterval(() => {
-                // increment value
                 value++;
-                // update the bar value
                 progress.update(value)
 
-                // set limit
                 if (value >= progress.getTotal()) {
-                    // stop timer
                     clearInterval(timer);
-
                     progress.stop();
-
-                    // run complete callback
                     shell.echo("");
-                    resolve(self);
+                    resolve(this);
                 }
             }, ms);
         });
     }
 
-    static waitInfinityProgress(callback, silent=true, clearOnComplete=true,  type = cliProgress.Presets.rect, value = 0, total = 100, ms = 500) {
+    static waitInfinityProgress(callback, silent=true, clearOnComplete=true, type = cliProgress.Presets.rect, value = 0, total = 100, ms = 500) {
 
-         shell.config.silent = silent;
+        shell.config.silent = silent;
 
-        let progress = new cliProgress.Bar({
-            clearOnComplete:clearOnComplete,
+        const progress = new cliProgress.Bar({
+            clearOnComplete: clearOnComplete,
             format: 'progress [{bar}]'
         }, cliProgress.Presets.rect);
         progress.start(total, value);
 
-        callback(progress);
+        let currentValue = value;
+        let currentTotal = total;
+        let timer = null;
 
-        const timer = setInterval(function () {
-            // increment value
-            value++;
-
-            // update the bar value
-            progress.update(value)
-
-            // change the total value
-            if (value === total) {
-                total = total * 2;
-                progress.setTotal(total);
+        callback({
+            progress,
+            stop: () => {
+                if (timer) {
+                    clearInterval(timer);
+                    timer = null;
+                }
+                progress.stop();
+            },
+            increment: () => {
+                currentValue++;
+                progress.update(currentValue);
+                if (currentValue >= progress.getTotal()) {
+                    currentTotal = currentTotal * 2;
+                    progress.setTotal(currentTotal);
+                }
             }
+        });
 
-            // limit reached ?
-            if (value >= progress.getTotal()) {
-                // stop timer
-                clearInterval(timer);
+        timer = setInterval(function () {
+            currentValue++;
+            progress.update(currentValue);
+            if (currentValue === currentTotal) {
+                currentTotal = currentTotal * 2;
+                progress.setTotal(currentTotal);
             }
         }, ms);
     }
 
-    static  SetCompleted(progress, callback){
-        progress.setTotal(100);
-        progress.update(100);
-        progress.stop();
-        callback();
+    static SetCompleted(progress, callback){
+        if (typeof progress === 'object' && progress.progress) {
+            progress.progress.setTotal(100);
+            progress.progress.update(100);
+            progress.progress.stop();
+        } else if (typeof progress.stop === 'function') {
+            progress.stop();
+        }
+        if (callback) callback();
     }
 }

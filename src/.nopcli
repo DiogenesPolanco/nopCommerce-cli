@@ -5,7 +5,7 @@
   "plugin": {
     "groups": [
       {
-        "name": "DiscountRoles"
+        "name": "DiscountRules"
       },
       {
         "name": "Misc"
